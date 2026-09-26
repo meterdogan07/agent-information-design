@@ -1,3 +1,6 @@
+# Local credentials must never be committed (with or without a leading dot).
+env
+env.*
 .env
 .env.*
 .venv/
