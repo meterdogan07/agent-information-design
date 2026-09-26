@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-information-design-runtime"
+version = "0.1.0"
+description = "Shared runtime utilities for the repository's LLM experiments"
+requires-python = ">=3.11"
+dependencies = ["openai==2.48.0"]
+
+[project.optional-dependencies]
+analysis = ["matplotlib>=3.7,<4", "numpy>=1.24,<3"]
+
+[tool.setuptools]
+packages = ["experiment_runtime", "experiment_config"]
+
+[tool.setuptools.package-dir]
+experiment_config = "config"
+
+[tool.setuptools.package-data]
+experiment_config = ["*.json"]

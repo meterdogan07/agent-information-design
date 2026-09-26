@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-double-auction"
+version = "0.3.0"
+description = "Audited LLM double-auction experiments"
+requires-python = ">=3.11"
+dependencies = ["openai==2.48.0", "llm-information-design-runtime==0.1.0"]
+
+[project.scripts]
+double-auction = "double_auction.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

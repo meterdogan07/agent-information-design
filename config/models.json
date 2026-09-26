@@ -1,0 +1,36 @@
+{
+  "gpt4omini": {
+    "provider": "openai", "model": "gpt-4o-mini-2024-07-18", "backend": null,
+    "tag": "gpt4omini_20240718_openai", "reasoning_effort": "none",
+    "optional": true,
+    "pricing": {"input": 0.15, "output": 0.60, "verified_on": "2026-09-24"}
+  },
+  "gpt5mini": {
+    "provider": "openai", "model": "gpt-5-mini-2025-08-07", "backend": null,
+    "tag": "gpt5mini_20250807_openai",
+    "pricing": {"input": 0.25, "output": 2.0, "verified_on": "2026-08-24"}
+  },
+  "gpt51": {
+    "provider": "openai", "model": "gpt-5.1-2025-11-13", "backend": null,
+    "tag": "gpt51_20251113_openai",
+    "pricing": {"input": 1.25, "output": 10.0, "verified_on": "2026-08-24"}
+  },
+  "gemini": {
+    "provider": "openrouter", "model": "google/gemini-3.7-flash", "backend": "Google",
+    "tag": "gemini37flash_google",
+    "pricing": {"input": 0.75, "output": 3.75, "verified_on": "2026-09-20"},
+    "pricing_by_study": {
+      "bargaining": {"input": 0.375, "output": 1.875, "verified_on": "2026-08-24"}
+    }
+  },
+  "grok43": {
+    "provider": "openrouter", "model": "x-ai/grok-4.3", "backend": "xAI",
+    "tag": "grok43_xai",
+    "pricing": {"input": 1.25, "output": 2.5, "verified_on": "2026-09-08"}
+  },
+  "claudesonnet5": {
+    "provider": "openrouter", "model": "anthropic/claude-sonnet-5", "backend": "Anthropic",
+    "tag": "claude_sonnet5_anthropic",
+    "pricing": {"input": 2.0, "output": 10.0, "verified_on": "2026-08-24"}
+  }
+}

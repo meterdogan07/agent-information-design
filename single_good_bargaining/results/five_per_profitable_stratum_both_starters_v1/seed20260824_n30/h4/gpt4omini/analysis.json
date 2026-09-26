@@ -1,0 +1,5036 @@
+{
+  "analysis_version": "strict_ir_population_weighted_v2_20260824",
+  "audit": {
+    "audit_version": "source_snapshot_endpoint_bound_v2_20260824",
+    "current_source_matches": true,
+    "episodes": 150,
+    "errors": [],
+    "frozen_source_verified": true,
+    "invalid_actions": 0,
+    "markets": 30,
+    "maximum_prompt_characters": 2537,
+    "parse_errors": 0,
+    "passed": true,
+    "raw_api_calls": 379,
+    "run_dir": "/Users/merdogan/Documents/llm-information-design-submission/single_good_bargaining/results/five_per_profitable_stratum_both_starters_v1/seed20260824_n30/h4/gpt4omini",
+    "source_snapshot_present": true,
+    "terminal_proposal_attempts": 0,
+    "unsafe_acceptances": 2,
+    "warnings": [
+      "2 non-IR acceptances were blocked"
+    ]
+  },
+  "by_first_mover": {
+    "buyer": {
+      "cells": {
+        "buyer_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.26666666666666666,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.25,
+          "mean_buyer_gain_unconditional": 7.486666666666666,
+          "mean_decision_quality": 0.26666666666666666,
+          "mean_normalized_welfare": 0.26666666666666666,
+          "mean_seller_gain_unconditional": 0.9533333333333334,
+          "mean_turns_used": 2.466666666666667,
+          "mean_welfare": 8.44,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.4,
+          "positive_market_ever_ir_offer_rate": 0.8666666666666667,
+          "positive_market_ever_strict_ir_offer_rate": 0.5333333333333333,
+          "positive_market_execution_rate": 0.26666666666666666,
+          "positive_market_failed_after_endpoint_offer_rate": 0.3333333333333333,
+          "positive_market_failed_after_ir_offer_rate": 0.6,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.26666666666666666,
+          "seller_surplus_share_mean": 0.15058067026810915,
+          "seller_surplus_share_sd": 0.10959881841210968,
+          "split_inequality_mean": 0.6988386594637817,
+          "surplus_weighted_efficiency": 0.30440009617696556,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 126.6,
+          "unsafe_acceptances": 0
+        },
+        "coarse": {
+          "accepted_endpoint_rate": 0.14285714285714285,
+          "agreement_rate": 0.4666666666666667,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.0,
+          "mean_buyer_gain_unconditional": 7.379999999999999,
+          "mean_decision_quality": 0.4666666666666667,
+          "mean_normalized_welfare": 0.4666666666666667,
+          "mean_seller_gain_unconditional": 5.44,
+          "mean_turns_used": 2.533333333333333,
+          "mean_welfare": 12.82,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.06666666666666667,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 0.9333333333333333,
+          "positive_market_execution_rate": 0.4666666666666667,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.5333333333333333,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.5333333333333333,
+          "seller_surplus_share_mean": 0.30100370063801707,
+          "seller_surplus_share_sd": 0.24596060700940867,
+          "split_inequality_mean": 0.5244578111707109,
+          "surplus_weighted_efficiency": 0.46237076220245243,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 192.3,
+          "unsafe_acceptances": 0
+        },
+        "exact": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.5333333333333333,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.125,
+          "mean_buyer_gain_unconditional": 14.22,
+          "mean_decision_quality": 0.5333333333333333,
+          "mean_normalized_welfare": 0.5333333333333333,
+          "mean_seller_gain_unconditional": 2.966666666666667,
+          "mean_turns_used": 2.8,
+          "mean_welfare": 17.186666666666667,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.5333333333333333,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 0.7333333333333333,
+          "positive_market_execution_rate": 0.5333333333333333,
+          "positive_market_failed_after_endpoint_offer_rate": 0.3333333333333333,
+          "positive_market_failed_after_ir_offer_rate": 0.4666666666666667,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.2,
+          "seller_surplus_share_mean": 0.08640289541956853,
+          "seller_surplus_share_sd": 0.2088315663398423,
+          "split_inequality_mean": 0.8786026598650882,
+          "surplus_weighted_efficiency": 0.6198605433998555,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 257.79999999999995,
+          "unsafe_acceptances": 0
+        },
+        "hidden": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.26666666666666666,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.5,
+          "mean_buyer_gain_unconditional": 1.2,
+          "mean_decision_quality": 0.2,
+          "mean_normalized_welfare": 0.2,
+          "mean_seller_gain_unconditional": 1.34,
+          "mean_turns_used": 2.6,
+          "mean_welfare": 2.54,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.8666666666666667,
+          "positive_market_ever_strict_ir_offer_rate": 0.8666666666666667,
+          "positive_market_execution_rate": 0.2,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.6666666666666666,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.6666666666666666,
+          "seller_surplus_share_mean": 0.3704935342062687,
+          "seller_surplus_share_sd": 0.33116484498211163,
+          "split_inequality_mean": 0.5027721092673451,
+          "surplus_weighted_efficiency": 0.09160855974993987,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 38.1,
+          "unsafe_acceptances": 1
+        },
+        "seller_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.2,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.0,
+          "mean_buyer_gain_unconditional": 1.6799999999999997,
+          "mean_decision_quality": 0.2,
+          "mean_normalized_welfare": 0.2,
+          "mean_seller_gain_unconditional": 5.98,
+          "mean_turns_used": 2.533333333333333,
+          "mean_welfare": 7.66,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.06666666666666667,
+          "positive_market_ever_ir_offer_rate": 0.9333333333333333,
+          "positive_market_ever_strict_ir_offer_rate": 0.8666666666666667,
+          "positive_market_execution_rate": 0.2,
+          "positive_market_failed_after_endpoint_offer_rate": 0.06666666666666667,
+          "positive_market_failed_after_ir_offer_rate": 0.7333333333333333,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.6666666666666666,
+          "seller_surplus_share_mean": 0.7256992366715455,
+          "seller_surplus_share_sd": 0.39131948951261514,
+          "split_inequality_mean": 0.7484744967349036,
+          "surplus_weighted_efficiency": 0.27626833373407067,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 114.9,
+          "unsafe_acceptances": 0
+        }
+      },
+      "markets": 15,
+      "paired_contrasts": {
+        "buyer_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.3333333333333333
+            ],
+            "effect": 0.06666666666666667,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 10
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.3333333333333333
+            ],
+            "effect": 0.06666666666666667,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 10
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -2.5933333333333337,
+              16.466666666666665
+            ],
+            "effect": 5.9,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -11.099999999999994,
+              0.0,
+              0.0,
+              -22.700000000000003,
+              0.0,
+              0.0,
+              28.199999999999996,
+              0.0,
+              40.3,
+              53.800000000000004,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 10
+          }
+        },
+        "coarse_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              0.0,
+              0.5333333333333333
+            ],
+            "effect": 0.26666666666666666,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 9
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              0.0,
+              0.5333333333333333
+            ],
+            "effect": 0.26666666666666666,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 9
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              1.1399999999999992,
+              20.72666666666667
+            ],
+            "effect": 10.28,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -22.700000000000003,
+              28.5,
+              26.10000000000001,
+              28.199999999999996,
+              0.0,
+              40.3,
+              53.800000000000004,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 9
+          }
+        },
+        "exact_minus_buyer_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.06666666666666667,
+              0.6
+            ],
+            "effect": 0.26666666666666666,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 6,
+            "tied": 7
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.06666666666666667,
+              0.6
+            ],
+            "effect": 0.26666666666666666,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 6,
+            "tied": 7
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -4.626666666666667,
+              22.173333333333336
+            ],
+            "effect": 8.746666666666666,
+            "negative": 2,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              0.0,
+              0.0,
+              4.200000000000003,
+              22.700000000000003,
+              28.5,
+              0.0,
+              0.0,
+              16.799999999999997,
+              0.0,
+              -53.800000000000004,
+              46.1,
+              71.0,
+              0.0
+            ],
+            "positive": 6,
+            "tied": 7
+          }
+        },
+        "exact_minus_coarse": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3333333333333333,
+              0.4666666666666667
+            ],
+            "effect": 0.06666666666666667,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3333333333333333,
+              0.4666666666666667
+            ],
+            "effect": 0.06666666666666667,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -9.286666666666667,
+              18.473333333333336
+            ],
+            "effect": 4.366666666666666,
+            "negative": 4,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              -11.099999999999994,
+              0.0,
+              4.200000000000003,
+              22.700000000000003,
+              0.0,
+              -26.10000000000001,
+              0.0,
+              16.799999999999997,
+              0.0,
+              -53.800000000000004,
+              46.1,
+              71.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 6
+          }
+        },
+        "exact_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              0.0,
+              0.6666666666666666
+            ],
+            "effect": 0.3333333333333333,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 7,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              0.0,
+              0.6666666666666666
+            ],
+            "effect": 0.3333333333333333,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 7,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              4.3,
+              26.466666666666665
+            ],
+            "effect": 14.646666666666667,
+            "negative": 2,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              -11.099999999999994,
+              0.0,
+              4.200000000000003,
+              0.0,
+              28.5,
+              0.0,
+              28.199999999999996,
+              16.799999999999997,
+              40.3,
+              0.0,
+              46.1,
+              71.0,
+              0.0
+            ],
+            "positive": 7,
+            "tied": 6
+          }
+        },
+        "exact_minus_seller_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              0.13333333333333333,
+              0.6
+            ],
+            "effect": 0.3333333333333333,
+            "negative": 0,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 10
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              0.13333333333333333,
+              0.6
+            ],
+            "effect": 0.3333333333333333,
+            "negative": 0,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 10
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              1.6800000000000002,
+              19.98
+            ],
+            "effect": 9.526666666666667,
+            "negative": 0,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              4.200000000000003,
+              22.700000000000003,
+              0.0,
+              0.0,
+              28.199999999999996,
+              16.799999999999997,
+              0.0,
+              0.0,
+              0.0,
+              71.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 10
+          }
+        },
+        "seller_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3333333333333333,
+              0.3333333333333333
+            ],
+            "effect": 0.0,
+            "negative": 3,
+            "paired_values": [
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 9
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3333333333333333,
+              0.3333333333333333
+            ],
+            "effect": 0.0,
+            "negative": 3,
+            "paired_values": [
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 9
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -3.2133333333333343,
+              14.693333333333332
+            ],
+            "effect": 5.12,
+            "negative": 3,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              -11.099999999999994,
+              0.0,
+              0.0,
+              -22.700000000000003,
+              28.5,
+              0.0,
+              0.0,
+              0.0,
+              40.3,
+              0.0,
+              46.1,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 9
+          }
+        }
+      }
+    },
+    "seller": {
+      "cells": {
+        "buyer_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.5333333333333333,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.0,
+          "mean_buyer_gain_unconditional": 10.666666666666666,
+          "mean_decision_quality": 0.5333333333333333,
+          "mean_normalized_welfare": 0.5333333333333333,
+          "mean_seller_gain_unconditional": 6.773333333333334,
+          "mean_turns_used": 2.7333333333333334,
+          "mean_welfare": 17.44,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.7333333333333333,
+          "positive_market_ever_strict_ir_offer_rate": 0.7333333333333333,
+          "positive_market_execution_rate": 0.5333333333333333,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.2,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.2,
+          "seller_surplus_share_mean": 0.3457539987370721,
+          "seller_surplus_share_sd": 0.22471552833033917,
+          "split_inequality_mean": 0.470402672501042,
+          "surplus_weighted_efficiency": 0.6289973551334455,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 261.6,
+          "unsafe_acceptances": 0
+        },
+        "coarse": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.7333333333333333,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.090909090909091,
+          "mean_buyer_gain_unconditional": 16.366666666666667,
+          "mean_decision_quality": 0.7333333333333333,
+          "mean_normalized_welfare": 0.7333333333333333,
+          "mean_seller_gain_unconditional": 8.9,
+          "mean_turns_used": 2.066666666666667,
+          "mean_welfare": 25.266666666666666,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.7333333333333333,
+          "positive_market_ever_strict_ir_offer_rate": 0.7333333333333333,
+          "positive_market_execution_rate": 0.7333333333333333,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.0,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.0,
+          "seller_surplus_share_mean": 0.3948930053386967,
+          "seller_surplus_share_sd": 0.2250584563841489,
+          "split_inequality_mean": 0.4187835038028091,
+          "surplus_weighted_efficiency": 0.9112767492185619,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 379.0,
+          "unsafe_acceptances": 0
+        },
+        "exact": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.4666666666666667,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.142857142857143,
+          "mean_buyer_gain_unconditional": 7.733333333333333,
+          "mean_decision_quality": 0.4666666666666667,
+          "mean_normalized_welfare": 0.4666666666666667,
+          "mean_seller_gain_unconditional": 6.92,
+          "mean_turns_used": 2.7333333333333334,
+          "mean_welfare": 14.653333333333334,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.2,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 0.8,
+          "positive_market_execution_rate": 0.4666666666666667,
+          "positive_market_failed_after_endpoint_offer_rate": 0.2,
+          "positive_market_failed_after_ir_offer_rate": 0.5333333333333333,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.3333333333333333,
+          "seller_surplus_share_mean": 0.47729976740356517,
+          "seller_surplus_share_sd": 0.27494691213354083,
+          "split_inequality_mean": 0.4362703479982365,
+          "surplus_weighted_efficiency": 0.5284924260639576,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 219.8,
+          "unsafe_acceptances": 0
+        },
+        "hidden": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.6666666666666666,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.5,
+          "mean_buyer_gain_unconditional": 10.973333333333333,
+          "mean_decision_quality": 0.6,
+          "mean_normalized_welfare": 0.6,
+          "mean_seller_gain_unconditional": 7.426666666666667,
+          "mean_turns_used": 2.4,
+          "mean_welfare": 18.4,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.8,
+          "positive_market_ever_strict_ir_offer_rate": 0.8,
+          "positive_market_execution_rate": 0.6,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.2,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.2,
+          "seller_surplus_share_mean": 0.399041950694425,
+          "seller_surplus_share_sd": 0.308652091910768,
+          "split_inequality_mean": 0.5244401089797327,
+          "surplus_weighted_efficiency": 0.66362106275547,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 276.0,
+          "unsafe_acceptances": 1
+        },
+        "seller_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.3333333333333333,
+          "episodes": 15,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.8,
+          "mean_buyer_gain_unconditional": 6.553333333333334,
+          "mean_decision_quality": 0.3333333333333333,
+          "mean_normalized_welfare": 0.3333333333333333,
+          "mean_seller_gain_unconditional": 6.0,
+          "mean_turns_used": 2.4,
+          "mean_welfare": 12.553333333333335,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.3333333333333333,
+          "positive_market_ever_ir_offer_rate": 0.9333333333333333,
+          "positive_market_ever_strict_ir_offer_rate": 0.6,
+          "positive_market_execution_rate": 0.3333333333333333,
+          "positive_market_failed_after_endpoint_offer_rate": 0.3333333333333333,
+          "positive_market_failed_after_ir_offer_rate": 0.6,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.26666666666666666,
+          "seller_surplus_share_mean": 0.4595514412570294,
+          "seller_surplus_share_sd": 0.21007264047080895,
+          "split_inequality_mean": 0.3173596133916075,
+          "surplus_weighted_efficiency": 0.45275306564077894,
+          "total_potential_surplus": 415.9000000000001,
+          "total_realized_welfare": 188.3,
+          "unsafe_acceptances": 0
+        }
+      },
+      "markets": 15,
+      "paired_contrasts": {
+        "buyer_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4666666666666667,
+              0.3333333333333333
+            ],
+            "effect": -0.06666666666666667,
+            "negative": 5,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              -1.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4666666666666667,
+              0.3333333333333333
+            ],
+            "effect": -0.06666666666666667,
+            "negative": 5,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              -1.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -15.120000000000001,
+              14.026666666666666
+            ],
+            "effect": -0.9599999999999999,
+            "negative": 5,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              3.6000000000000014,
+              -4.200000000000003,
+              -22.700000000000003,
+              28.5,
+              26.10000000000001,
+              0.0,
+              -16.799999999999997,
+              0.0,
+              -53.800000000000004,
+              -46.1,
+              71.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 6
+          }
+        },
+        "coarse_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.4666666666666667
+            ],
+            "effect": 0.13333333333333333,
+            "negative": 2,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 9
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.4666666666666667
+            ],
+            "effect": 0.13333333333333333,
+            "negative": 2,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 9
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -2.066666666666667,
+              18.293333333333337
+            ],
+            "effect": 6.866666666666666,
+            "negative": 2,
+            "paired_values": [
+              4.300000000000004,
+              0.0,
+              0.0,
+              0.0,
+              -4.200000000000003,
+              -22.700000000000003,
+              28.5,
+              26.10000000000001,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              71.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 9
+          }
+        },
+        "exact_minus_buyer_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4666666666666667,
+              0.3333333333333333
+            ],
+            "effect": -0.06666666666666667,
+            "negative": 5,
+            "paired_values": [
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              -1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4666666666666667,
+              0.3333333333333333
+            ],
+            "effect": -0.06666666666666667,
+            "negative": 5,
+            "paired_values": [
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              -1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -17.613333333333333,
+              11.846666666666668
+            ],
+            "effect": -2.7866666666666666,
+            "negative": 5,
+            "paired_values": [
+              0.0,
+              6.399999999999999,
+              -11.099999999999994,
+              0.0,
+              0.0,
+              0.0,
+              -28.5,
+              -26.10000000000001,
+              -28.199999999999996,
+              16.799999999999997,
+              0.0,
+              53.800000000000004,
+              46.1,
+              -71.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 6
+          }
+        },
+        "exact_minus_coarse": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.06666666666666667
+            ],
+            "effect": -0.26666666666666666,
+            "negative": 6,
+            "paired_values": [
+              -1.0,
+              1.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 7
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.06666666666666667
+            ],
+            "effect": -0.26666666666666666,
+            "negative": 6,
+            "paired_values": [
+              -1.0,
+              1.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 7
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -21.82,
+              -1.813333333333333
+            ],
+            "effect": -10.613333333333333,
+            "negative": 6,
+            "paired_values": [
+              -4.300000000000004,
+              6.399999999999999,
+              -11.099999999999994,
+              3.6000000000000014,
+              0.0,
+              0.0,
+              -28.5,
+              -26.10000000000001,
+              -28.199999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -71.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 7
+          }
+        },
+        "exact_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4666666666666667,
+              0.2
+            ],
+            "effect": -0.13333333333333333,
+            "negative": 4,
+            "paired_values": [
+              0.0,
+              1.0,
+              -1.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 9
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4666666666666667,
+              0.2
+            ],
+            "effect": -0.13333333333333333,
+            "negative": 4,
+            "paired_values": [
+              0.0,
+              1.0,
+              -1.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 9
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -8.919999999999998,
+              0.4599999999999999
+            ],
+            "effect": -3.7466666666666666,
+            "negative": 4,
+            "paired_values": [
+              0.0,
+              6.399999999999999,
+              -11.099999999999994,
+              3.6000000000000014,
+              -4.200000000000003,
+              -22.700000000000003,
+              0.0,
+              0.0,
+              -28.199999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 9
+          }
+        },
+        "exact_minus_seller_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.4666666666666667
+            ],
+            "effect": 0.13333333333333333,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 9
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.4666666666666667
+            ],
+            "effect": 0.13333333333333333,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 9
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -11.126666666666667,
+              13.953333333333331
+            ],
+            "effect": 2.0999999999999996,
+            "negative": 2,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              0.0,
+              3.6000000000000014,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              16.799999999999997,
+              40.3,
+              0.0,
+              46.1,
+              -71.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 9
+          }
+        },
+        "seller_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.6666666666666666,
+              0.13333333333333333
+            ],
+            "effect": -0.26666666666666666,
+            "negative": 7,
+            "paired_values": [
+              1.0,
+              1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.6666666666666666,
+              0.13333333333333333
+            ],
+            "effect": -0.26666666666666666,
+            "negative": 7,
+            "paired_values": [
+              1.0,
+              1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -17.86,
+              8.18
+            ],
+            "effect": -5.846666666666666,
+            "negative": 7,
+            "paired_values": [
+              4.300000000000004,
+              6.399999999999999,
+              -11.099999999999994,
+              0.0,
+              -4.200000000000003,
+              -22.700000000000003,
+              0.0,
+              0.0,
+              -28.199999999999996,
+              -16.799999999999997,
+              -40.3,
+              0.0,
+              -46.1,
+              71.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          }
+        }
+      }
+    }
+  },
+  "by_market_family": {
+    "large": {
+      "cells": {
+        "buyer_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.5,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.6,
+          "mean_buyer_gain_unconditional": 17.189999999999998,
+          "mean_decision_quality": 0.5,
+          "mean_normalized_welfare": 0.5,
+          "mean_seller_gain_unconditional": 8.629999999999999,
+          "mean_turns_used": 3.1,
+          "mean_welfare": 25.82,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 1.0,
+          "positive_market_execution_rate": 0.5,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.5,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.5,
+          "seller_surplus_share_mean": 0.3544728614287188,
+          "seller_surplus_share_sd": 0.293917326941479,
+          "split_inequality_mean": 0.5501113491028603,
+          "surplus_weighted_efficiency": 0.4890151515151515,
+          "total_potential_surplus": 528.0,
+          "total_realized_welfare": 258.2,
+          "unsafe_acceptances": 0
+        },
+        "coarse": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.7,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.2857142857142856,
+          "mean_buyer_gain_unconditional": 21.18,
+          "mean_decision_quality": 0.7,
+          "mean_normalized_welfare": 0.7,
+          "mean_seller_gain_unconditional": 14.63,
+          "mean_turns_used": 2.2,
+          "mean_welfare": 35.81,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 1.0,
+          "positive_market_execution_rate": 0.7,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.3,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.3,
+          "seller_surplus_share_mean": 0.44524501383978443,
+          "seller_surplus_share_sd": 0.2372423572655816,
+          "split_inequality_mean": 0.36429847438078833,
+          "surplus_weighted_efficiency": 0.678219696969697,
+          "total_potential_surplus": 528.0,
+          "total_realized_welfare": 358.1,
+          "unsafe_acceptances": 0
+        },
+        "exact": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.7,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.4285714285714284,
+          "mean_buyer_gain_unconditional": 21.63,
+          "mean_decision_quality": 0.7,
+          "mean_normalized_welfare": 0.7,
+          "mean_seller_gain_unconditional": 13.41,
+          "mean_turns_used": 3.3,
+          "mean_welfare": 35.04,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.1,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 1.0,
+          "positive_market_execution_rate": 0.7,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.3,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.3,
+          "seller_surplus_share_mean": 0.35709405155682983,
+          "seller_surplus_share_sd": 0.2829202917358498,
+          "split_inequality_mean": 0.48543429478225036,
+          "surplus_weighted_efficiency": 0.6636363636363637,
+          "total_potential_surplus": 528.0,
+          "total_realized_welfare": 350.40000000000003,
+          "unsafe_acceptances": 0
+        },
+        "hidden": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.4,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.25,
+          "mean_buyer_gain_unconditional": 12.01,
+          "mean_decision_quality": 0.4,
+          "mean_normalized_welfare": 0.4,
+          "mean_seller_gain_unconditional": 7.290000000000001,
+          "mean_turns_used": 2.3,
+          "mean_welfare": 19.3,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 1.0,
+          "positive_market_execution_rate": 0.4,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.6,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.6,
+          "seller_surplus_share_mean": 0.4073321068493351,
+          "seller_surplus_share_sd": 0.3305282561779066,
+          "split_inequality_mean": 0.5519839726262359,
+          "surplus_weighted_efficiency": 0.36553030303030304,
+          "total_potential_surplus": 528.0,
+          "total_realized_welfare": 193.0,
+          "unsafe_acceptances": 0
+        },
+        "seller_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.5,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.2,
+          "mean_buyer_gain_unconditional": 9.629999999999999,
+          "mean_decision_quality": 0.5,
+          "mean_normalized_welfare": 0.5,
+          "mean_seller_gain_unconditional": 16.77,
+          "mean_turns_used": 3.0,
+          "mean_welfare": 26.4,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 1.0,
+          "positive_market_execution_rate": 0.5,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.5,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.5,
+          "seller_surplus_share_mean": 0.6640963402571007,
+          "seller_surplus_share_sd": 0.2704300126709112,
+          "split_inequality_mean": 0.4514494113917501,
+          "surplus_weighted_efficiency": 0.5,
+          "total_potential_surplus": 528.0,
+          "total_realized_welfare": 264.0,
+          "unsafe_acceptances": 0
+        }
+      },
+      "markets": 10,
+      "paired_contrasts": {
+        "buyer_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.5
+            ],
+            "effect": 0.1,
+            "negative": 2,
+            "paired_values": [
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.5
+            ],
+            "effect": 0.1,
+            "negative": 2,
+            "paired_values": [
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -16.35,
+              30.130000000000003
+            ],
+            "effect": 6.519999999999999,
+            "negative": 2,
+            "paired_values": [
+              40.3,
+              0.0,
+              53.800000000000004,
+              -53.800000000000004,
+              0.0,
+              -46.1,
+              0.0,
+              71.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          }
+        },
+        "coarse_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              0.0,
+              0.6
+            ],
+            "effect": 0.3,
+            "negative": 0,
+            "paired_values": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 7
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              0.0,
+              0.6
+            ],
+            "effect": 0.3,
+            "negative": 0,
+            "paired_values": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 7
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              0.0,
+              33.78
+            ],
+            "effect": 16.509999999999998,
+            "negative": 0,
+            "paired_values": [
+              40.3,
+              0.0,
+              53.800000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              71.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 7
+          }
+        },
+        "exact_minus_buyer_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.6
+            ],
+            "effect": 0.2,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 4
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.6
+            ],
+            "effect": 0.2,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 4
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -19.18,
+              35.53
+            ],
+            "effect": 9.22,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -53.800000000000004,
+              53.800000000000004,
+              46.1,
+              46.1,
+              71.0,
+              -71.0,
+              0.0,
+              0.0
+            ],
+            "positive": 4,
+            "tied": 4
+          }
+        },
+        "exact_minus_coarse": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.4
+            ],
+            "effect": 0.0,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.4
+            ],
+            "effect": 0.0,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -24.96,
+              23.419999999999998
+            ],
+            "effect": -0.7700000000000002,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              -53.800000000000004,
+              0.0,
+              46.1,
+              0.0,
+              71.0,
+              -71.0,
+              0.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 6
+          }
+        },
+        "exact_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              0.0,
+              0.6
+            ],
+            "effect": 0.3,
+            "negative": 0,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 7
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              0.0,
+              0.6
+            ],
+            "effect": 0.3,
+            "negative": 0,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 7
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              0.0,
+              32.64
+            ],
+            "effect": 15.74,
+            "negative": 0,
+            "paired_values": [
+              40.3,
+              0.0,
+              0.0,
+              0.0,
+              46.1,
+              0.0,
+              71.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 7
+          }
+        },
+        "exact_minus_seller_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.6
+            ],
+            "effect": 0.2,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.6
+            ],
+            "effect": 0.2,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -14.2,
+              29.939999999999998
+            ],
+            "effect": 8.64,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              40.3,
+              0.0,
+              0.0,
+              0.0,
+              46.1,
+              71.0,
+              -71.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 6
+          }
+        },
+        "seller_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.5
+            ],
+            "effect": 0.1,
+            "negative": 2,
+            "paired_values": [
+              1.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.5
+            ],
+            "effect": 0.1,
+            "negative": 2,
+            "paired_values": [
+              1.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -13.25,
+              28.99
+            ],
+            "effect": 7.1,
+            "negative": 2,
+            "paired_values": [
+              40.3,
+              -40.3,
+              0.0,
+              0.0,
+              46.1,
+              -46.1,
+              0.0,
+              71.0,
+              0.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          }
+        }
+      }
+    },
+    "medium": {
+      "cells": {
+        "buyer_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.4,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.75,
+          "mean_buyer_gain_unconditional": 8.65,
+          "mean_decision_quality": 0.4,
+          "mean_normalized_welfare": 0.4,
+          "mean_seller_gain_unconditional": 2.4500000000000006,
+          "mean_turns_used": 2.5,
+          "mean_welfare": 11.1,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.2,
+          "positive_market_ever_ir_offer_rate": 0.7,
+          "positive_market_ever_strict_ir_offer_rate": 0.6,
+          "positive_market_execution_rate": 0.4,
+          "positive_market_failed_after_endpoint_offer_rate": 0.1,
+          "positive_market_failed_after_ir_offer_rate": 0.3,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.2,
+          "seller_surplus_share_mean": 0.2214930515332107,
+          "seller_surplus_share_sd": 0.16571460636178348,
+          "split_inequality_mean": 0.5570138969335786,
+          "surplus_weighted_efficiency": 0.4538021259198691,
+          "total_potential_surplus": 244.60000000000002,
+          "total_realized_welfare": 111.0,
+          "unsafe_acceptances": 0
+        },
+        "coarse": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.7,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.5714285714285716,
+          "mean_buyer_gain_unconditional": 11.93,
+          "mean_decision_quality": 0.7,
+          "mean_normalized_welfare": 0.7,
+          "mean_seller_gain_unconditional": 6.3100000000000005,
+          "mean_turns_used": 2.4,
+          "mean_welfare": 18.240000000000002,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.9,
+          "positive_market_ever_strict_ir_offer_rate": 0.9,
+          "positive_market_execution_rate": 0.7,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.2,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.2,
+          "seller_surplus_share_mean": 0.3378175135109198,
+          "seller_surplus_share_sd": 0.143644776478539,
+          "split_inequality_mean": 0.397547930371644,
+          "surplus_weighted_efficiency": 0.7457072771872443,
+          "total_potential_surplus": 244.60000000000002,
+          "total_realized_welfare": 182.39999999999998,
+          "unsafe_acceptances": 0
+        },
+        "exact": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.5,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.2,
+          "mean_buyer_gain_unconditional": 10.540000000000001,
+          "mean_decision_quality": 0.5,
+          "mean_normalized_welfare": 0.5,
+          "mean_seller_gain_unconditional": 0.7599999999999995,
+          "mean_turns_used": 2.7,
+          "mean_welfare": 11.3,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.4,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 0.8,
+          "positive_market_execution_rate": 0.5,
+          "positive_market_failed_after_endpoint_offer_rate": 0.3,
+          "positive_market_failed_after_ir_offer_rate": 0.5,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.3,
+          "seller_surplus_share_mean": 0.08649295231705653,
+          "seller_surplus_share_sd": 0.16142602465999414,
+          "split_inequality_mean": 0.8270140953658869,
+          "surplus_weighted_efficiency": 0.46197874080130824,
+          "total_potential_surplus": 244.60000000000002,
+          "total_realized_welfare": 113.0,
+          "unsafe_acceptances": 0
+        },
+        "hidden": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.4,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.0,
+          "mean_buyer_gain_unconditional": 4.25,
+          "mean_decision_quality": 0.4,
+          "mean_normalized_welfare": 0.4,
+          "mean_seller_gain_unconditional": 4.79,
+          "mean_turns_used": 2.5,
+          "mean_welfare": 9.040000000000001,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.8,
+          "positive_market_ever_strict_ir_offer_rate": 0.8,
+          "positive_market_execution_rate": 0.4,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.4,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.4,
+          "seller_surplus_share_mean": 0.5016289684399394,
+          "seller_surplus_share_sd": 0.36405426513882,
+          "split_inequality_mean": 0.5385922833844381,
+          "surplus_weighted_efficiency": 0.36958299264104655,
+          "total_potential_surplus": 244.60000000000002,
+          "total_realized_welfare": 90.39999999999999,
+          "unsafe_acceptances": 0
+        },
+        "seller_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.1,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.0,
+          "mean_buyer_gain_unconditional": 2.06,
+          "mean_decision_quality": 0.1,
+          "mean_normalized_welfare": 0.1,
+          "mean_seller_gain_unconditional": 0.7899999999999998,
+          "mean_turns_used": 2.2,
+          "mean_welfare": 2.85,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.3,
+          "positive_market_ever_ir_offer_rate": 0.8,
+          "positive_market_ever_strict_ir_offer_rate": 0.5,
+          "positive_market_execution_rate": 0.1,
+          "positive_market_failed_after_endpoint_offer_rate": 0.3,
+          "positive_market_failed_after_ir_offer_rate": 0.7,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.4,
+          "seller_surplus_share_mean": 0.2771929824561403,
+          "seller_surplus_share_sd": null,
+          "split_inequality_mean": 0.44561403508771935,
+          "surplus_weighted_efficiency": 0.11651676206050694,
+          "total_potential_surplus": 244.60000000000002,
+          "total_realized_welfare": 28.5,
+          "unsafe_acceptances": 0
+        }
+      },
+      "markets": 10,
+      "paired_contrasts": {
+        "buyer_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.5,
+              0.5
+            ],
+            "effect": 0.0,
+            "negative": 3,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 3,
+            "tied": 4
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.5,
+              0.5
+            ],
+            "effect": 0.0,
+            "negative": 3,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 3,
+            "tied": 4
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -9.239999999999998,
+              14.080000000000002
+            ],
+            "effect": 2.06,
+            "negative": 3,
+            "paired_values": [
+              -22.700000000000003,
+              -22.700000000000003,
+              0.0,
+              28.5,
+              0.0,
+              26.10000000000001,
+              28.199999999999996,
+              0.0,
+              0.0,
+              -16.799999999999997
+            ],
+            "positive": 3,
+            "tied": 4
+          }
+        },
+        "coarse_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.8
+            ],
+            "effect": 0.3,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 3
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.8
+            ],
+            "effect": 0.3,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 3
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -3.3800000000000012,
+              21.600000000000005
+            ],
+            "effect": 9.2,
+            "negative": 2,
+            "paired_values": [
+              -22.700000000000003,
+              -22.700000000000003,
+              28.5,
+              28.5,
+              26.10000000000001,
+              26.10000000000001,
+              28.199999999999996,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "positive": 5,
+            "tied": 3
+          }
+        },
+        "exact_minus_buyer_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.6
+            ],
+            "effect": 0.1,
+            "negative": 3,
+            "paired_values": [
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0
+            ],
+            "positive": 4,
+            "tied": 3
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.6
+            ],
+            "effect": 0.1,
+            "negative": 3,
+            "paired_values": [
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              0.0,
+              -1.0,
+              1.0,
+              1.0
+            ],
+            "positive": 4,
+            "tied": 3
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -12.64,
+              12.780000000000001
+            ],
+            "effect": 0.1999999999999993,
+            "negative": 3,
+            "paired_values": [
+              22.700000000000003,
+              0.0,
+              28.5,
+              -28.5,
+              0.0,
+              -26.10000000000001,
+              0.0,
+              -28.199999999999996,
+              16.799999999999997,
+              16.799999999999997
+            ],
+            "positive": 4,
+            "tied": 3
+          }
+        },
+        "exact_minus_coarse": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.7,
+              0.3
+            ],
+            "effect": -0.2,
+            "negative": 4,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 4
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.7,
+              0.3
+            ],
+            "effect": -0.2,
+            "negative": 4,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              -1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 4
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -18.690000000000005,
+              4.359999999999998
+            ],
+            "effect": -6.94,
+            "negative": 4,
+            "paired_values": [
+              22.700000000000003,
+              0.0,
+              0.0,
+              -28.5,
+              -26.10000000000001,
+              -26.10000000000001,
+              0.0,
+              -28.199999999999996,
+              16.799999999999997,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 4
+          }
+        },
+        "exact_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.5
+            ],
+            "effect": 0.1,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.5
+            ],
+            "effect": 0.1,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -8.5,
+              13.05
+            ],
+            "effect": 2.2599999999999993,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              -22.700000000000003,
+              28.5,
+              0.0,
+              0.0,
+              0.0,
+              28.199999999999996,
+              -28.199999999999996,
+              16.799999999999997,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 5
+          }
+        },
+        "exact_minus_seller_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              0.1,
+              0.7
+            ],
+            "effect": 0.4,
+            "negative": 0,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "positive": 4,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              0.1,
+              0.7
+            ],
+            "effect": 0.4,
+            "negative": 0,
+            "paired_values": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "positive": 4,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              1.6799999999999997,
+              15.219999999999999
+            ],
+            "effect": 8.45,
+            "negative": 0,
+            "paired_values": [
+              22.700000000000003,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              28.199999999999996,
+              0.0,
+              16.799999999999997,
+              16.799999999999997
+            ],
+            "positive": 4,
+            "tied": 6
+          }
+        },
+        "seller_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.7,
+              0.1
+            ],
+            "effect": -0.3,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 1,
+            "tied": 5
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.7,
+              0.1
+            ],
+            "effect": -0.3,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 1,
+            "tied": 5
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -15.809999999999999,
+              4.01
+            ],
+            "effect": -6.1899999999999995,
+            "negative": 4,
+            "paired_values": [
+              -22.700000000000003,
+              -22.700000000000003,
+              28.5,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -28.199999999999996,
+              0.0,
+              -16.799999999999997
+            ],
+            "positive": 1,
+            "tied": 5
+          }
+        }
+      }
+    },
+    "thin": {
+      "cells": {
+        "buyer_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.3,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.6666666666666665,
+          "mean_buyer_gain_unconditional": 1.39,
+          "mean_decision_quality": 0.3,
+          "mean_normalized_welfare": 0.3,
+          "mean_seller_gain_unconditional": 0.5100000000000001,
+          "mean_turns_used": 2.2,
+          "mean_welfare": 1.9,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.4,
+          "positive_market_ever_ir_offer_rate": 0.7,
+          "positive_market_ever_strict_ir_offer_rate": 0.3,
+          "positive_market_execution_rate": 0.3,
+          "positive_market_failed_after_endpoint_offer_rate": 0.4,
+          "positive_market_failed_after_ir_offer_rate": 0.4,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.0,
+          "seller_surplus_share_mean": 0.23667271923085884,
+          "seller_surplus_share_sd": 0.08975723437180752,
+          "split_inequality_mean": 0.5266545615382824,
+          "surplus_weighted_efficiency": 0.32094594594594594,
+          "total_potential_surplus": 59.2,
+          "total_realized_welfare": 19.0,
+          "unsafe_acceptances": 0
+        },
+        "coarse": {
+          "accepted_endpoint_rate": 0.25,
+          "agreement_rate": 0.4,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.5,
+          "mean_buyer_gain_unconditional": 2.5099999999999993,
+          "mean_decision_quality": 0.4,
+          "mean_normalized_welfare": 0.4,
+          "mean_seller_gain_unconditional": 0.5700000000000003,
+          "mean_turns_used": 2.3,
+          "mean_welfare": 3.0799999999999996,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.1,
+          "positive_market_ever_ir_offer_rate": 0.7,
+          "positive_market_ever_strict_ir_offer_rate": 0.6,
+          "positive_market_execution_rate": 0.4,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.3,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.3,
+          "seller_surplus_share_mean": 0.2423528179342133,
+          "seller_surplus_share_sd": 0.33469791441144336,
+          "split_inequality_mean": 0.7362245966897125,
+          "surplus_weighted_efficiency": 0.5202702702702702,
+          "total_potential_surplus": 59.2,
+          "total_realized_welfare": 30.799999999999997,
+          "unsafe_acceptances": 0
+        },
+        "exact": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.3,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.3333333333333335,
+          "mean_buyer_gain_unconditional": 0.7600000000000001,
+          "mean_decision_quality": 0.3,
+          "mean_normalized_welfare": 0.3,
+          "mean_seller_gain_unconditional": 0.6600000000000001,
+          "mean_turns_used": 2.3,
+          "mean_welfare": 1.4200000000000004,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.6,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 0.5,
+          "positive_market_execution_rate": 0.3,
+          "positive_market_failed_after_endpoint_offer_rate": 0.5,
+          "positive_market_failed_after_ir_offer_rate": 0.7,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.2,
+          "seller_surplus_share_mean": 0.3667328042328044,
+          "seller_surplus_share_sd": 0.4976366233404941,
+          "split_inequality_mean": 0.8498677248677248,
+          "surplus_weighted_efficiency": 0.2398648648648649,
+          "total_potential_surplus": 59.2,
+          "total_realized_welfare": 14.200000000000003,
+          "unsafe_acceptances": 0
+        },
+        "hidden": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.6,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 3.0,
+          "mean_buyer_gain_unconditional": 1.9999999999999993,
+          "mean_decision_quality": 0.4,
+          "mean_normalized_welfare": 0.4,
+          "mean_seller_gain_unconditional": 1.0700000000000003,
+          "mean_turns_used": 2.7,
+          "mean_welfare": 3.0699999999999994,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.0,
+          "positive_market_ever_ir_offer_rate": 0.7,
+          "positive_market_ever_strict_ir_offer_rate": 0.7,
+          "positive_market_execution_rate": 0.4,
+          "positive_market_failed_after_endpoint_offer_rate": 0.0,
+          "positive_market_failed_after_ir_offer_rate": 0.3,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.3,
+          "seller_surplus_share_mean": 0.2667534644278833,
+          "seller_surplus_share_sd": 0.22074773067846898,
+          "split_inequality_mean": 0.46649307114423344,
+          "surplus_weighted_efficiency": 0.518581081081081,
+          "total_potential_surplus": 59.2,
+          "total_realized_welfare": 30.699999999999996,
+          "unsafe_acceptances": 2
+        },
+        "seller_informed": {
+          "accepted_endpoint_rate": 0.0,
+          "agreement_rate": 0.2,
+          "episodes": 10,
+          "invalid_actions": 0,
+          "mean_agreement_turn": 2.0,
+          "mean_buyer_gain_unconditional": 0.6600000000000001,
+          "mean_decision_quality": 0.2,
+          "mean_normalized_welfare": 0.2,
+          "mean_seller_gain_unconditional": 0.41000000000000014,
+          "mean_turns_used": 2.2,
+          "mean_welfare": 1.0700000000000003,
+          "parse_errors": 0,
+          "positive_market_ever_endpoint_offer_rate": 0.3,
+          "positive_market_ever_ir_offer_rate": 1.0,
+          "positive_market_ever_strict_ir_offer_rate": 0.7,
+          "positive_market_execution_rate": 0.2,
+          "positive_market_failed_after_endpoint_offer_rate": 0.3,
+          "positive_market_failed_after_ir_offer_rate": 0.8,
+          "positive_market_failed_after_strict_ir_offer_rate": 0.5,
+          "seller_surplus_share_mean": 0.4385901162790696,
+          "seller_surplus_share_sd": 0.39928922164385683,
+          "split_inequality_mean": 0.5646802325581392,
+          "surplus_weighted_efficiency": 0.18074324324324328,
+          "total_potential_surplus": 59.2,
+          "total_realized_welfare": 10.700000000000003,
+          "unsafe_acceptances": 0
+        }
+      },
+      "markets": 10,
+      "paired_contrasts": {
+        "buyer_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.2
+            ],
+            "effect": -0.1,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 1,
+            "tied": 7
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.2
+            ],
+            "effect": -0.1,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 1,
+            "tied": 7
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -3.7499999999999987,
+              0.7200000000000003
+            ],
+            "effect": -1.1699999999999995,
+            "negative": 2,
+            "paired_values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -11.099999999999994,
+              0.0,
+              0.0,
+              3.6000000000000014,
+              0.0,
+              -4.200000000000003
+            ],
+            "positive": 1,
+            "tied": 7
+          }
+        },
+        "coarse_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.3
+            ],
+            "effect": 0.0,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 1,
+            "tied": 8
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.3,
+              0.3
+            ],
+            "effect": 0.0,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 1,
+            "tied": 8
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -1.260000000000001,
+              1.2900000000000014
+            ],
+            "effect": 0.010000000000000142,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              4.300000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -4.200000000000003
+            ],
+            "positive": 1,
+            "tied": 8
+          }
+        },
+        "exact_minus_buyer_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.4
+            ],
+            "effect": 0.0,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 6
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.4,
+              0.4
+            ],
+            "effect": 0.0,
+            "negative": 2,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 6
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -3.5100000000000002,
+              2.12
+            ],
+            "effect": -0.4799999999999997,
+            "negative": 2,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              0.0,
+              6.399999999999999,
+              0.0,
+              -11.099999999999994,
+              0.0,
+              0.0,
+              4.200000000000003,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 6
+          }
+        },
+        "exact_minus_coarse": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.4
+            ],
+            "effect": -0.1,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 3
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.4
+            ],
+            "effect": -0.1,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 3
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -5.309999999999999,
+              1.730000000000001
+            ],
+            "effect": -1.6599999999999995,
+            "negative": 4,
+            "paired_values": [
+              -4.300000000000004,
+              -4.300000000000004,
+              0.0,
+              6.399999999999999,
+              -11.099999999999994,
+              -11.099999999999994,
+              0.0,
+              3.6000000000000014,
+              4.200000000000003,
+              0.0
+            ],
+            "positive": 3,
+            "tied": 3
+          }
+        },
+        "exact_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.4
+            ],
+            "effect": -0.1,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              1.0,
+              -1.0
+            ],
+            "positive": 3,
+            "tied": 3
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.4
+            ],
+            "effect": -0.1,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              0.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              1.0,
+              1.0,
+              -1.0
+            ],
+            "positive": 3,
+            "tied": 3
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -5.299999999999999,
+              1.730000000000001
+            ],
+            "effect": -1.6499999999999992,
+            "negative": 4,
+            "paired_values": [
+              -4.300000000000004,
+              0.0,
+              0.0,
+              6.399999999999999,
+              -11.099999999999994,
+              -11.099999999999994,
+              0.0,
+              3.6000000000000014,
+              4.200000000000003,
+              -4.200000000000003
+            ],
+            "positive": 3,
+            "tied": 3
+          }
+        },
+        "exact_minus_seller_informed": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.4
+            ],
+            "effect": 0.1,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 7
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.2,
+              0.4
+            ],
+            "effect": 0.1,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 7
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -0.9300000000000012,
+              1.620000000000001
+            ],
+            "effect": 0.35,
+            "negative": 1,
+            "paired_values": [
+              0.0,
+              -4.300000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              3.6000000000000014,
+              4.200000000000003,
+              0.0
+            ],
+            "positive": 2,
+            "tied": 7
+          }
+        },
+        "seller_informed_minus_hidden": {
+          "decision_quality": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.3
+            ],
+            "effect": -0.2,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 2,
+            "tied": 4
+          },
+          "normalized_welfare": {
+            "bootstrap_ci95": [
+              -0.6,
+              0.3
+            ],
+            "effect": -0.2,
+            "negative": 4,
+            "paired_values": [
+              -1.0,
+              1.0,
+              0.0,
+              1.0,
+              -1.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "positive": 2,
+            "tied": 4
+          },
+          "welfare": {
+            "bootstrap_ci95": [
+              -5.539999999999997,
+              1.2799999999999998
+            ],
+            "effect": -1.9999999999999993,
+            "negative": 4,
+            "paired_values": [
+              -4.300000000000004,
+              4.300000000000004,
+              0.0,
+              6.399999999999999,
+              -11.099999999999994,
+              -11.099999999999994,
+              0.0,
+              0.0,
+              0.0,
+              -4.200000000000003
+            ],
+            "positive": 2,
+            "tied": 4
+          }
+        }
+      }
+    }
+  },
+  "cells": {
+    "buyer_informed": {
+      "accepted_endpoint_rate": 0.0,
+      "agreement_rate": 0.4,
+      "episodes": 30,
+      "invalid_actions": 0,
+      "mean_agreement_turn": 3.0833333333333335,
+      "mean_buyer_gain_unconditional": 9.076666666666664,
+      "mean_decision_quality": 0.4,
+      "mean_normalized_welfare": 0.4,
+      "mean_seller_gain_unconditional": 3.8633333333333337,
+      "mean_turns_used": 2.6,
+      "mean_welfare": 12.94,
+      "parse_errors": 0,
+      "positive_market_ever_endpoint_offer_rate": 0.2,
+      "positive_market_ever_ir_offer_rate": 0.8,
+      "positive_market_ever_strict_ir_offer_rate": 0.6333333333333333,
+      "positive_market_execution_rate": 0.4,
+      "positive_market_failed_after_endpoint_offer_rate": 0.16666666666666666,
+      "positive_market_failed_after_ir_offer_rate": 0.4,
+      "positive_market_failed_after_strict_ir_offer_rate": 0.23333333333333334,
+      "seller_surplus_share_mean": 0.2806962225807511,
+      "seller_surplus_share_sd": 0.21129374757845346,
+      "split_inequality_mean": 0.5465480014886219,
+      "surplus_weighted_efficiency": 0.4666987256552056,
+      "total_potential_surplus": 831.8000000000001,
+      "total_realized_welfare": 388.20000000000005,
+      "unsafe_acceptances": 0
+    },
+    "coarse": {
+      "accepted_endpoint_rate": 0.05555555555555555,
+      "agreement_rate": 0.6,
+      "episodes": 30,
+      "invalid_actions": 0,
+      "mean_agreement_turn": 2.4444444444444446,
+      "mean_buyer_gain_unconditional": 11.873333333333333,
+      "mean_decision_quality": 0.6,
+      "mean_normalized_welfare": 0.6,
+      "mean_seller_gain_unconditional": 7.170000000000001,
+      "mean_turns_used": 2.3,
+      "mean_welfare": 19.043333333333333,
+      "parse_errors": 0,
+      "positive_market_ever_endpoint_offer_rate": 0.03333333333333333,
+      "positive_market_ever_ir_offer_rate": 0.8666666666666667,
+      "positive_market_ever_strict_ir_offer_rate": 0.8333333333333334,
+      "positive_market_execution_rate": 0.6,
+      "positive_market_failed_after_endpoint_offer_rate": 0.0,
+      "positive_market_failed_after_ir_offer_rate": 0.26666666666666666,
+      "positive_market_failed_after_strict_ir_offer_rate": 0.26666666666666666,
+      "seller_surplus_share_mean": 0.3583804979550991,
+      "seller_surplus_share_sd": 0.23100831183736628,
+      "split_inequality_mean": 0.45987906777921533,
+      "surplus_weighted_efficiency": 0.6868237557105072,
+      "total_potential_surplus": 831.8000000000001,
+      "total_realized_welfare": 571.3,
+      "unsafe_acceptances": 0
+    },
+    "exact": {
+      "accepted_endpoint_rate": 0.0,
+      "agreement_rate": 0.5,
+      "episodes": 30,
+      "invalid_actions": 0,
+      "mean_agreement_turn": 3.1333333333333333,
+      "mean_buyer_gain_unconditional": 10.976666666666667,
+      "mean_decision_quality": 0.5,
+      "mean_normalized_welfare": 0.5,
+      "mean_seller_gain_unconditional": 4.9433333333333325,
+      "mean_turns_used": 2.7666666666666666,
+      "mean_welfare": 15.92,
+      "parse_errors": 0,
+      "positive_market_ever_endpoint_offer_rate": 0.36666666666666664,
+      "positive_market_ever_ir_offer_rate": 1.0,
+      "positive_market_ever_strict_ir_offer_rate": 0.7666666666666667,
+      "positive_market_execution_rate": 0.5,
+      "positive_market_failed_after_endpoint_offer_rate": 0.26666666666666666,
+      "positive_market_failed_after_ir_offer_rate": 0.5,
+      "positive_market_failed_after_strict_ir_offer_rate": 0.26666666666666666,
+      "seller_surplus_share_mean": 0.26882143567876693,
+      "seller_surplus_share_sd": 0.30814002879998026,
+      "split_inequality_mean": 0.6721809143272242,
+      "surplus_weighted_efficiency": 0.5741764847319067,
+      "total_potential_surplus": 831.8000000000001,
+      "total_realized_welfare": 477.6000000000001,
+      "unsafe_acceptances": 0
+    },
+    "hidden": {
+      "accepted_endpoint_rate": 0.0,
+      "agreement_rate": 0.4666666666666667,
+      "episodes": 30,
+      "invalid_actions": 0,
+      "mean_agreement_turn": 2.7857142857142856,
+      "mean_buyer_gain_unconditional": 6.086666666666667,
+      "mean_decision_quality": 0.4,
+      "mean_normalized_welfare": 0.4,
+      "mean_seller_gain_unconditional": 4.383333333333334,
+      "mean_turns_used": 2.5,
+      "mean_welfare": 10.47,
+      "parse_errors": 0,
+      "positive_market_ever_endpoint_offer_rate": 0.0,
+      "positive_market_ever_ir_offer_rate": 0.8333333333333334,
+      "positive_market_ever_strict_ir_offer_rate": 0.8333333333333334,
+      "positive_market_execution_rate": 0.4,
+      "positive_market_failed_after_endpoint_offer_rate": 0.0,
+      "positive_market_failed_after_ir_offer_rate": 0.43333333333333335,
+      "positive_market_failed_after_strict_ir_offer_rate": 0.43333333333333335,
+      "seller_surplus_share_mean": 0.39190484657238595,
+      "seller_surplus_share_sd": 0.29898358073193054,
+      "split_inequality_mean": 0.5190231090516358,
+      "surplus_weighted_efficiency": 0.37761481125270496,
+      "total_potential_surplus": 831.8000000000001,
+      "total_realized_welfare": 314.1,
+      "unsafe_acceptances": 2
+    },
+    "seller_informed": {
+      "accepted_endpoint_rate": 0.0,
+      "agreement_rate": 0.26666666666666666,
+      "episodes": 30,
+      "invalid_actions": 0,
+      "mean_agreement_turn": 2.875,
+      "mean_buyer_gain_unconditional": 4.116666666666666,
+      "mean_decision_quality": 0.26666666666666666,
+      "mean_normalized_welfare": 0.26666666666666666,
+      "mean_seller_gain_unconditional": 5.989999999999999,
+      "mean_turns_used": 2.466666666666667,
+      "mean_welfare": 10.106666666666666,
+      "parse_errors": 0,
+      "positive_market_ever_endpoint_offer_rate": 0.2,
+      "positive_market_ever_ir_offer_rate": 0.9333333333333333,
+      "positive_market_ever_strict_ir_offer_rate": 0.7333333333333333,
+      "positive_market_execution_rate": 0.26666666666666666,
+      "positive_market_failed_after_endpoint_offer_rate": 0.2,
+      "positive_market_failed_after_ir_offer_rate": 0.6666666666666666,
+      "positive_market_failed_after_strict_ir_offer_rate": 0.4666666666666667,
+      "seller_surplus_share_mean": 0.5593568645374729,
+      "seller_surplus_share_sd": 0.2965513469692298,
+      "split_inequality_mean": 0.47902769464534356,
+      "surplus_weighted_efficiency": 0.36451069968742483,
+      "total_potential_surplus": 831.8000000000001,
+      "total_realized_welfare": 303.2,
+      "unsafe_acceptances": 0
+    }
+  },
+  "estimand_notes": {
+    "bootstrap": "Paired market bootstrap only. It does not include LLM sampling variance; there is one trajectory per market-condition cell.",
+    "panel_mean": "Equal weight on the four ex-post market families.",
+    "population_reweighted": "Analytic family probabilities conditional on profitable trade under the stated independent-uniform prior; within-family means come from paired bases."
+  },
+  "first_mover_interactions": {
+    "buyer_informed_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.6,
+          0.3333333333333333
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.13333333333333333,
+        "negative": 6,
+        "paired_values": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -2.0,
+          -1.0,
+          1.0,
+          0.0
+        ],
+        "positive": 5,
+        "tied": 4
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.6,
+          0.3333333333333333
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.13333333333333333,
+        "negative": 6,
+        "paired_values": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -2.0,
+          -1.0,
+          1.0,
+          0.0
+        ],
+        "positive": 5,
+        "tied": 4
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -27.32,
+          12.133333333333335
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -6.86,
+        "negative": 6,
+        "paired_values": [
+          0.0,
+          0.0,
+          11.099999999999994,
+          3.6000000000000014,
+          -4.200000000000003,
+          0.0,
+          28.5,
+          26.10000000000001,
+          -28.199999999999996,
+          -16.799999999999997,
+          -40.3,
+          -107.60000000000001,
+          -46.1,
+          71.0,
+          0.0
+        ],
+        "positive": 5,
+        "tied": 4
+      }
+    },
+    "coarse_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.4666666666666667,
+          0.2
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.13333333333333333,
+        "negative": 4,
+        "paired_values": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "positive": 2,
+        "tied": 9
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.4666666666666667,
+          0.2
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.13333333333333333,
+        "negative": 4,
+        "paired_values": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "positive": 2,
+        "tied": 9
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -16.12,
+          10.333333333333334
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -3.413333333333333,
+        "negative": 4,
+        "paired_values": [
+          4.300000000000004,
+          0.0,
+          0.0,
+          0.0,
+          -4.200000000000003,
+          0.0,
+          0.0,
+          0.0,
+          -28.199999999999996,
+          0.0,
+          -40.3,
+          -53.800000000000004,
+          0.0,
+          71.0,
+          0.0
+        ],
+        "positive": 2,
+        "tied": 9
+      }
+    },
+    "exact_minus_buyer_informed": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.8666666666666667,
+          0.2
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.3333333333333333,
+        "negative": 7,
+        "paired_values": [
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -2.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          -2.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 5
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.8666666666666667,
+          0.2
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.3333333333333333,
+        "negative": 7,
+        "paired_values": [
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -2.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          2.0,
+          0.0,
+          -2.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 5
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -36.76,
+          13.026666666666669
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -11.533333333333333,
+        "negative": 7,
+        "paired_values": [
+          4.300000000000004,
+          6.399999999999999,
+          -11.099999999999994,
+          0.0,
+          -4.200000000000003,
+          -22.700000000000003,
+          -57.0,
+          -26.10000000000001,
+          -28.199999999999996,
+          0.0,
+          0.0,
+          107.60000000000001,
+          0.0,
+          -142.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 5
+      }
+    },
+    "exact_minus_coarse": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.7333333333333333,
+          0.13333333333333333
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.3333333333333333,
+        "negative": 7,
+        "paired_values": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -2.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 5
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.7333333333333333,
+          0.13333333333333333
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.3333333333333333,
+        "negative": 7,
+        "paired_values": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -2.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 5
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -37.373333333333335,
+          3.0
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -14.979999999999999,
+        "negative": 7,
+        "paired_values": [
+          0.0,
+          6.399999999999999,
+          0.0,
+          3.6000000000000014,
+          -4.200000000000003,
+          -22.700000000000003,
+          -28.5,
+          0.0,
+          -28.199999999999996,
+          -16.799999999999997,
+          0.0,
+          53.800000000000004,
+          -46.1,
+          -142.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 5
+      }
+    },
+    "exact_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.9333333333333333,
+          0.0
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.4666666666666667,
+        "negative": 8,
+        "paired_values": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          -2.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -2.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 4
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.9333333333333333,
+          0.0
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.4666666666666667,
+        "negative": 8,
+        "paired_values": [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          -2.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -2.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 4
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -31.099999999999998,
+          -7.080000000000001
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -18.39333333333333,
+        "negative": 8,
+        "paired_values": [
+          4.300000000000004,
+          6.399999999999999,
+          0.0,
+          3.6000000000000014,
+          -8.400000000000006,
+          -22.700000000000003,
+          -28.5,
+          0.0,
+          -56.39999999999999,
+          -16.799999999999997,
+          -40.3,
+          0.0,
+          -46.1,
+          -71.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 4
+      }
+    },
+    "exact_minus_seller_informed": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.6,
+          0.2
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.2,
+        "negative": 5,
+        "paired_values": [
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -2.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 7
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.6,
+          0.2
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.2,
+        "negative": 5,
+        "paired_values": [
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -2.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 7
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -30.32,
+          9.94
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -7.426666666666667,
+        "negative": 5,
+        "paired_values": [
+          -4.300000000000004,
+          0.0,
+          0.0,
+          3.6000000000000014,
+          -4.200000000000003,
+          -22.700000000000003,
+          0.0,
+          0.0,
+          -28.199999999999996,
+          0.0,
+          40.3,
+          0.0,
+          46.1,
+          -142.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 7
+      }
+    },
+    "seller_informed_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.8,
+          0.26666666666666666
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.26666666666666666,
+        "negative": 6,
+        "paired_values": [
+          2.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -2.0,
+          0.0,
+          -2.0,
+          1.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 6
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.8,
+          0.26666666666666666
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -0.26666666666666666,
+        "negative": 6,
+        "paired_values": [
+          2.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -2.0,
+          0.0,
+          -2.0,
+          1.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 6
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -30.306666666666665,
+          7.0133333333333345
+        ],
+        "direction": "seller-first effect minus buyer-first effect",
+        "effect": -10.966666666666667,
+        "negative": 6,
+        "paired_values": [
+          8.600000000000009,
+          6.399999999999999,
+          0.0,
+          0.0,
+          -4.200000000000003,
+          0.0,
+          -28.5,
+          0.0,
+          -28.199999999999996,
+          -16.799999999999997,
+          -80.6,
+          0.0,
+          -92.2,
+          71.0,
+          0.0
+        ],
+        "positive": 3,
+        "tied": 6
+      }
+    }
+  },
+  "horizon": 4,
+  "paired_contrasts": {
+    "buyer_informed_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.23333333333333334,
+          0.23333333333333334
+        ],
+        "effect": 0.0,
+        "negative": 7,
+        "paired_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 7,
+        "tied": 16
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.23333333333333334,
+          0.23333333333333334
+        ],
+        "effect": 0.0,
+        "negative": 7,
+        "paired_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 7,
+        "tied": 16
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -6.13,
+          11.379999999999999
+        ],
+        "effect": 2.4699999999999998,
+        "negative": 7,
+        "paired_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -11.099999999999994,
+          0.0,
+          0.0,
+          3.6000000000000014,
+          0.0,
+          -4.200000000000003,
+          -22.700000000000003,
+          -22.700000000000003,
+          0.0,
+          28.5,
+          0.0,
+          26.10000000000001,
+          28.199999999999996,
+          0.0,
+          0.0,
+          -16.799999999999997,
+          40.3,
+          0.0,
+          53.800000000000004,
+          -53.800000000000004,
+          0.0,
+          -46.1,
+          0.0,
+          71.0,
+          0.0,
+          0.0
+        ],
+        "positive": 7,
+        "tied": 16
+      }
+    },
+    "coarse_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          0.0,
+          0.4
+        ],
+        "effect": 0.2,
+        "negative": 3,
+        "paired_values": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 18
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          0.0,
+          0.4
+        ],
+        "effect": 0.2,
+        "negative": 3,
+        "paired_values": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 18
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          1.883333333333333,
+          16.276666666666667
+        ],
+        "effect": 8.573333333333332,
+        "negative": 3,
+        "paired_values": [
+          0.0,
+          4.300000000000004,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -4.200000000000003,
+          -22.700000000000003,
+          -22.700000000000003,
+          28.5,
+          28.5,
+          26.10000000000001,
+          26.10000000000001,
+          28.199999999999996,
+          0.0,
+          0.0,
+          0.0,
+          40.3,
+          0.0,
+          53.800000000000004,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          71.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 18
+      }
+    },
+    "exact_minus_buyer_informed": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.16666666666666666,
+          0.36666666666666664
+        ],
+        "effect": 0.1,
+        "negative": 7,
+        "paired_values": [
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 10,
+        "tied": 13
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.16666666666666666,
+          0.36666666666666664
+        ],
+        "effect": 0.1,
+        "negative": 7,
+        "paired_values": [
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 10,
+        "tied": 13
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -7.3533333333333335,
+          13.246666666666668
+        ],
+        "effect": 2.98,
+        "negative": 7,
+        "paired_values": [
+          -4.300000000000004,
+          0.0,
+          0.0,
+          6.399999999999999,
+          0.0,
+          -11.099999999999994,
+          0.0,
+          0.0,
+          4.200000000000003,
+          0.0,
+          22.700000000000003,
+          0.0,
+          28.5,
+          -28.5,
+          0.0,
+          -26.10000000000001,
+          0.0,
+          -28.199999999999996,
+          16.799999999999997,
+          16.799999999999997,
+          0.0,
+          0.0,
+          -53.800000000000004,
+          53.800000000000004,
+          46.1,
+          46.1,
+          71.0,
+          -71.0,
+          0.0,
+          0.0
+        ],
+        "positive": 10,
+        "tied": 13
+      }
+    },
+    "exact_minus_coarse": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.36666666666666664,
+          0.16666666666666666
+        ],
+        "effect": -0.1,
+        "negative": 10,
+        "paired_values": [
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 7,
+        "tied": 13
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.36666666666666664,
+          0.16666666666666666
+        ],
+        "effect": -0.1,
+        "negative": 10,
+        "paired_values": [
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 7,
+        "tied": 13
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -12.44,
+          6.006666666666666
+        ],
+        "effect": -3.123333333333334,
+        "negative": 10,
+        "paired_values": [
+          -4.300000000000004,
+          -4.300000000000004,
+          0.0,
+          6.399999999999999,
+          -11.099999999999994,
+          -11.099999999999994,
+          0.0,
+          3.6000000000000014,
+          4.200000000000003,
+          0.0,
+          22.700000000000003,
+          0.0,
+          0.0,
+          -28.5,
+          -26.10000000000001,
+          -26.10000000000001,
+          0.0,
+          -28.199999999999996,
+          16.799999999999997,
+          0.0,
+          0.0,
+          0.0,
+          -53.800000000000004,
+          0.0,
+          46.1,
+          0.0,
+          71.0,
+          -71.0,
+          0.0,
+          0.0
+        ],
+        "positive": 7,
+        "tied": 13
+      }
+    },
+    "exact_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.16666666666666666,
+          0.3333333333333333
+        ],
+        "effect": 0.1,
+        "negative": 6,
+        "paired_values": [
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 15
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.16666666666666666,
+          0.3333333333333333
+        ],
+        "effect": 0.1,
+        "negative": 6,
+        "paired_values": [
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 15
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -1.0966666666666667,
+          12.686666666666666
+        ],
+        "effect": 5.45,
+        "negative": 6,
+        "paired_values": [
+          -4.300000000000004,
+          0.0,
+          0.0,
+          6.399999999999999,
+          -11.099999999999994,
+          -11.099999999999994,
+          0.0,
+          3.6000000000000014,
+          4.200000000000003,
+          -4.200000000000003,
+          0.0,
+          -22.700000000000003,
+          28.5,
+          0.0,
+          0.0,
+          0.0,
+          28.199999999999996,
+          -28.199999999999996,
+          16.799999999999997,
+          0.0,
+          40.3,
+          0.0,
+          0.0,
+          0.0,
+          46.1,
+          0.0,
+          71.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 15
+      }
+    },
+    "exact_minus_seller_informed": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          0.03333333333333333,
+          0.43333333333333335
+        ],
+        "effect": 0.23333333333333334,
+        "negative": 2,
+        "paired_values": [
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 19
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          0.03333333333333333,
+          0.43333333333333335
+        ],
+        "effect": 0.23333333333333334,
+        "negative": 2,
+        "paired_values": [
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 19
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -2.310000000000001,
+          13.596666666666666
+        ],
+        "effect": 5.813333333333333,
+        "negative": 2,
+        "paired_values": [
+          0.0,
+          -4.300000000000004,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.6000000000000014,
+          4.200000000000003,
+          0.0,
+          22.700000000000003,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          28.199999999999996,
+          0.0,
+          16.799999999999997,
+          16.799999999999997,
+          0.0,
+          40.3,
+          0.0,
+          0.0,
+          0.0,
+          46.1,
+          71.0,
+          -71.0,
+          0.0,
+          0.0
+        ],
+        "positive": 9,
+        "tied": 19
+      }
+    },
+    "seller_informed_minus_hidden": {
+      "decision_quality": {
+        "bootstrap_ci95": [
+          -0.36666666666666664,
+          0.13333333333333333
+        ],
+        "effect": -0.13333333333333333,
+        "negative": 10,
+        "paired_values": [
+          -1.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 6,
+        "tied": 14
+      },
+      "normalized_welfare": {
+        "bootstrap_ci95": [
+          -0.36666666666666664,
+          0.13333333333333333
+        ],
+        "effect": -0.13333333333333333,
+        "negative": 10,
+        "paired_values": [
+          -1.0,
+          1.0,
+          0.0,
+          1.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          1.0,
+          -1.0,
+          0.0,
+          0.0,
+          1.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "positive": 6,
+        "tied": 14
+      },
+      "welfare": {
+        "bootstrap_ci95": [
+          -8.219999999999999,
+          8.186666666666666
+        ],
+        "effect": -0.36333333333333306,
+        "negative": 10,
+        "paired_values": [
+          -4.300000000000004,
+          4.300000000000004,
+          0.0,
+          6.399999999999999,
+          -11.099999999999994,
+          -11.099999999999994,
+          0.0,
+          0.0,
+          0.0,
+          -4.200000000000003,
+          -22.700000000000003,
+          -22.700000000000003,
+          28.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -28.199999999999996,
+          0.0,
+          -16.799999999999997,
+          40.3,
+          -40.3,
+          0.0,
+          0.0,
+          46.1,
+          -46.1,
+          0.0,
+          71.0,
+          0.0,
+          0.0
+        ],
+        "positive": 6,
+        "tied": 14
+      }
+    }
+  },
+  "population_reweighted_cells": {
+    "buyer_informed": {
+      "decision_quality": 0.39765625,
+      "expected_welfare": 12.6309375,
+      "normalized_welfare": 0.39765625
+    },
+    "coarse": {
+      "decision_quality": 0.598046875,
+      "expected_welfare": 18.647226562500002,
+      "normalized_welfare": 0.598046875
+    },
+    "exact": {
+      "decision_quality": 0.49531249999999993,
+      "expected_welfare": 15.453828125,
+      "normalized_welfare": 0.49531249999999993
+    },
+    "hidden": {
+      "decision_quality": 0.4,
+      "expected_welfare": 10.2574609375,
+      "normalized_welfare": 0.4
+    },
+    "seller_informed": {
+      "decision_quality": 0.260546875,
+      "expected_welfare": 9.6964453125,
+      "normalized_welfare": 0.260546875
+    }
+  },
+  "protocol_version": "single_good_bargaining_v7_balanced_panel_20260824",
+  "usage": {
+    "call_count": 379,
+    "input_tokens": 206975,
+    "output_tokens": 25055,
+    "reasoning_tokens": 0
+  }
+}

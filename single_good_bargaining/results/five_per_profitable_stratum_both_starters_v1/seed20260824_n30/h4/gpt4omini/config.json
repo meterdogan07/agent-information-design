@@ -1,0 +1,77 @@
+{
+  "authorized_max_cost_usd": 3.0,
+  "backend": null,
+  "code_sha256": {
+    "__init__.py": "91de22f542f16ce3f354cdacf419828c1ef4604eee9c2a6df89fbcd5ab7d4df2",
+    "design.py": "b2fa9a06f7a4eb6541989dedc19a2a7d3a71ec16412e146e448af900f0d5edc1",
+    "experiment.py": "4326d6cffefebf6c6a2b2a5ffa9c088038dc80d0c44a78728d0529a8fdd86903",
+    "game.py": "359ce5516347d3b4c01e22b09c41189ce91c92a8c432c290d04d3a5d65bdb67c",
+    "models.py": "24b23f22731218932cf84c2ff741a173603e6eeaf4421bf0257da64f6d86cfe5",
+    "run.py": "c8ed9ae3abe6750130aa2269a7808c809de42061013243e12b243c60c6b4963d",
+    "runtime_artifacts.py": "fc161842ab4b11ea9b3bd3ad85894b285e4e8feb5f3715d03329e435891a1acc",
+    "runtime_init.py": "0ab6c912a75e0eb1f2a342076e9bbb023e7b078a4740244b30142c4b6b92b0e8",
+    "runtime_provider.py": "6d4f044f793bbb3180f07b015607f263c172975503fb159c65e36e9482c641ba",
+    "verify.py": "e013740b432c4855fee06fe9064a4001e248a2f8f2a916edc5737017a491768d"
+  },
+  "condition_signals": {
+    "buyer_informed": {
+      "buyer": "exact",
+      "seller": "hidden"
+    },
+    "coarse": {
+      "buyer": "coarse",
+      "seller": "coarse"
+    },
+    "exact": {
+      "buyer": "exact",
+      "seller": "exact"
+    },
+    "hidden": {
+      "buyer": "hidden",
+      "seller": "hidden"
+    },
+    "seller_informed": {
+      "buyer": "hidden",
+      "seller": "exact"
+    }
+  },
+  "conditions": [
+    "hidden",
+    "coarse",
+    "exact",
+    "seller_informed",
+    "buyer_informed"
+  ],
+  "cost_estimate": {
+    "conditions": 5,
+    "episodes": 150,
+    "estimated_cost_usd": 0.54,
+    "estimated_input_tokens_per_call": 800,
+    "estimated_output_tokens_per_call": 1300,
+    "input_usd_per_million": 0.15,
+    "markets": 30,
+    "maximum_calls": 600,
+    "output_usd_per_million": 0.6,
+    "recommended_authorization_usd": 0.81
+  },
+  "created_at_utc": "2026-09-24T20:30:28.059064+00:00",
+  "expected_episodes": 150,
+  "expected_markets": 30,
+  "horizon": 4,
+  "markets_sha256": "c5367950827a66b7f46e97efd69be3af4296d38e4fcbda0bed918af21f5b6e36",
+  "max_tokens": 4096,
+  "model": "gpt-4o-mini-2024-07-18",
+  "model_preset": "gpt4omini",
+  "paid_run_confirmed": true,
+  "panel_id": "five_per_profitable_stratum_both_starters_v1",
+  "pricing_verified_on": "2026-09-24",
+  "prior_id": "independent_uniform_20_100_v1",
+  "prompt_version": "clear_game_final_action_v6_20260824",
+  "protocol_version": "single_good_bargaining_v7_balanced_panel_20260824",
+  "provider": "openai",
+  "reasoning_effort": "none",
+  "retries": 2,
+  "seed": 20260824,
+  "status": "paid_exploratory",
+  "workers": 4
+}

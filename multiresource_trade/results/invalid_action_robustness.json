@@ -1,0 +1,527 @@
+{
+  "comparison": "full minus coarse; primary results retain all negotiations",
+  "weighting": "equal weight per matched negotiation within each reported group",
+  "models": {
+    "Claude-Sonnet-5": {
+      "sources": [
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/Claude-Sonnet-5/least/episodes.jsonl",
+          "sha256": "36fe9a6680171993577b03d6f001c079b37cdf393e79ba8780be9d1306acf29b"
+        },
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/Claude-Sonnet-5/coarse_and_full/episodes.jsonl",
+          "sha256": "5ed232c002c516418607ccadf41e6aabdb9994db437fa6c154e164d022f77713"
+        }
+      ],
+      "results": {
+        "h8_first_A": {
+          "counts_by_condition": {
+            "exact_values": {
+              "negotiations": 90,
+              "invalid_actions": 10,
+              "negotiations_with_invalid_actions": 5
+            },
+            "inventory_only": {
+              "negotiations": 90,
+              "invalid_actions": 9,
+              "negotiations_with_invalid_actions": 5
+            },
+            "rank_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            }
+          },
+          "welfare_by_group": {
+            "a_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.7019444444444445,
+                "full_W": 0.8674999999999999,
+                "full_minus_coarse_W": 0.16555555555555546
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 28,
+                "coarse_W": 0.6806547619047619,
+                "full_W": 0.8624999999999999,
+                "full_minus_coarse_W": 0.181845238095238
+              },
+              "excluded_pairs": 2
+            },
+            "b_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.7219444444444444,
+                "full_W": 0.8197222222222222,
+                "full_minus_coarse_W": 0.09777777777777785
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 29,
+                "coarse_W": 0.7209770114942529,
+                "full_W": 0.8221264367816092,
+                "full_minus_coarse_W": 0.10114942528735638
+              },
+              "excluded_pairs": 1
+            },
+            "equal": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.7377777777777778,
+                "full_W": 0.8805555555555556,
+                "full_minus_coarse_W": 0.1427777777777779
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 28,
+                "coarse_W": 0.7279761904761904,
+                "full_W": 0.8836309523809524,
+                "full_minus_coarse_W": 0.1556547619047619
+              },
+              "excluded_pairs": 2
+            },
+            "overall": {
+              "all_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.7205555555555555,
+                "full_W": 0.8559259259259259,
+                "full_minus_coarse_W": 0.13537037037037036
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 85,
+                "coarse_W": 0.71,
+                "full_W": 0.855686274509804,
+                "full_minus_coarse_W": 0.14568627450980398
+              },
+              "excluded_pairs": 5
+            }
+          },
+          "excluded_pairs": [
+            {
+              "market_id": "region-proposer__profile3__q4_1__resources2__yx",
+              "replication": 0,
+              "group": "a_higher",
+              "invalid_conditions": [
+                "exact_values"
+              ]
+            },
+            {
+              "market_id": "region-responder__profile2__q2_1__resources2__yx",
+              "replication": 0,
+              "group": "b_higher",
+              "invalid_conditions": [
+                "exact_values"
+              ]
+            },
+            {
+              "market_id": "region-responder__profile6__q2_1__resources2__yx",
+              "replication": 0,
+              "group": "a_higher",
+              "invalid_conditions": [
+                "exact_values"
+              ]
+            },
+            {
+              "market_id": "region-symmetric__profile2__q5_1__resources2__xy",
+              "replication": 0,
+              "group": "equal",
+              "invalid_conditions": [
+                "exact_values"
+              ]
+            },
+            {
+              "market_id": "region-symmetric__profile4__q4_1__resources2__yx",
+              "replication": 0,
+              "group": "equal",
+              "invalid_conditions": [
+                "exact_values"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "GPT-5-mini": {
+      "sources": [
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/GPT-5-mini/least/episodes.jsonl",
+          "sha256": "560cca3288a8517d41c61592c9937b59b915cfb3ab146cffc4b26ec3f365e351"
+        },
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/GPT-5-mini/coarse_and_full/episodes.jsonl",
+          "sha256": "acdb29ced8183bd58434b0e00d88c3b6a3d4452ab5d7ac8a4ebeb7e2d2be2769"
+        }
+      ],
+      "results": {
+        "h8_first_A": {
+          "counts_by_condition": {
+            "exact_values": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "inventory_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "rank_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            }
+          },
+          "welfare_by_group": {
+            "a_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.961111111111111,
+                "full_W": 0.8833333333333333,
+                "full_minus_coarse_W": -0.07777777777777772
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.961111111111111,
+                "full_W": 0.8833333333333333,
+                "full_minus_coarse_W": -0.07777777777777772
+              },
+              "excluded_pairs": 0
+            },
+            "b_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9252777777777778,
+                "full_W": 0.7319444444444444,
+                "full_minus_coarse_W": -0.19333333333333336
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9252777777777778,
+                "full_W": 0.7319444444444444,
+                "full_minus_coarse_W": -0.19333333333333336
+              },
+              "excluded_pairs": 0
+            },
+            "equal": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9319444444444444,
+                "full_W": 0.8963888888888889,
+                "full_minus_coarse_W": -0.03555555555555545
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9319444444444444,
+                "full_W": 0.8963888888888889,
+                "full_minus_coarse_W": -0.03555555555555545
+              },
+              "excluded_pairs": 0
+            },
+            "overall": {
+              "all_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.9394444444444444,
+                "full_W": 0.8372222222222222,
+                "full_minus_coarse_W": -0.10222222222222221
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.9394444444444444,
+                "full_W": 0.8372222222222222,
+                "full_minus_coarse_W": -0.10222222222222221
+              },
+              "excluded_pairs": 0
+            }
+          },
+          "excluded_pairs": []
+        }
+      }
+    },
+    "GPT-5.1": {
+      "sources": [
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/GPT-5.1/least/episodes.jsonl",
+          "sha256": "4f35dac82871a4114f9bbe89122a524d9d6dab924ba305bf0d95a07676875c71"
+        },
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/GPT-5.1/coarse_and_full/episodes.jsonl",
+          "sha256": "3355c2abe8e136421474345d9d3832040cc9419baa54ff4910d38260705f9ee2"
+        }
+      ],
+      "results": {
+        "h8_first_A": {
+          "counts_by_condition": {
+            "exact_values": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "inventory_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "rank_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            }
+          },
+          "welfare_by_group": {
+            "a_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.975,
+                "full_W": 0.8547222222222222,
+                "full_minus_coarse_W": -0.12027777777777782
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.975,
+                "full_W": 0.8547222222222222,
+                "full_minus_coarse_W": -0.12027777777777782
+              },
+              "excluded_pairs": 0
+            },
+            "b_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9772222222222222,
+                "full_W": 0.8450000000000001,
+                "full_minus_coarse_W": -0.13222222222222213
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9772222222222222,
+                "full_W": 0.8450000000000001,
+                "full_minus_coarse_W": -0.13222222222222213
+              },
+              "excluded_pairs": 0
+            },
+            "equal": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9638888888888889,
+                "full_W": 0.9536111111111112,
+                "full_minus_coarse_W": -0.010277777777777719
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9638888888888889,
+                "full_W": 0.9536111111111112,
+                "full_minus_coarse_W": -0.010277777777777719
+              },
+              "excluded_pairs": 0
+            },
+            "overall": {
+              "all_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.972037037037037,
+                "full_W": 0.8844444444444444,
+                "full_minus_coarse_W": -0.08759259259259267
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.972037037037037,
+                "full_W": 0.8844444444444444,
+                "full_minus_coarse_W": -0.08759259259259267
+              },
+              "excluded_pairs": 0
+            }
+          },
+          "excluded_pairs": []
+        }
+      }
+    },
+    "Gemini-3.7-Flash": {
+      "sources": [
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/Gemini-3.7-Flash/least/episodes.jsonl",
+          "sha256": "0a20c917ceffec5e0d7ba001b58039b7cd79bdf4c9620df959740556d929ae57"
+        },
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/Gemini-3.7-Flash/coarse_and_full/episodes.jsonl",
+          "sha256": "40c72728b3e50b5bbb7b18611f9df4dbc577c311ce1d3fa70e23067b30f645dd"
+        }
+      ],
+      "results": {
+        "h8_first_A": {
+          "counts_by_condition": {
+            "exact_values": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "inventory_only": {
+              "negotiations": 90,
+              "invalid_actions": 3,
+              "negotiations_with_invalid_actions": 3
+            },
+            "rank_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            }
+          },
+          "welfare_by_group": {
+            "a_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9494444444444444,
+                "full_W": 0.8788888888888889,
+                "full_minus_coarse_W": -0.07055555555555548
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9494444444444444,
+                "full_W": 0.8788888888888889,
+                "full_minus_coarse_W": -0.07055555555555548
+              },
+              "excluded_pairs": 0
+            },
+            "b_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9391666666666667,
+                "full_W": 0.898888888888889,
+                "full_minus_coarse_W": -0.040277777777777746
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9391666666666667,
+                "full_W": 0.898888888888889,
+                "full_minus_coarse_W": -0.040277777777777746
+              },
+              "excluded_pairs": 0
+            },
+            "equal": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9222222222222223,
+                "full_W": 0.9877777777777778,
+                "full_minus_coarse_W": 0.06555555555555548
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.9222222222222223,
+                "full_W": 0.9877777777777778,
+                "full_minus_coarse_W": 0.06555555555555548
+              },
+              "excluded_pairs": 0
+            },
+            "overall": {
+              "all_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.9369444444444445,
+                "full_W": 0.9218518518518519,
+                "full_minus_coarse_W": -0.015092592592592546
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.9369444444444445,
+                "full_W": 0.9218518518518519,
+                "full_minus_coarse_W": -0.015092592592592546
+              },
+              "excluded_pairs": 0
+            }
+          },
+          "excluded_pairs": []
+        }
+      }
+    },
+    "Grok-4.3": {
+      "sources": [
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/Grok-4.3/least/episodes.jsonl",
+          "sha256": "b7a033db3f26d10dbf03c57d61a5dc4093f33c91b50a0a237bd26cabd1e819a5"
+        },
+        {
+          "path": "/Users/merdogan/Documents/Trade/negotiationarena_open_trade/results/01_main_same_model/Grok-4.3/coarse_and_full/episodes.jsonl",
+          "sha256": "203132914c369e9fe8f42c4db4847b6cccc49036c61b34c8a7414a683fef8915"
+        }
+      ],
+      "results": {
+        "h8_first_A": {
+          "counts_by_condition": {
+            "exact_values": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "inventory_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            },
+            "rank_only": {
+              "negotiations": 90,
+              "invalid_actions": 0,
+              "negotiations_with_invalid_actions": 0
+            }
+          },
+          "welfare_by_group": {
+            "a_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.6072222222222222,
+                "full_W": 0.8686111111111111,
+                "full_minus_coarse_W": 0.2613888888888889
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.6072222222222222,
+                "full_W": 0.8686111111111111,
+                "full_minus_coarse_W": 0.2613888888888889
+              },
+              "excluded_pairs": 0
+            },
+            "b_higher": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.6072222222222222,
+                "full_W": 0.8455555555555556,
+                "full_minus_coarse_W": 0.2383333333333334
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.6072222222222222,
+                "full_W": 0.8455555555555556,
+                "full_minus_coarse_W": 0.2383333333333334
+              },
+              "excluded_pairs": 0
+            },
+            "equal": {
+              "all_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.63,
+                "full_W": 0.9383333333333332,
+                "full_minus_coarse_W": 0.30833333333333324
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 30,
+                "coarse_W": 0.63,
+                "full_W": 0.9383333333333332,
+                "full_minus_coarse_W": 0.30833333333333324
+              },
+              "excluded_pairs": 0
+            },
+            "overall": {
+              "all_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.6148148148148148,
+                "full_W": 0.8841666666666667,
+                "full_minus_coarse_W": 0.26935185185185184
+              },
+              "excluding_invalid_pairs": {
+                "matched_pairs": 90,
+                "coarse_W": 0.6148148148148148,
+                "full_W": 0.8841666666666667,
+                "full_minus_coarse_W": 0.26935185185185184
+              },
+              "excluded_pairs": 0
+            }
+          },
+          "excluded_pairs": []
+        }
+      }
+    }
+  }
+}

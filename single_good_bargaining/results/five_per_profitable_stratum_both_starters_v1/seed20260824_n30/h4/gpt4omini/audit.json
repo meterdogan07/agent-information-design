@@ -1,0 +1,20 @@
+{
+  "audit_version": "source_snapshot_endpoint_bound_v2_20260824",
+  "current_source_matches": true,
+  "episodes": 150,
+  "errors": [],
+  "frozen_source_verified": true,
+  "invalid_actions": 0,
+  "markets": 30,
+  "maximum_prompt_characters": 2537,
+  "parse_errors": 0,
+  "passed": true,
+  "raw_api_calls": 379,
+  "run_dir": "/Users/merdogan/Documents/llm-information-design-submission/single_good_bargaining/results/five_per_profitable_stratum_both_starters_v1/seed20260824_n30/h4/gpt4omini",
+  "source_snapshot_present": true,
+  "terminal_proposal_attempts": 0,
+  "unsafe_acceptances": 2,
+  "warnings": [
+    "2 non-IR acceptances were blocked"
+  ]
+}

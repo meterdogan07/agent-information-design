@@ -1,0 +1,8 @@
+{
+  "defaults": {"reasoning_effort": "low", "temperature": null},
+  "studies": {
+    "trade": {"max_tokens": 4096, "runner_max_tokens": 2048, "timeout_seconds": 180},
+    "bargaining": {"max_tokens": 4096, "timeout_seconds": 120, "attempts": 2},
+    "auction": {"max_tokens": 2048, "timeout_seconds": 90, "attempts": 3}
+  }
+}
