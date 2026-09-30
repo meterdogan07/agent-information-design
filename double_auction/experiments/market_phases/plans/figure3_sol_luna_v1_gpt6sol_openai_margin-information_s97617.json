@@ -1,0 +1,29 @@
+{
+ "plan_version": 1,
+ "protocol_version": "double_auction_quantity_by_margin_v3_20260904",
+ "run_id": "figure3_sol_luna_v1_gpt6sol_openai_margin-information_s97617",
+ "provider": "openai",
+ "model": "gpt-6-sol",
+ "openrouter_provider": null,
+ "reasoning_effort": "low",
+ "temperature": "provider_default",
+ "max_tokens": 2048,
+ "mechanism": "midpoint",
+ "rounds": 1,
+ "feedback_policy": "none",
+ "seed": 97617,
+ "markets": 30,
+ "n_buyers": 3,
+ "n_sellers": 3,
+ "market_design": "margin_sweep",
+ "condition_set": "endpoint_precision",
+ "conditions": [
+  "least_information",
+  "coarse_information",
+  "full_information"
+ ],
+ "planned_model_calls": 540,
+ "execution_order": "seeded_interleaved_conditions",
+ "estimated_cost_usd": 12.0,
+ "created_utc": "2026-09-30T02:49:43Z"
+}

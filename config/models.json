@@ -1,4 +1,18 @@
 {
+  "gpt6sol": {
+    "provider": "openai", "model": "gpt-6-sol", "backend": null,
+    "tag": "gpt6sol_openai", "reasoning_effort": "low",
+    "optional": true,
+    "pricing": {"input": 2.0, "output": 10.0, "verified_on": "2026-09-29",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-sol"}
+  },
+  "gpt6luna": {
+    "provider": "openai", "model": "gpt-6-luna", "backend": null,
+    "tag": "gpt6luna_openai", "reasoning_effort": "low",
+    "optional": true,
+    "pricing": {"input": 0.10, "output": 0.50, "verified_on": "2026-09-29",
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"}
+  },
   "gpt4omini": {
     "provider": "openai", "model": "gpt-4o-mini-2024-07-18", "backend": null,
     "tag": "gpt4omini_20240718_openai", "reasoning_effort": "none",
