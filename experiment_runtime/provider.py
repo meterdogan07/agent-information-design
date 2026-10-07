@@ -9,9 +9,11 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import openai
+import httpx
 
 
 ENDPOINTS = {
+    "anthropic": ("https://api.anthropic.com/v1", "ANTHROPIC_API_KEY"),
     "openai": ("https://api.openai.com/v1", "OPENAI_API_KEY"),
     "openrouter": ("https://openrouter.ai/api/v1", "OPENROUTER_API_KEY"),
     "together": ("https://api.together.xyz/v1", "TOGETHER_API_KEY"),
@@ -48,6 +50,9 @@ def build_chat_request(*, provider, model, prompt, max_tokens, response_format,
     ``openrouter_reasoning`` preserves each study's existing handling of disabled
     reasoning. Neither retries nor game-specific response validation happen here.
     """
+    if provider == "anthropic":
+        return anthropic_request(model, prompt, max_tokens, response_format,
+                                 reasoning_effort, temperature)
     request = {"model": model, "messages": [{"role": "user", "content": prompt}],
                "response_format": response_format}
     if provider == "openai":
@@ -66,6 +71,70 @@ def build_chat_request(*, provider, model, prompt, max_tokens, response_format,
     if temperature is not None:
         request["temperature"] = temperature
     return request
+
+
+def anthropic_schema(schema):
+    """Express unsupported numeric bounds as descriptions; engines validate quantities."""
+    if isinstance(schema, list):
+        return [anthropic_schema(item) for item in schema]
+    if not isinstance(schema, dict):
+        return schema
+    bounds = {k: schema[k] for k in ("minimum", "maximum") if k in schema}
+    result = {k: anthropic_schema(v) for k, v in schema.items() if k not in bounds}
+    if bounds:
+        result["description"] = (result.get("description", "") + " " + str(bounds)).strip()
+    return result
+
+
+def anthropic_request(model, prompt, max_tokens, response_format, effort, temperature):
+    if effort not in {"low", "medium", "high", "xhigh", "max"}:
+        raise ValueError("Direct Anthropic requires an explicit supported effort; thinking stays on")
+    if temperature is not None:
+        raise ValueError("Direct Anthropic runs require provider-default temperature")
+    output = {"effort": effort}
+    if response_format["type"] == "json_schema":
+        output["format"] = {"type": "json_schema", "schema": anthropic_schema(
+            response_format["json_schema"]["schema"])}
+    else:
+        # Native Messages has no schema-free JSON-object mode. Do not silently
+        # weaken the format constraint: the caller must supply its actual schema.
+        raise ValueError("Direct Anthropic requires a JSON schema")
+    return {"model": model, "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": max_tokens, "thinking": {"type": "adaptive"},
+            "output_config": output}
+
+
+class AnthropicClient:
+    """Native Messages transport, no automatic retries and no provider fallback."""
+
+    def __init__(self, api_key, timeout):
+        self.http = httpx.Client(base_url="https://api.anthropic.com/v1/", timeout=timeout,
+                                 headers={"x-api-key": api_key,
+                                          "anthropic-version": "2023-06-01"})
+
+    def complete(self, request):
+        response = self.http.post("messages", json=request)
+        if response.is_error:
+            # Never include headers or credentials in an error/log.
+            raise RuntimeError(f"Anthropic HTTP {response.status_code}: {response.text[:1000]}")
+        native = response.json()
+        content = "".join(b.get("text", "") for b in native.get("content", [])
+                          if b.get("type") == "text")
+        stop = native.get("stop_reason")
+        finish = {"end_turn": "stop", "max_tokens": "length"}.get(stop, stop)
+        usage = native.get("usage") or {}
+        inputs = sum(usage.get(k, 0) or 0 for k in
+                     ("input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens"))
+        outputs = usage.get("output_tokens", 0) or 0
+        normalized = {**usage, "prompt_tokens": inputs, "completion_tokens": outputs,
+                      "total_tokens": inputs + outputs}
+        # Output tokens already include thinking. Do not count it twice or infer
+        # an unreported thinking-token count from the visible summary.
+        payload = {"id": native.get("id"), "model": native.get("model"),
+                   "provider": "Anthropic", "usage": normalized,
+                   "choices": [{"finish_reason": finish, "message": {"content": content}}],
+                   "anthropic_response": native}
+        return Completion(content, payload, finish, "content")
 
 
 def load_env_files(paths: Iterable[Path]) -> None:
@@ -91,6 +160,8 @@ def create_client(provider: str, *, timeout: float) -> openai.OpenAI:
     api_key = os.environ.get(key_name)
     if not api_key:
         raise RuntimeError(f"{key_name} is not set")
+    if provider == "anthropic":
+        return AnthropicClient(api_key, timeout)
     return openai.OpenAI(
         api_key=api_key,
         base_url=base_url,
@@ -132,6 +203,8 @@ def complete_chat(
     fallback_to_reasoning: bool = False,
 ) -> Completion:
     """Send one request and normalize response metadata across providers."""
+    if isinstance(client, AnthropicClient):
+        return client.complete(request)
     response = client.chat.completions.create(**request)
     payload = response.model_dump()
     choice = response.choices[0]

@@ -17,17 +17,31 @@ class TracedLLM(TracedProviderModel):
 
     def __init__(self, provider, model, reasoning_effort, max_tokens,
                  openrouter_provider=None):
-        if provider not in {"openai", "openrouter"}:
-            raise ValueError("provider must be 'openai' or 'openrouter'")
+        if provider not in {"openai", "openrouter", "anthropic"}:
+            raise ValueError("provider must be openai, openrouter, or anthropic")
         super().__init__(provider, model, reasoning_effort,
                          timeout=generation_settings("auction")["timeout_seconds"])
         self.max_tokens = max_tokens
         self.openrouter_provider = openrouter_provider
 
     def _request(self, prompt, max_tokens):
+        response_format = {"type": "json_object"}
+        if self.provider == "anthropic":
+            # Same output fields as the existing prompt; native Messages needs
+            # a schema instead of OpenAI's schema-free JSON-object mode.
+            if '"bid": <number>' in prompt:
+                field = "bid"
+            elif '"ask": <number>' in prompt:
+                field = "ask"
+            else:
+                raise ValueError("Direct Anthropic supports the standard single-unit auction prompt")
+            response_format = {"type": "json_schema", "json_schema": {"schema": {
+                "type": "object", "properties": {"reasoning": {"type": "string"},
+                field: {"type": "number"}}, "required": ["reasoning", field],
+                "additionalProperties": False}}}
         return build_chat_request(
             provider=self.provider, model=self.model, prompt=prompt, max_tokens=max_tokens,
-            response_format={"type": "json_object"}, reasoning_effort=self.reasoning_effort,
+            response_format=response_format, reasoning_effort=self.reasoning_effort,
             backend=self.openrouter_provider,
             openai_reasoning=not self.model.startswith("gpt-4o-mini"),
             openrouter_reasoning=({"enabled": False} if self.reasoning_effort in {None, "none"}
@@ -72,6 +86,9 @@ class TracedLLM(TracedProviderModel):
                     "elapsed_seconds": time.monotonic() - started,
                     "error": error,
                 }
+                if self.provider == "anthropic":
+                    record.update(native_request=request,
+                                  native_response=data.get("anthropic_response"))
                 if error:
                     retries.append(record)
                     final_error = RuntimeError(error)

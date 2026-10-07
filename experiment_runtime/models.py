@@ -42,7 +42,7 @@ def generation_settings(study, preset=None):
 def model_settings(preset):
     """Read a named endpoint without constructing a client or loading secrets."""
     result = deepcopy(_MODELS[preset])
-    if result["provider"] not in {"openai", "openrouter"}:
+    if result["provider"] not in {"openai", "openrouter", "anthropic"}:
         raise ValueError(f"Unsupported provider for {preset}")
     if result["provider"] == "openrouter" and not result["backend"]:
         raise ValueError(f"OpenRouter backend must be pinned for {preset}")
@@ -92,7 +92,7 @@ def main():
     settings = generation_settings(args.study, args.preset)
     if args.shell:
         values = {"MODEL_TAG": model["tag"], "PROVIDER_ID": model["provider"],
-                  "MODEL_ID": model["model"], "MODEL_BACKEND": model["backend"] or "OpenAI",
+                  "MODEL_ID": model["model"], "MODEL_BACKEND": model["backend"] or model["provider"],
                   "OPENROUTER_BACKEND": model["backend"] or "",
                   "REASONING_SETTING": settings["reasoning_effort"],
                   "GENERATION_MAX_TOKENS": settings["max_tokens"]}

@@ -228,7 +228,7 @@ def run_study(args):
 
     print(
         f"Model: {args.model_name} | {model['provider']} / {model['model']}"
-        f" | backend: {model['backend'] or 'OpenAI'}",
+        f" | backend: {model['backend'] or model['provider']}",
         flush=True,
     )
     for preset in STUDIES[args.study]:

@@ -236,7 +236,7 @@ def completed_indices(path, condition, instances, config):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--provider", default="openai",
-                    choices=["openrouter", "openai"])
+                    choices=["openrouter", "openai", "anthropic"])
     ap.add_argument("--model", default=model_settings("gpt51")["model"])
     ap.add_argument("--openrouter-provider",
                     help="fixed OpenRouter backend; disables fallback routing")
