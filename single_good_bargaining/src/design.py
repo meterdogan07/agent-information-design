@@ -56,6 +56,8 @@ CONDITION_SIGNALS = {
     "buyer_informed": {"seller": "hidden", "buyer": "exact"},
 }
 CONDITIONS = tuple(CONDITION_SIGNALS)
+MAIN_CONDITIONS = ("hidden", "coarse", "exact")
+CONDITION_SETS = {"all": CONDITIONS, "main": MAIN_CONDITIONS}
 
 CONDITION_DESCRIPTIONS = {
     "hidden": "Neither agent sees the counterpart's reservation value.",

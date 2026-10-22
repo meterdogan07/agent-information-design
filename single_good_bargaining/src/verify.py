@@ -94,8 +94,12 @@ def audit_run(run_dir: Path) -> dict[str, Any]:
         errors.append("protocol version mismatch")
     if config.get("prompt_version") != design.PROMPT_VERSION:
         errors.append("prompt version mismatch")
-    if config.get("conditions") != list(design.CONDITIONS):
+    conditions = config.get("conditions")
+    if conditions not in [list(value) for value in design.CONDITION_SETS.values()]:
         errors.append("condition list mismatch")
+        return {"passed": False, "errors": errors, "warnings": warnings}
+    if config.get("expected_episodes") != len(markets) * len(conditions):
+        errors.append("expected episode count does not match markets and conditions")
     if config.get("condition_signals") != design.CONDITION_SIGNALS:
         errors.append("condition signal map mismatch")
     if config.get("prior_id") != design.PRIOR_ID:
@@ -183,7 +187,7 @@ def audit_run(run_dir: Path) -> dict[str, Any]:
         errors.append("market count cannot be balanced across four families")
 
     seen: set[str] = set()
-    paired = {condition: set() for condition in design.CONDITIONS}
+    paired = {condition: set() for condition in conditions}
     raw_count = 0
     max_prompt = 0
     terminal_proposals = 0
@@ -200,8 +204,8 @@ def audit_run(run_dir: Path) -> dict[str, Any]:
         condition = row.get("condition")
         market = row.get("market") or {}
         market_id = market.get("market_id")
-        if condition not in design.CONDITIONS:
-            errors.append(f"{prefix}: unknown condition")
+        if condition not in conditions:
+            errors.append(f"{prefix}: condition not included in configured panel")
             continue
         paired[condition].add(market_id)
         if episode_id != f"{market_id}::{condition}":
@@ -433,6 +437,9 @@ def analyze_run(run_dir: Path) -> dict[str, Any]:
     if not audit["passed"]:
         raise ValueError("audit failed")
     config = json.loads((run_dir / "config.json").read_text())
+    conditions = config["conditions"]
+    selected_contrasts = [item for item in CONTRASTS
+                          if item[0] in conditions and item[1] in conditions]
     rows = _read_jsonl(run_dir / "episodes.jsonl")
     # Analysis always uses the current deterministic metric definition. This
     # adds newly introduced diagnostics to old immutable episode records.
@@ -447,12 +454,12 @@ def analyze_run(run_dir: Path) -> dict[str, Any]:
     def cells(ids: list[str]) -> dict[str, Any]:
         return {
             condition: summarize([by_key[(market_id, condition)] for market_id in ids])
-            for condition in design.CONDITIONS
+            for condition in conditions
         }
 
     def contrasts(ids: list[str]) -> dict[str, Any]:
         result = {}
-        for high, low, name in CONTRASTS:
+        for high, low, name in selected_contrasts:
             result[name] = {}
             for field in ("normalized_welfare", "welfare", "decision_quality"):
                 values = [
@@ -492,7 +499,7 @@ def analyze_run(run_dir: Path) -> dict[str, Any]:
                 "markets": len(ids), "cells": cells(ids), "paired_contrasts": contrasts(ids)
             }
     population_reweighted_cells = {}
-    for condition in design.CONDITIONS:
+    for condition in conditions:
         population_reweighted_cells[condition] = {
             "normalized_welfare": sum(
                 population_weights[family]
@@ -517,7 +524,7 @@ def analyze_run(run_dir: Path) -> dict[str, Any]:
             paired_ids.setdefault(market["base_market_id"], {})[
                 market["first_mover"]
             ] = market_id
-        for high, low, name in CONTRASTS:
+        for high, low, name in selected_contrasts:
             first_mover_interactions[name] = {}
             for field in ("normalized_welfare", "welfare", "decision_quality"):
                 values = []

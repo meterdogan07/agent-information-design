@@ -41,16 +41,17 @@ def estimate_cost(
     output_price: float,
     input_tokens_per_call: int,
     output_tokens_per_call: int,
+    conditions: tuple[str, ...] = design.CONDITIONS,
 ) -> dict[str, Any]:
-    maximum_calls = markets * len(design.CONDITIONS) * horizon
+    maximum_calls = markets * len(conditions) * horizon
     estimated = maximum_calls * (
         input_tokens_per_call * input_price
         + output_tokens_per_call * output_price
     ) / 1_000_000
     return {
         "markets": markets,
-        "conditions": len(design.CONDITIONS),
-        "episodes": markets * len(design.CONDITIONS),
+        "conditions": len(conditions),
+        "episodes": markets * len(conditions),
         "maximum_calls": maximum_calls,
         "estimated_input_tokens_per_call": input_tokens_per_call,
         "estimated_output_tokens_per_call": output_tokens_per_call,
@@ -149,6 +150,8 @@ def main() -> None:
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--retries", type=int, default=GENERATION["attempts"])
     parser.add_argument("--results-dir", type=Path)
+    parser.add_argument("--condition-set", choices=tuple(design.CONDITION_SETS), default="all",
+                        help="main: least/coarse/full only; all: also run both one-sided conditions.")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--dry-run", action="store_true")
     mode.add_argument("--mock", action="store_true")
@@ -161,6 +164,7 @@ def main() -> None:
                         dest="authorized_max_cost_usd", type=float,
                         help="Authorized dollar ceiling; required with --execute.")
     args = parser.parse_args()
+    conditions = design.CONDITION_SETS[args.condition_set]
     if args.markets <= 0 or args.max_tokens <= 0 or args.workers <= 0 or args.retries <= 0:
         raise SystemExit("markets, max-tokens, workers, and retries must be positive")
 
@@ -185,6 +189,7 @@ def main() -> None:
         output_price,
         args.estimated_input_tokens_per_call,
         args.estimated_output_tokens_per_call,
+        conditions,
     )
     config = {
         "protocol_version": design.PROTOCOL_VERSION,
@@ -197,12 +202,12 @@ def main() -> None:
         "backend": None if args.mock else preset["backend"],
         "reasoning_effort": None if args.mock else preset["reasoning_effort"],
         "pricing_verified_on": None if args.mock else preset["pricing_verified_on"],
-        "conditions": list(design.CONDITIONS),
+        "conditions": list(conditions),
         "condition_signals": design.CONDITION_SIGNALS,
         "horizon": args.horizon,
         "max_tokens": args.max_tokens,
         "expected_markets": market_count,
-        "expected_episodes": market_count * len(design.CONDITIONS),
+        "expected_episodes": market_count * len(conditions),
         "seed": args.seed,
         "prior_id": design.PRIOR_ID,
         "panel_id": args.panel,
@@ -219,7 +224,7 @@ def main() -> None:
     if config["backend"]:
         print(f"  backend: {config['backend']} (fallback disabled)")
     print(
-        f"  design: {market_count} markets x {len(design.CONDITIONS)} conditions "
+        f"  design: {market_count} markets x {len(conditions)} conditions "
         f"at H{args.horizon} = {config['expected_episodes']} episodes"
     )
     counts = {family: sum(market["family"] == family for market in markets) for family in design.FAMILIES}
@@ -259,6 +264,8 @@ def main() -> None:
         model = game.make_mock_model()
 
     results_root = REPOSITORY / "results"
+    if args.condition_set != "all":
+        results_root = results_root / f"conditions_{args.condition_set}"
     if args.panel != design.PANEL_ID:
         results_root = results_root / args.panel
     default_dir = (
@@ -301,8 +308,8 @@ def main() -> None:
         spent = sum(float(row.get("actual_cost_usd", 0)) for row in existing + previous_failures)
         specs = []
         for market in markets:
-            shift = market["idx"] % len(design.CONDITIONS)
-            order = design.CONDITIONS[shift:] + design.CONDITIONS[:shift]
+            shift = market["idx"] % len(conditions)
+            order = conditions[shift:] + conditions[:shift]
             for condition in order:
                 if f"{market['market_id']}::{condition}" not in completed:
                     specs.append((market, condition))

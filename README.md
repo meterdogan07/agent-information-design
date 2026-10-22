@@ -32,7 +32,8 @@ the market files and bargaining simulation work locally:
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[analysis]'
-bash check.sh
+python -m unittest discover -s tests
+python export_markets.py --check
 ```
 
 These checks use simulated responses, so you can explore the setup without
@@ -53,6 +54,19 @@ The `.env` file is ignored by Git and should remain private. If it does not
 exist, `touch .env` creates an empty one without overwriting an existing file.
 
 ## Exploring the experiments
+
+Start with the common root-level interface. These commands preview the main
+three-condition studies without making API calls:
+
+```bash
+python experiments.py main trade gpt51
+python experiments.py main bargaining gpt51 --messages 6
+python experiments.py main auction gpt51
+```
+
+See [Running the experiments](RUNNING.md) for paid execution, output paths,
+resume behavior, and a map of the code. The experiment-specific commands below
+remain supported for advanced options and supporting studies.
 
 The scripts under each experiment's `scripts/main/` launch its main study for each
 model, while `scripts/ablations/` contains the supporting studies. For example,

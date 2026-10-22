@@ -4,6 +4,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
+# Prefer this checkout's runtime and model catalog over another editable install.
+export PYTHONPATH="$ROOT/..${PYTHONPATH:+:$PYTHONPATH}"
 PRESET="${1:-}"
 if [[ -z "$PRESET" ]]; then
   echo "Usage: bash run.sh MODEL [preview|execute] [--messages N] [--budget USD]" >&2
