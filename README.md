@@ -1,61 +1,80 @@
-# Empirical Information Design for LLM Agents
+# Who Should Know What?
 
-**How does what an agent knows change what agents achieve together?**
+### Empirical Information Design for Multi-Agent LLM Economies
 
-This repository accompanies our study of information disclosure in
-three economic settings. We compare disclosure conditions on the same markets,
-keeping the models and interaction rules fixed, and examine both the
-opportunities agents identify and the outcomes they achieve.
+Giving an agent more information can help it find a better trade. It can also
+change what it demands, leaving both sides with less to show for the negotiation.
+We study this tension in resource exchange, bargaining, and double auctions,
+comparing information policies on the same markets with the same models and rules.
 
-[Getting started](#getting-started) · [Experiments](#exploring-the-experiments) ·
-[Paid runs](#paid-execution-and-resuming-runs) · [Markets](#the-markets) ·
-[Analysis](#understanding-the-results) · [Code map](#finding-and-extending-the-code)
+This repository contains the experiment code, prompts, market generators, and
+evaluation tools used in the paper. The published market inputs are included;
+the complete model-run logs are not.
 
-Each setting has its own implementation and guide, covering the markets,
-prompts, model settings, and analysis.
+[Quick start](#quick-start) · [The games](#three-games) ·
+[Running experiments](#running-experiments) · [Code and data](#code-and-data)
 
+![Information disclosure and its effects across ten models in trade, bargaining, and double auctions.](figures/figure1.png)
 
-| Setting                | What the agents do                                       | Guide                                          |
-| ---------------------- | -------------------------------------------------------- | ---------------------------------------------- |
-| Multi-resource trade   | Two agents negotiate an exchange of resources.           | [Trade](multiresource_trade/README.md)         |
-| Single-good bargaining | A buyer and seller negotiate the price of one item.      | [Bargaining](single_good_bargaining/README.md) |
-| Double auctions        | Multiple buyers and sellers submit prices independently. | [Auctions](double_auction/README.md)           |
+*Moving from coarse to full information helps some models and hurts others.
+Trade and auction panels show changes in normalized total gains, in percentage
+points. Bargaining uses the normalized Nash score across all negotiations,
+including disagreements, at a six-message limit.*
+
+## Three games
+
+Each agent is instructed to maximize its own gains. We vary what it learns
+about the other participants before they act, then score the interaction using
+the underlying utilities, values, and costs.
+
+| Setting | Interaction | Main study | Guide |
+|---|---|---|---|
+| **Multi-resource trade** | Two agents exchange resources through dialogue. | 90 market records; two resources; eight messages | [Trade](multiresource_trade/README.md) |
+| **Single-good bargaining** | A buyer and seller negotiate a price. | 30 market instances; two, four, or six messages | [Bargaining](single_good_bargaining/README.md) |
+| **Double auctions** | Three buyers and three sellers submit prices independently. | 30 markets; simultaneous orders; midpoint pricing | [Auctions](double_auction/README.md) |
+
+The main comparisons use **least**, **coarse**, and **full** information.
+Coarse information gives preference rankings in trade, confirms whether a
+beneficial trade exists in bargaining, and gives separate buyer-value and
+seller-cost rankings in auctions. Full information reveals exact values.
+The guides also cover one-sided disclosure, mixed-model interactions, longer
+conversations, additional resources, and mediated trade.
+
+## Inside a negotiation
+
+The information policy changes what the agents know, not their objective.
+Below is a selected exchange from the paper, showing the information cards
+and conversation under full disclosure. The shared prompt is abbreviated.
+
+<p align="center">
+  <img src="figures/negotiation_example.png" width="720" alt="Information cards and a resource-trade conversation. Agent B counters with a trade that benefits itself more, before both agents agree on a compromise.">
+</p>
+
+This is why we look at both the offers and the final agreement. An agent can
+identify a useful exchange without implementing it; an agreement can also
+favor one participant heavily. The analysis reports **candidate quality (Q)**,
+**realized performance (W)**, and their difference, the **realization gap (L)**.
+Trade and auctions score total gains. Bargaining uses the normalized Nash
+product, which captures both agreement and how evenly gains are divided.
+The three settings are analyzed separately, not pooled into one score.
 
 <a id="start-here"></a>
+<a id="getting-started"></a>
 
-## Getting started
+## Quick start
 
-The code uses Python 3.11 or later, Bash, and Git, and can be used on macOS,
-Linux, or WSL. The following commands set up the environment and validate
-the saved market files:
+Use Python 3.11 or later, Bash, and Git on macOS, Linux, or WSL.
 
 ```bash
+git clone https://github.com/meterdogan07/agent-information-design.git
+cd agent-information-design
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[analysis]'
 python export_markets.py --check
 ```
 
-Market validation requires no API credentials and makes no paid model calls.
-
-### Connecting models
-
-When you are ready to use the models, their API keys belong in a `.env` file
-at the repository root. Only the providers used by your chosen experiment
-need credentials:
-
-```dotenv
-OPENAI_API_KEY=your_key
-OPENROUTER_API_KEY=your_key
-```
-
-The `.env` file is ignored by Git and should remain private. If it does not
-exist, `touch .env` creates an empty one without overwriting an existing file.
-
-## Exploring the experiments
-
-Start with the common root-level interface. These commands preview the main
-three-condition studies without making API calls:
+Preview a study without API credentials or paid calls:
 
 ```bash
 python experiments.py main trade gpt51
@@ -63,178 +82,131 @@ python experiments.py main bargaining gpt51 --messages 6
 python experiments.py main auction gpt51
 ```
 
-Run these commands from the repository root in the environment used for
-installation. Use `python experiments.py models` to list model presets and
-`--workers N` to set concurrency. The launcher prints the underlying command
-and working directory. A trade preview may save a generated market copy, but
-does not call a model.
+The launcher prints the settings and underlying command. A trade preview may
+save a generated market copy. Run `python experiments.py models` to list model
+presets; use `--workers N` to change concurrency.
 
-| Main study | Markets | Conditions | Interaction |
-|---|---|---|---|
-| Trade | 90 | least, coarse, full | eight messages |
-| Bargaining | 30, including both starters | least, coarse, full | two, four, or six messages |
-| Auction | 30 | least, coarse, full | simultaneous orders, midpoint clearing |
+## Running experiments
 
-The common bargaining command selects the three main conditions. The older
-experiment-local bargaining launcher defaults to all five, including one-sided
-disclosure. Model endpoints and generation defaults are in
-[`experiment_runtime/config/`](experiment_runtime/config/README.md). Experiment-specific commands remain supported
-for advanced options and supporting studies.
+Put the keys for the providers you use in a root `.env` file, which is ignored
+by Git. Do not commit credentials.
 
-The scripts under each experiment's `scripts/main/` launch its main study for each
-model, while `scripts/ablations/` contains the supporting studies. For example,
-you can preview the GPT-5.1 trade experiment and its resource-count study with:
+```dotenv
+OPENAI_API_KEY=your_key
+OPENROUTER_API_KEY=your_key
+ANTHROPIC_API_KEY=your_key
+```
+
+Preview first, then add `--mode execute` to make paid calls. For example:
+
+```bash
+python experiments.py main bargaining gpt51 --messages 6 \
+  --mode execute --budget 10 --results-dir results/bargaining_example
+```
+
+Here, `$10` is an example authorization, not a cost prediction or a strict
+provider-side cap. The root bargaining command runs the three main conditions;
+the experiment-local launcher defaults to all five, including one-sided disclosure.
+
+<details>
+<summary><strong>Paid runs, output paths, and resuming</strong></summary>
+
+Only `--mode execute` authorizes calls through `experiments.py`. Trade has no
+dollar cap; use provider-side spending controls. Bargaining requires a budget,
+but already-running requests can finish after its stopping threshold.
+
+```bash
+python experiments.py main trade gpt51 --mode execute \
+  --results-dir results/trade_example
+```
+
+`--results-dir` is relative to your current directory. For trade it is an output
+root containing model/study subdirectories; for bargaining it is the run directory
+itself. Without it, each implementation uses its default output location.
+
+Auctions require a frozen plan and committed source before paid execution:
+
+```bash
+python experiments.py main auction gpt51 --mode freeze \
+  --run-label example --estimated-cost 5
+# Review and commit the source and generated plan before execution.
+python experiments.py main auction gpt51 --mode execute \
+  --run-label example --estimated-cost 5
+```
+
+The auction estimate is not a spending cap. Use a new label for a new run.
+To continue an interrupted auction, repeat the execute command with `--resume`;
+do not freeze the plan again. See the [auction guide](double_auction/README.md)
+for the plan-review and commit steps.
+
+Resume trade and bargaining with their original configurations. A code or
+scientific-setting change requires a new output directory; do not overwrite a
+saved configuration to bypass a mismatch. Mixed-model runners lock their output
+directories to prevent duplicate execution.
+
+When using the older experiment-local bargaining launcher, keep `API_RUN_BUDGET`
+unset for previews: setting it authorizes execution. Provider prices and
+availability can change, so check them before a paid run.
+
+</details>
+
+<details>
+<summary><strong>Supporting studies and mixed models</strong></summary>
+
+Each experiment has `scripts/main/` and `scripts/ablations/` launchers. For
+example, preview the trade resource-count study with:
 
 ```bash
 cd multiresource_trade
-bash scripts/main/gpt51.sh
 bash scripts/ablations/resources.sh gpt51
 ```
 
-Neither command makes a model call. The other main-study scripts are
-`gpt5mini.sh`, `gemini.sh`, `claudesonnet5.sh`, and `grok43.sh`; the `run.sh`
-entry points are also available.
+`run_mixed_models.py` in each experiment handles interactions between different
+models. The paper tests all six pairs of GPT-5.1, Claude Sonnet 5, Gemini 3.7
+Flash, and Grok 4.3, with both role assignments. These commands retain their
+study-specific settings; follow the corresponding guide before executing them.
 
-Interactions between different models are handled by `run_mixed_models.py`
-in each experiment directory. These studies cover all six pairs of GPT-5.1,
-Sonnet, Gemini, and Grok, with each model taking each role.
+</details>
 
-Same-model and mixed-model studies use the same game engine and prompts within
-each setting. Their entry points retain the study-specific settings and output
-formats. Trade and bargaining share the mixed-run scheduling, budget accounting,
-role routing, and replay checks in `experiment_runtime/negotiations.py`; the
-balanced trade launcher uses the same execution helpers. Auction runners share
-`double_auction/src/double_auction/episode.py`, retaining their separate frozen-plan
-and budget rules.
+## Code and data
 
-### Paid execution and resuming runs
+The three game implementations are independent. API clients, configuration,
+and common execution helpers live together in `experiment_runtime/`.
 
-Only `--mode execute` authorizes model calls through `experiments.py`. Preview
-the exact configuration first. Trade has no dollar cap; use provider-side
-spending controls. Bargaining requires a budget, but in-flight requests can
-exceed its stopping threshold. Provider availability and prices can change.
+| What you want to inspect | Where to look |
+|---|---|
+| Model IDs, providers, reasoning, token limits | [Shared configuration](experiment_runtime/config/README.md) |
+| Trade prompts and game rules | [Trade engine](multiresource_trade/src/trading/) |
+| Trade metrics and conversation exports | [Trade analysis](multiresource_trade/src/analysis/) |
+| Bargaining prompts, rules, and analysis | [Bargaining implementation](single_good_bargaining/src/) |
+| Auction prompts, clearing, and analysis | [Auction implementation](double_auction/src/double_auction/) |
+| Market inputs | [Trade](multiresource_trade/data/) · [Bargaining](single_good_bargaining/data/) · [Auctions](double_auction/data/) |
+| Market counts and checksums | [MARKETS.json](MARKETS.json) |
 
-```bash
-python experiments.py main trade gpt51 --mode execute --results-dir results/trade_example
-python experiments.py main bargaining gpt51 --mode execute --messages 6 --budget 10 --results-dir results/bargaining_example
-```
-
-The `$10` budget is illustrative, not a cost prediction. `--results-dir` is
-resolved relative to your current directory. For trade it is an output root
-containing model/study subdirectories; for bargaining it is the run directory
-itself. Without this option, each implementation uses its default location.
-
-Auctions require a frozen plan and committed source before execution. Choose
-a new label for each new run:
-
-```bash
-python experiments.py main auction gpt51 --mode freeze --run-label example --estimated-cost 5
-# Review and commit the source and generated plan before execution.
-python experiments.py main auction gpt51 --mode execute --run-label example --estimated-cost 5
-```
-
-The estimate is not a spending cap. Freezing an existing label does not
-overwrite its plan. To continue an interrupted auction, repeat the execute
-command with `--resume`; do not freeze it again. See the
-[auction guide](double_auction/README.md) for plan review and commits.
-
-Trade and bargaining retain their experiment-specific resume behavior. Resume
-with the original configuration; use a new output directory after changing
-the code or scientific settings. Mixed-model runners lock their output
-directory to prevent duplicate execution.
-
-> [!IMPORTANT]
-> When using the older experiment-local bargaining launcher, keep
-> `API_RUN_BUDGET` unset for previews: setting it authorizes execution.
-> Follow the relevant experiment guide before starting a paid run.
-
-## The markets
-
-The market definitions are saved in each experiment's `data/` directory as
-JSONL files, with one market per line. The main experiments use:
-
-- **[Trade](multiresource_trade/data/main_markets.jsonl)** uses 90 two-resource
-  market records. Recomputing extraction opportunities from utilities gives
-  30 records each with greater opportunity for A, greater opportunity for B,
-  or equal opportunities. Negotiations allow eight messages, with A starting.
-- **[Bargaining](single_good_bargaining/data/main_markets.jsonl)** uses 15 cost–value
-  pairs across three surplus groups, each used with both starting roles.
-  This gives 30 instances at each message limit of two, four, or six.
-- **[Auctions](double_auction/data/main_markets.jsonl)** uses 30 markets across three
-  margin groups, each with three buyers and three sellers. Orders are
-  simultaneous, and completed trades use midpoint pricing.
-
-Reusing the same markets lets us compare disclosure conditions without
-changing the underlying trading opportunities. The files include the true
-utilities, values, and costs used to evaluate outcomes, but agents receive
-only the information allowed by their condition. The experiment guides
-describe these conditions, including one-sided disclosure.
-
-For trade, construction notes and extraction calculations are kept in
-[data/metadata/](multiresource_trade/data/metadata/), separate from the market
-records and linked by `market_id`.
+Market files contain one JSON record per line, including the ground truth used
+for evaluation. Agents receive only the information allowed by their condition.
+Bargaining has 15 cost–value pairs, each played with both starting roles.
+Auction markets balance efficient trade counts and margin groups. The experiment
+guides explain how to validate runs and inspect the conversations they save.
 
 <details>
-<summary>Interpreting trade records and group labels</summary>
+<summary><strong>A note on trade market labels</strong></summary>
 
 The 90 trade records contain 60 distinct inventory–utility configurations.
 The A-higher and B-higher groups each contain 15 distinct configurations,
 represented twice; the equal-opportunity group contains 30.
 
-The stored `extraction_role` field identifies a construction category, not
-necessarily the agent with greater extraction opportunity. The paper's
-grouped figures compare both agents' opportunities from their utilities.
-The current summary code still groups by the stored label, so its `by_role`
-output should not be interpreted as the paper's A-higher/B-higher comparison.
+The stored `extraction_role` field is a construction label, not necessarily the
+agent with greater extraction opportunity. The paper computes these opportunities
+from both agents' utilities. The current summary code's `by_role` output uses the
+stored label and should not be read as the paper's A-higher/B-higher comparison.
+Construction details are in [data/metadata/](multiresource_trade/data/metadata/).
 
 </details>
 
-[MARKETS.json](MARKETS.json) lists the files, counts, and checksums. You can
-check that the saved markets match their generators without calling a model:
+## Related work
 
-```bash
-python export_markets.py --check
-```
-
-## Understanding the results
-
-The analysis distinguishes finding a useful agreement from reaching it using
-three measures:
-
-- **Candidate quality (Q)** scores the best qualifying proposal in trade and
-  bargaining. In auctions, it scores the gains available from profitable pairs
-  formed by the submitted price rankings.
-- **Realized performance (W)** scores the final outcome, including failure to trade.
-- **Realization gap (L = Q − W)** measures the difference between the two.
-
-Trade and auctions measure normalized total gains; bargaining uses the
-normalized Nash product to capture agreement and balance. We analyze the
-three settings separately rather than pooling their scores. Market groups,
-starting roles, and averaging weights also matter when comparing results.
-
-Each experiment guide points to the scoring and plotting code and explains
-how to inspect the saved conversations. It also identifies the market
-generator, prompts, model settings, and experiment runner, so you can follow
-an interaction from its setup to its evaluation. Shared API and file-handling
-utilities and request construction live in `experiment_runtime/`. Model IDs,
-provider routing, and generation defaults for all three experiments live in
-[`experiment_runtime/config/`](experiment_runtime/config/README.md).
-
-## Finding and extending the code
-
-| Responsibility | Location |
-|---|---|
-| Common main-study command | `experiments.py` |
-| Model IDs, provider routing, generation defaults | `experiment_runtime/config/` |
-| Shared provider and execution helpers | `experiment_runtime/` |
-| Trade markets, prompts, engine | `multiresource_trade/src/trading/` |
-| Trade metrics and transcript exports | `multiresource_trade/src/analysis/` |
-| Bargaining markets, prompts, engine, analysis | `single_good_bargaining/src/` |
-| Auction markets, prompts, engine, analysis | `double_auction/src/double_auction/` |
-| Published market inputs | each experiment's `data/` |
-
-Mixed-model runs and supporting studies use their experiment-local commands
-and guides, not the main-study defaults. The three game engines remain
-independent because their rules and outcome measures differ. The offline
-checks in [Getting started](#getting-started) make no paid calls; each
-experiment guide lists additional tests and result-validation commands.
+Our resource-trade and bargaining experiments build on the negotiation settings
+studied in [NegotiationArena](https://github.com/vinid/negotiationarena).
+Here, resource trade uses private additive utilities rather than target inventories,
+and information disclosure is varied explicitly within each game.
