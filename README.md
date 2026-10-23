@@ -8,7 +8,8 @@ keeping the models and interaction rules fixed, and examine both the
 opportunities agents identify and the outcomes they achieve.
 
 [Getting started](#getting-started) · [Experiments](#exploring-the-experiments) ·
-[Markets](#the-markets) · [Analysis](#understanding-the-results) · [Reproducibility](#reproducibility)
+[Paid runs](#paid-execution-and-resuming-runs) · [Markets](#the-markets) ·
+[Analysis](#understanding-the-results) · [Code map](#finding-and-extending-the-code)
 
 Each setting has its own implementation and guide, covering the markets,
 prompts, model settings, and analysis.
@@ -25,19 +26,17 @@ prompts, model settings, and analysis.
 ## Getting started
 
 The code uses Python 3.11 or later, Bash, and Git, and can be used on macOS,
-Linux, or WSL. The following commands set up the environment and check that
-the market files and bargaining simulation work locally:
+Linux, or WSL. The following commands set up the environment and validate
+the saved market files:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[analysis]'
-python -m unittest discover -s tests
 python export_markets.py --check
 ```
 
-These checks use simulated responses, so you can explore the setup without
-API credentials or paid model calls.
+Market validation requires no API credentials and makes no paid model calls.
 
 ### Connecting models
 
@@ -64,9 +63,23 @@ python experiments.py main bargaining gpt51 --messages 6
 python experiments.py main auction gpt51
 ```
 
-See [Running the experiments](RUNNING.md) for paid execution, output paths,
-resume behavior, and a map of the code. The experiment-specific commands below
-remain supported for advanced options and supporting studies.
+Run these commands from the repository root in the environment used for
+installation. Use `python experiments.py models` to list model presets and
+`--workers N` to set concurrency. The launcher prints the underlying command
+and working directory. A trade preview may save a generated market copy, but
+does not call a model.
+
+| Main study | Markets | Conditions | Interaction |
+|---|---|---|---|
+| Trade | 90 | least, coarse, full | eight messages |
+| Bargaining | 30, including both starters | least, coarse, full | two, four, or six messages |
+| Auction | 30 | least, coarse, full | simultaneous orders, midpoint clearing |
+
+The common bargaining command selects the three main conditions. The older
+experiment-local bargaining launcher defaults to all five, including one-sided
+disclosure. Model endpoints and generation defaults are in
+[`experiment_runtime/config/`](experiment_runtime/config/README.md). Experiment-specific commands remain supported
+for advanced options and supporting studies.
 
 The scripts under each experiment's `scripts/main/` launch its main study for each
 model, while `scripts/ablations/` contains the supporting studies. For example,
@@ -94,15 +107,46 @@ balanced trade launcher uses the same execution helpers. Auction runners share
 `double_auction/src/double_auction/episode.py`, retaining their separate frozen-plan
 and budget rules.
 
-> [!IMPORTANT]
-> Follow the relevant experiment guide before starting a paid run. Keep
-> `API_RUN_BUDGET` unset when previewing bargaining; setting it authorizes
-> execution. Auctions require a frozen plan before execution. Provider
-> availability and prices can change, so recorded costs are estimates.
+### Paid execution and resuming runs
 
-A run can be resumed with its original configuration; changes to the code or
-settings should use a new output directory. Mixed-model runners lock that
+Only `--mode execute` authorizes model calls through `experiments.py`. Preview
+the exact configuration first. Trade has no dollar cap; use provider-side
+spending controls. Bargaining requires a budget, but in-flight requests can
+exceed its stopping threshold. Provider availability and prices can change.
+
+```bash
+python experiments.py main trade gpt51 --mode execute --results-dir results/trade_example
+python experiments.py main bargaining gpt51 --mode execute --messages 6 --budget 10 --results-dir results/bargaining_example
+```
+
+The `$10` budget is illustrative, not a cost prediction. `--results-dir` is
+resolved relative to your current directory. For trade it is an output root
+containing model/study subdirectories; for bargaining it is the run directory
+itself. Without this option, each implementation uses its default location.
+
+Auctions require a frozen plan and committed source before execution. Choose
+a new label for each new run:
+
+```bash
+python experiments.py main auction gpt51 --mode freeze --run-label example --estimated-cost 5
+# Review and commit the source and generated plan before execution.
+python experiments.py main auction gpt51 --mode execute --run-label example --estimated-cost 5
+```
+
+The estimate is not a spending cap. Freezing an existing label does not
+overwrite its plan. To continue an interrupted auction, repeat the execute
+command with `--resume`; do not freeze it again. See the
+[auction guide](double_auction/README.md) for plan review and commits.
+
+Trade and bargaining retain their experiment-specific resume behavior. Resume
+with the original configuration; use a new output directory after changing
+the code or scientific settings. Mixed-model runners lock their output
 directory to prevent duplicate execution.
+
+> [!IMPORTANT]
+> When using the older experiment-local bargaining launcher, keep
+> `API_RUN_BUDGET` unset for previews: setting it authorizes execution.
+> Follow the relevant experiment guide before starting a paid run.
 
 ## The markets
 
@@ -174,4 +218,23 @@ generator, prompts, model settings, and experiment runner, so you can follow
 an interaction from its setup to its evaluation. Shared API and file-handling
 utilities and request construction live in `experiment_runtime/`. Model IDs,
 provider routing, and generation defaults for all three experiments live in
-[`config/`](config/README.md).
+[`experiment_runtime/config/`](experiment_runtime/config/README.md).
+
+## Finding and extending the code
+
+| Responsibility | Location |
+|---|---|
+| Common main-study command | `experiments.py` |
+| Model IDs, provider routing, generation defaults | `experiment_runtime/config/` |
+| Shared provider and execution helpers | `experiment_runtime/` |
+| Trade markets, prompts, engine | `multiresource_trade/src/trading/` |
+| Trade metrics and transcript exports | `multiresource_trade/src/analysis/` |
+| Bargaining markets, prompts, engine, analysis | `single_good_bargaining/src/` |
+| Auction markets, prompts, engine, analysis | `double_auction/src/double_auction/` |
+| Published market inputs | each experiment's `data/` |
+
+Mixed-model runs and supporting studies use their experiment-local commands
+and guides, not the main-study defaults. The three game engines remain
+independent because their rules and outcome measures differ. The offline
+checks in [Getting started](#getting-started) make no paid calls; each
+experiment guide lists additional tests and result-validation commands.

@@ -18,7 +18,7 @@ The main-paper panel is `margin`, not `information`. All auction runners
 in this release default to a 2,048-token completion cap.
 Each model has its own script in `scripts/main/`, with the market count,
 and seed written explicitly; generation defaults and model presets come from
-[`../config/`](../config/README.md). Existing `run.sh` commands still work.
+[`../experiment_runtime/config/`](../experiment_runtime/config/README.md). Existing `run.sh` commands still work.
 
 Paid auction execution requires committed source and a committed frozen plan.
 If the downloaded copy has no Git history, initialize it from the release root

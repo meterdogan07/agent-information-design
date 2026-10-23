@@ -46,8 +46,8 @@ current prompt, not retired variants.
 
 Add `execute` after the model name for paid runs. Each study script contains
 its own market and horizon settings. `scripts/_common.sh` supplies shared
-runner arguments; the repository's `config/models.json` holds model IDs and providers,
-and `config/generation.json` holds generation defaults for all three games.
+runner arguments; `experiment_runtime/config/models.json` holds model IDs and providers,
+and `experiment_runtime/config/generation.json` holds generation defaults for all three games.
 The older `bash run.sh MODEL STUDY MODE` syntax remains supported.
 
 ## Mixed models
@@ -78,7 +78,7 @@ assignments on all 90 markets. The 30-market default is a smaller design.
 
 | Purpose                    | File                                                                    |
 | -------------------------- | ----------------------------------------------------------------------- |
-| Model/provider settings    | `../config/models.json` and `../config/generation.json` |
+| Model/provider settings    | `../experiment_runtime/config/models.json` and `../experiment_runtime/config/generation.json` |
 | Inventories and values     | `data/*.jsonl`; additional diagnostics in `data/metadata/`              |
 | Market generation          | `src/trading/markets.py`, `market_profiles.py`, `market_core.py`        |
 | Agent prompts              | `src/trading/p2p_prompts.py`, `mediator_prompts.py`                     |

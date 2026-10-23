@@ -65,7 +65,7 @@ This previews 30 markets × 3 conditions × 2 model-role assignments = 180 negot
 | Market data                             | `data/main_markets.jsonl`        |
 | Market generation and conditions        | `src/design.py`                  |
 | Prompts, legal actions, and negotiation | `src/game.py`                    |
-| Model and generation settings           | `../config/models.json`, `../config/generation.json` |
+| Model and generation settings           | `../experiment_runtime/config/models.json`, `../experiment_runtime/config/generation.json` |
 | Study-specific model adapter             | `src/models.py` |
 | Single-model runner                     | `src/run.py`                     |
 | Mixed-model runner and settings         | `src/run_pair.py`                |

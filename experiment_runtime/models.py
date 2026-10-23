@@ -7,12 +7,9 @@ import json
 import math
 import shlex
 from copy import deepcopy
-from importlib.resources import files
 from pathlib import Path
 
-CONFIG_DIR = Path(__file__).resolve().parents[1] / "config"
-if not (CONFIG_DIR / "models.json").is_file():
-    CONFIG_DIR = Path(str(files("experiment_config")))
+CONFIG_DIR = Path(__file__).resolve().parent / "config"
 CONFIG_FILES = tuple(CONFIG_DIR / name for name in ("models.json", "generation.json"))
 
 

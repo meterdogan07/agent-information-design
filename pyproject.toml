@@ -13,10 +13,7 @@ dependencies = ["openai==2.48.0"]
 analysis = ["matplotlib>=3.7,<4", "numpy>=1.24,<3"]
 
 [tool.setuptools]
-packages = ["experiment_runtime", "experiment_config"]
-
-[tool.setuptools.package-dir]
-experiment_config = "config"
+packages = ["experiment_runtime", "experiment_runtime.config"]
 
 [tool.setuptools.package-data]
-experiment_config = ["*.json"]
+"experiment_runtime.config" = ["*.json"]

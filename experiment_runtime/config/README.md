@@ -9,8 +9,8 @@ inside resource trade.
   bargaining/auction attempt limits. `temperature: null` means the request
   omits temperature and uses the provider default. Study presets require this
   policy; it is not a claim that providers use identical sampling settings.
-- `../experiment_runtime/models.py`: validates and loads these settings.
-- `../experiment_runtime/provider.py`: shared API client, request construction,
+- `../models.py`: validates and loads these settings.
+- `../provider.py`: shared API client, request construction,
   response extraction, and tracing primitives.
 
 Inspect a preset without loading credentials or calling a model:
