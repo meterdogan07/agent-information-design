@@ -125,7 +125,7 @@ def freeze():
     code_paths = [Path(__file__), ROOT / "src/trading/markets.py", ROOT / "src/trading/game.py",
                   ROOT / "src/trading/p2p_prompts.py", ROOT / "src/trading/provider.py",
                   ROOT / "src/trading/run.py", *CONFIG_FILES,
-                  *(ROOT.parent / "experiment_runtime").glob("*.py")]
+                  *(ROOT.parents[1] / "experiment_runtime").glob("*.py")]
     plan = {
         "study": PANEL, "seed": SEED, "markets": len(markets),
         "market_file": str(market_path.relative_to(ROOT)), "market_sha256": digest(market_path),
@@ -139,7 +139,7 @@ def freeze():
                      "reasoning_effort": GENERATION["reasoning_effort"], "max_tokens": GENERATION["max_tokens"], "replications": 1,
                      "agent_policy": "plain_dialogue_self_interest",
                      "action_interface": "engine_owned_offer_ids_20260822"},
-        "code_sha256": {str(p.relative_to(ROOT.parent)): digest(p) for p in code_paths},
+        "code_sha256": {str(p.relative_to(ROOT.parents[1])): digest(p) for p in code_paths},
     }
     path = ROOT / "data/calibration" / f"{PANEL}_plan.json"
     payload = json.dumps(plan, indent=2, sort_keys=True) + "\n"

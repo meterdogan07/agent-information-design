@@ -146,7 +146,7 @@ def load_previous(pair, specs, hashes, mock, source_markets=30):
                           "conditions": list(runner.CONDITIONS)}.items():
         if config.get(key) != expected:
             raise RuntimeError(f"Previous run has different {key}")
-    wrapper = str(Path(__file__).resolve().relative_to(ROOT.parent))
+    wrapper = str(Path(__file__).resolve().relative_to(ROOT.parents[1]))
     for name, digest in config["code_sha256"].items():
         if hashlib.sha256((source / "source_snapshot" / name).read_bytes()).hexdigest() != digest:
             raise RuntimeError("Previous frozen source was modified")
@@ -219,7 +219,7 @@ def main():
     folder = (args.results_dir or ROOT / "results/mixed_models" / study_name / args.pair).resolve()
     with run_directory_lock(folder):
         sources = runner.source_files()
-        sources[str(Path(__file__).resolve().relative_to(ROOT.parent))] = Path(__file__).resolve()
+        sources[str(Path(__file__).resolve().relative_to(ROOT.parents[1]))] = Path(__file__).resolve()
         hashes = {n: hashlib.sha256(p.read_bytes()).hexdigest() for n, p in sources.items()}
         reference_provenance = None
         if args.reverse_assignments:

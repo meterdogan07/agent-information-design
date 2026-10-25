@@ -544,7 +544,7 @@ def main() -> None:
         return
 
     load_env(ROOT / ".env")
-    load_env(ROOT.parent / ".env")
+    load_env(ROOT.parents[1] / ".env")
     config = {
         "protocol": PROTOCOL_VERSION,
         "action_interface": args.action_interface,

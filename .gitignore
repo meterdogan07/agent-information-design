@@ -14,11 +14,11 @@ output/
 *.log
 *.lock
 # Runner-generated market copies; published inputs remain in data/*.jsonl.
-multiresource_trade/data/current/
-multiresource_trade/data/ablations/
-multiresource_trade/data/calibration/
+experiments/multiresource_trade/data/current/
+experiments/multiresource_trade/data/ablations/
+experiments/multiresource_trade/data/calibration/
 # Frozen auction plans may be committed; generated run artifacts may not.
-double_auction/experiments/*/*
-!double_auction/experiments/*/plans/
-double_auction/experiments/*/plans/*
-!double_auction/experiments/*/plans/*.json
+experiments/double_auction/experiments/*/*
+!experiments/double_auction/experiments/*/plans/
+experiments/double_auction/experiments/*/plans/*
+!experiments/double_auction/experiments/*/plans/*.json

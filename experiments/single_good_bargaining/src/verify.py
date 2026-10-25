@@ -22,7 +22,7 @@ from experiment_runtime.models import CONFIG_FILES
 
 
 HERE = Path(__file__).resolve().parent
-RUNTIME = HERE.parents[1] / "experiment_runtime"
+RUNTIME = HERE.parents[2] / "experiment_runtime"
 AUDIT_VERSION = "source_snapshot_endpoint_bound_v2_20260824"
 ANALYSIS_VERSION = "strict_ir_population_weighted_v2_20260824"
 LOCAL_SOURCE_NAMES = (

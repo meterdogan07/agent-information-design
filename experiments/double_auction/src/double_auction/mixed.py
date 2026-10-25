@@ -31,7 +31,7 @@ from .runner import SOURCE_FILES, completed_indices, require_committed
 GENERATION = generation_settings("auction")
 
 ROOT = Path(__file__).resolve().parents[2]
-REPO = ROOT.parent
+REPO = ROOT.parents[1]
 PAIRS = {
     "sonnet5_gemini": ("claudesonnet5", "gemini"),
     "sonnet5_grok43": ("claudesonnet5", "grok43"),

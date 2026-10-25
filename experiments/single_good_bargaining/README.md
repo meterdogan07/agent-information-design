@@ -2,12 +2,12 @@
 
 A buyer and seller negotiate the price of one good. We vary what each knows
 about the other's value or cost and how many messages they can exchange.
-Install dependencies using the [root setup guide](../README.md#start-here).
+Install dependencies using the [root setup guide](../../README.md#start-here).
 
 ## Run the main study
 
 ```bash
-cd single_good_bargaining
+cd experiments/single_good_bargaining
 bash scripts/main/gpt51.sh execute --messages 4 --budget 10
 ```
 
@@ -62,7 +62,7 @@ to see the available pairs.
 | Market data | `data/main_markets.jsonl` |
 | Market generation and conditions | `src/design.py` |
 | Prompts, legal actions, and negotiation | `src/game.py` |
-| Model and generation settings | `../experiment_runtime/config/` |
+| Model and generation settings | `../../experiment_runtime/config/` |
 | Model adapter | `src/models.py` |
 | Single-model runner | `src/run.py` |
 | Mixed-model runner | `src/run_pair.py` |

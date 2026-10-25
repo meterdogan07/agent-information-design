@@ -149,7 +149,7 @@ def conditions_for(name):
 def load_env():
     """Load the first repository .env file without overwriting shell values."""
     load_env_files((
-        Path(PROJECT_ROOT).parent / ".env",
+        Path(PROJECT_ROOT).parents[1] / ".env",
         Path(PROJECT_ROOT) / ".env",
     ))
 

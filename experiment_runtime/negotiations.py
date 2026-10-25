@@ -89,13 +89,14 @@ class Budget:
 
 def source_files(root, source_root):
     from .models import CONFIG_FILES
-    local = {str(p.relative_to(root.parent)): p for p in source_root.rglob("*.py")
+    repository = root.parents[1]
+    local = {str(p.relative_to(repository)): p for p in source_root.rglob("*.py")
              if not {"archive", "__pycache__", "results", "output"}.intersection(p.parts)}
-    local.update({str(p.relative_to(root.parent)): p
-                  for p in (root.parent / "experiment_runtime").glob("*.py")})
-    local.update({str(p.relative_to(root.parent)): p for p in CONFIG_FILES})
+    local.update({str(p.relative_to(repository)): p
+                  for p in (repository / "experiment_runtime").glob("*.py")})
+    local.update({str(p.relative_to(repository)): p for p in CONFIG_FILES})
     launcher = root / "run_mixed_models.py"
-    local[str(launcher.relative_to(root.parent))] = launcher
+    local[str(launcher.relative_to(repository))] = launcher
     return local
 
 

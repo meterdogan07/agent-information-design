@@ -10,7 +10,7 @@ fi
 select_model() {
   local preset="${1:-}"
   local repo_root settings
-  repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+  repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
   settings="$(PYTHONPATH="$repo_root${PYTHONPATH:+:$PYTHONPATH}" python -m experiment_runtime.models "$preset" --study trade --shell)" || return
   eval "$settings"  # Assignments are shell-quoted by the shared configuration loader.
 

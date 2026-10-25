@@ -28,9 +28,9 @@ the underlying utilities, values, and costs.
 
 | Setting | Interaction | Main study | Guide |
 |---|---|---|---|
-| **Multi-resource trade** | Two agents exchange resources through dialogue. | 90 market records; two resources; eight messages | [Trade](multiresource_trade/README.md) |
-| **Single-good bargaining** | A buyer and seller negotiate a price. | 30 market instances; two, four, or six messages | [Bargaining](single_good_bargaining/README.md) |
-| **Double auctions** | Three buyers and three sellers submit prices independently. | 30 markets; simultaneous orders; midpoint pricing | [Auctions](double_auction/README.md) |
+| **Multi-resource trade** | Two agents exchange resources through dialogue. | 90 market records; two resources; eight messages | [Trade](experiments/multiresource_trade/README.md) |
+| **Single-good bargaining** | A buyer and seller negotiate a price. | 30 market instances; two, four, or six messages | [Bargaining](experiments/single_good_bargaining/README.md) |
+| **Double auctions** | Three buyers and three sellers submit prices independently. | 30 markets; simultaneous orders; midpoint pricing | [Auctions](experiments/double_auction/README.md) |
 
 The main comparisons use **least**, **coarse**, and **full** information.
 Coarse information gives preference rankings in trade, confirms whether a
@@ -119,7 +119,7 @@ python experiments.py main auction gpt51 --mode execute \
 ```
 
 `--estimated-cost` records an estimate, not a spending limit. See the
-[auction guide](double_auction/README.md) for committing the plan and source.
+[auction guide](experiments/double_auction/README.md) for committing the plan and source.
 To resume, repeat the execute command with `--resume`, without freezing again.
 Use a new run label for a new auction study and a new output directory whenever
 changing a trade or bargaining configuration.
@@ -134,7 +134,7 @@ disclosure, and mixed-model interactions. For example, run the trade
 resource-count study with:
 
 ```bash
-cd multiresource_trade
+cd experiments/multiresource_trade
 bash scripts/ablations/resources.sh gpt51 execute
 ```
 
@@ -144,17 +144,22 @@ Each experiment has a `run_mixed_models.py` script for pairing different models.
 
 ## Code and data
 
-The three game implementations are independent. API clients, configuration,
+The three game implementations live under `experiments/` and remain independent.
+API clients, configuration,
 and common execution helpers live together in `experiment_runtime/`.
+
+Root commands such as `python experiments.py main trade gpt51 --mode execute`
+work across all three games. For experiment-specific scripts, change into the
+corresponding folder under `experiments/`.
 
 | What you want to inspect | Where to look |
 |---|---|
 | Model IDs, providers, reasoning, token limits | [Shared configuration](experiment_runtime/config/README.md) |
-| Trade prompts and game rules | [Trade engine](multiresource_trade/src/trading/) |
-| Trade metrics and conversation exports | [Trade analysis](multiresource_trade/src/analysis/) |
-| Bargaining prompts, rules, and analysis | [Bargaining implementation](single_good_bargaining/src/) |
-| Auction prompts, clearing, and analysis | [Auction implementation](double_auction/src/double_auction/) |
-| Market inputs | [Trade](multiresource_trade/data/) · [Bargaining](single_good_bargaining/data/) · [Auctions](double_auction/data/) |
+| Trade prompts and game rules | [Trade engine](experiments/multiresource_trade/src/trading/) |
+| Trade metrics and conversation exports | [Trade analysis](experiments/multiresource_trade/src/analysis/) |
+| Bargaining prompts, rules, and analysis | [Bargaining implementation](experiments/single_good_bargaining/src/) |
+| Auction prompts, clearing, and analysis | [Auction implementation](experiments/double_auction/src/double_auction/) |
+| Market inputs | [Trade](experiments/multiresource_trade/data/) · [Bargaining](experiments/single_good_bargaining/data/) · [Auctions](experiments/double_auction/data/) |
 | Market counts and checksums | [Market manifest](data/MARKETS.json) |
 
 To regenerate missing market files or verify the published inputs, use
@@ -177,7 +182,7 @@ The stored `extraction_role` field is a construction label, not necessarily the
 agent with greater extraction opportunity. The paper computes these opportunities
 from both agents' utilities. The current summary code's `by_role` output uses the
 stored label and should not be read as the paper's A-higher/B-higher comparison.
-Construction details are in [data/metadata/](multiresource_trade/data/metadata/).
+Construction details are in [data/metadata/](experiments/multiresource_trade/data/metadata/).
 
 </details>
 

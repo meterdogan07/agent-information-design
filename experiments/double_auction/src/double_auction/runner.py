@@ -49,7 +49,7 @@ LOCAL_SOURCE_FILES = tuple(
         "runner.py", "audit.py", "providers.py",
     )
 )
-RUNTIME_DIR = Path(PACKAGE_DIR).parents[2] / "experiment_runtime"
+RUNTIME_DIR = Path(PACKAGE_DIR).parents[3] / "experiment_runtime"
 SOURCE_FILES = LOCAL_SOURCE_FILES + tuple(
     str(RUNTIME_DIR / name)
     for name in ("__init__.py", "provider.py", "artifacts.py", "models.py")

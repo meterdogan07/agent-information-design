@@ -7,8 +7,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / 'experiments'))
 for directory in ('multiresource_trade', 'double_auction/src'):
-    sys.path.insert(0, str(ROOT / directory))
+    sys.path.insert(0, str(ROOT / 'experiments' / directory))
 from src.trading.markets import generate_markets as trade_markets
 from src.trading.markets import split_market_record
 from single_good_bargaining.src.design import generate_profitable_mirrored_markets
@@ -41,7 +42,8 @@ def generated_panels():
 
 def panels():
     for relative, markets, description in generated_panels():
-        if relative.startswith('multiresource_trade/data/'):
+        relative = 'experiments/' + relative
+        if relative.startswith('experiments/multiresource_trade/data/'):
             records, metadata = zip(*(split_market_record(market) for market in markets))
             yield relative, list(records), description
             companion = Path(relative).parent / 'metadata' / Path(relative).name

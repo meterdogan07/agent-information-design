@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-for path in (ROOT.parent, ROOT / "src"):
+for path in (ROOT.parents[1], ROOT / "src"):
     sys.path.insert(0, str(path))
 
 from double_auction.mixed import main

@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-for path in (ROOT.parent, ROOT / "src"):
+for path in (ROOT.parents[1], ROOT / "src"):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 

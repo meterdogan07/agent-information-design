@@ -104,7 +104,7 @@ PROMPT_CONDITIONS = tuple({
 def package_environment():
     environment = os.environ.copy()
     previous = environment.get("PYTHONPATH")
-    paths = [str(SRC), str(ROOT.parent)]
+    paths = [str(SRC), str(ROOT.parents[1])]
     if previous:
         paths.append(previous)
     environment["PYTHONPATH"] = os.pathsep.join(paths)

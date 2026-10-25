@@ -7,7 +7,8 @@ earlier reports.
 
 Run from the repository root:
 
-    python -m single_good_bargaining.src.figures
+    cd experiments/single_good_bargaining
+    python -m src.figures
 """
 
 from __future__ import annotations

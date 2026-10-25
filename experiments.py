@@ -57,13 +57,13 @@ def build_command(args, environment=None):
         raise ValueError("Only auctions use frozen plans; use preview for trade or bargaining")
     output = str(args.results_dir.expanduser().resolve()) if args.results_dir else None
     if args.game == "trade":
-        cwd = ROOT / "multiresource_trade"
+        cwd = ROOT / "experiments" / "multiresource_trade"
         env["WORKERS"] = str(args.workers)
         if output:
             env["RESULT_ROOT"] = output
         command = ["bash", "scripts/main/_run.sh", args.model, args.mode]
     elif args.game == "bargaining":
-        cwd = ROOT / "single_good_bargaining"
+        cwd = ROOT / "experiments" / "single_good_bargaining"
         if args.mode == "execute" and args.budget is None:
             raise ValueError("Bargaining execution requires an explicit --budget")
         command = ["bash", "run.sh", args.model, args.mode,
@@ -74,7 +74,7 @@ def build_command(args, environment=None):
         if args.budget is not None:
             command += ["--budget", str(args.budget)]
     else:
-        cwd = ROOT / "double_auction"
+        cwd = ROOT / "experiments" / "double_auction"
         if args.mode != "preview" and (not args.run_label or args.estimated_cost is None):
             raise ValueError("Auction freeze/execute requires --run-label and --estimated-cost")
         if args.resume and args.mode != "execute":

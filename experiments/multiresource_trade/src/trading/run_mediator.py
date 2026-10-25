@@ -359,7 +359,7 @@ def main() -> None:
         return
 
     load_env(ROOT / ".env")
-    load_env(ROOT.parent / ".env")
+    load_env(ROOT.parents[1] / ".env")
     config = {
         **design,
         "provider": args.provider,

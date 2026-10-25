@@ -1,108 +1,108 @@
 [
   {
-    "path": "multiresource_trade/data/main_markets.jsonl",
+    "path": "experiments/multiresource_trade/data/main_markets.jsonl",
     "markets": 90,
     "description": "Two resources; 30 markets per extraction-opportunity group; no random seed.",
     "sha256": "0bc973ba1b0f368ae89556cfbc9236bca9b9c2d94fdb67821d0ef1c7662b44c4"
   },
   {
-    "path": "multiresource_trade/data/metadata/main_markets.jsonl",
+    "path": "experiments/multiresource_trade/data/metadata/main_markets.jsonl",
     "markets": 90,
-    "description": "Construction metadata and evaluator calculations for multiresource_trade/data/main_markets.jsonl; join by market_id.",
+    "description": "Construction metadata and evaluator calculations for experiments/multiresource_trade/data/main_markets.jsonl; join by market_id.",
     "sha256": "9c581aa2dcda94941dce28fd4247d682f09128f5062b8f8e21bed1772866dc7a"
   },
   {
-    "path": "multiresource_trade/data/mediator_markets.jsonl",
+    "path": "experiments/multiresource_trade/data/mediator_markets.jsonl",
     "markets": 30,
     "description": "Matched 30-market B-higher panel for direct and mediated trade.",
     "sha256": "1969ca5e6d66fbeaff07f369f2ba000cdea6e2d78a46a935671f50f766ce2a91"
   },
   {
-    "path": "multiresource_trade/data/metadata/mediator_markets.jsonl",
+    "path": "experiments/multiresource_trade/data/metadata/mediator_markets.jsonl",
     "markets": 30,
-    "description": "Construction metadata and evaluator calculations for multiresource_trade/data/mediator_markets.jsonl; join by market_id.",
+    "description": "Construction metadata and evaluator calculations for experiments/multiresource_trade/data/mediator_markets.jsonl; join by market_id.",
     "sha256": "b0b2cef0d548c2e24ec92f97a207781bedacbb037d9ec32a82a548cbae2e89be"
   },
   {
-    "path": "multiresource_trade/data/dialogue_markets.jsonl",
+    "path": "experiments/multiresource_trade/data/dialogue_markets.jsonl",
     "markets": 6,
     "description": "Six fixed markets reused at message limits 2, 4, 6, 8, and 12.",
     "sha256": "323b41a5f4da20ab362eb546832b9099b3f27b69936a4588e2e4af4d4ae7751b"
   },
   {
-    "path": "multiresource_trade/data/metadata/dialogue_markets.jsonl",
+    "path": "experiments/multiresource_trade/data/metadata/dialogue_markets.jsonl",
     "markets": 6,
-    "description": "Construction metadata and evaluator calculations for multiresource_trade/data/dialogue_markets.jsonl; join by market_id.",
+    "description": "Construction metadata and evaluator calculations for experiments/multiresource_trade/data/dialogue_markets.jsonl; join by market_id.",
     "sha256": "beceea4312f2059a69ed36276f16bce4223c680212d1ed345a1d3c7918bdb62a"
   },
   {
-    "path": "multiresource_trade/data/resources_2.jsonl",
+    "path": "experiments/multiresource_trade/data/resources_2.jsonl",
     "markets": 12,
     "description": "Six utility constructions, each with two resource-name versions; nested resource expansion.",
     "sha256": "bb8fe56cf3bda559d97020a4fd2f7dbd713c1ba39b3cf600460b41baa5c6bfe7"
   },
   {
-    "path": "multiresource_trade/data/metadata/resources_2.jsonl",
+    "path": "experiments/multiresource_trade/data/metadata/resources_2.jsonl",
     "markets": 12,
-    "description": "Construction metadata and evaluator calculations for multiresource_trade/data/resources_2.jsonl; join by market_id.",
+    "description": "Construction metadata and evaluator calculations for experiments/multiresource_trade/data/resources_2.jsonl; join by market_id.",
     "sha256": "aa752fa94e08ce52e6a771a09f2e1e6841240ef28cf9366bea352169743678fe"
   },
   {
-    "path": "multiresource_trade/data/resources_6.jsonl",
+    "path": "experiments/multiresource_trade/data/resources_6.jsonl",
     "markets": 12,
     "description": "Six utility constructions, each with two resource-name versions; nested resource expansion.",
     "sha256": "ee350a6d4ab17b504c00fdf05743ab9161c3cc74cd540ca432856134c2516afa"
   },
   {
-    "path": "multiresource_trade/data/metadata/resources_6.jsonl",
+    "path": "experiments/multiresource_trade/data/metadata/resources_6.jsonl",
     "markets": 12,
-    "description": "Construction metadata and evaluator calculations for multiresource_trade/data/resources_6.jsonl; join by market_id.",
+    "description": "Construction metadata and evaluator calculations for experiments/multiresource_trade/data/resources_6.jsonl; join by market_id.",
     "sha256": "5645be51e3994275a931b2635965999291bc6345dda832297a3b05102bf7e621"
   },
   {
-    "path": "multiresource_trade/data/resources_10.jsonl",
+    "path": "experiments/multiresource_trade/data/resources_10.jsonl",
     "markets": 12,
     "description": "Six utility constructions, each with two resource-name versions; nested resource expansion.",
     "sha256": "388624badeb8288edefda1be4e1022d74633f329dc740751f24b8dc1c4d0df2b"
   },
   {
-    "path": "multiresource_trade/data/metadata/resources_10.jsonl",
+    "path": "experiments/multiresource_trade/data/metadata/resources_10.jsonl",
     "markets": 12,
-    "description": "Construction metadata and evaluator calculations for multiresource_trade/data/resources_10.jsonl; join by market_id.",
+    "description": "Construction metadata and evaluator calculations for experiments/multiresource_trade/data/resources_10.jsonl; join by market_id.",
     "sha256": "dd2baca7cc96886d90a085dabc0bb7376a22b7fe7998c3d2e1469e305b1a52c0"
   },
   {
-    "path": "single_good_bargaining/data/main_markets.jsonl",
+    "path": "experiments/single_good_bargaining/data/main_markets.jsonl",
     "markets": 30,
     "description": "Seed 20260824; 15 cost-value pairs, five per surplus group, each under both starting roles.",
     "sha256": "6796a69f699af59fb80b2905807bc7038ec0fb36f0ba1b1b0f44d4d4ee20867a"
   },
   {
-    "path": "double_auction/data/main_markets.jsonl",
+    "path": "experiments/double_auction/data/main_markets.jsonl",
     "markets": 30,
     "description": "Seed 97617; 3 buyers and 3 sellers; 10 markets per margin group; midpoint pricing.",
     "sha256": "dbb146fbba1e855862b58503d3df4e78c7d9b08ce6edd02cc9c6a382f8143841"
   },
   {
-    "path": "double_auction/data/placement_markets.jsonl",
+    "path": "experiments/double_auction/data/placement_markets.jsonl",
     "markets": 15,
     "description": "Seed 97731; five markets per efficient-quantity group; midpoint pricing.",
     "sha256": "ce07e9446888b95c01066fe17abfb8239adcb9f40ae2a6740e69c3128698c65f"
   },
   {
-    "path": "double_auction/data/size_3.jsonl",
+    "path": "experiments/double_auction/data/size_3.jsonl",
     "markets": 15,
     "description": "Seed 97731; nested market-size study; uniform-price clearing, not main-study midpoint pricing.",
     "sha256": "8bf8cec13de052e7b616ff43b509291a5875edf25adbf48d79af689422f96d8e"
   },
   {
-    "path": "double_auction/data/size_6.jsonl",
+    "path": "experiments/double_auction/data/size_6.jsonl",
     "markets": 15,
     "description": "Seed 97731; nested market-size study; uniform-price clearing, not main-study midpoint pricing.",
     "sha256": "50e809280eaaff9a27e9afd34b5cf103d5ba24dd019c99abf2678bd18b11266c"
   },
   {
-    "path": "double_auction/data/size_10.jsonl",
+    "path": "experiments/double_auction/data/size_10.jsonl",
     "markets": 15,
     "description": "Seed 97731; nested market-size study; uniform-price clearing, not main-study midpoint pricing.",
     "sha256": "856adfe61d234db940464fdf63d5b8a186d97aab14b4475f340999d68c879495"

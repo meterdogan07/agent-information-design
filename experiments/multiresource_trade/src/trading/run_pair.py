@@ -54,7 +54,7 @@ def make_client(preset):
 
 def load_credentials():
     load_env(ROOT / ".env")
-    load_env(ROOT.parent / ".env")
+    load_env(ROOT.parents[1] / ".env")
 
 
 def call_client(client, prompt, kwargs, market, records):

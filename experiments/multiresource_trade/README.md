@@ -1,6 +1,6 @@
 # Multi-resource trade
 
-Install dependencies using the [root setup guide](../README.md#start-here).
+Install dependencies using the [root setup guide](../../README.md#start-here).
 
 Two agents exchange resources while negotiating over their individual gains.
 The main study compares least, coarse, and full information on 90 markets.
@@ -8,7 +8,7 @@ The main study compares least, coarse, and full information on 90 markets.
 ## Run the main study
 
 ```bash
-cd multiresource_trade
+cd experiments/multiresource_trade
 bash scripts/main/gpt51.sh execute
 ```
 
@@ -76,7 +76,7 @@ assignments on all 90 markets. The 30-market default is a smaller design.
 
 | Purpose                    | File                                                                    |
 | -------------------------- | ----------------------------------------------------------------------- |
-| Model/provider settings    | `../experiment_runtime/config/models.json` and `../experiment_runtime/config/generation.json` |
+| Model/provider settings    | `../../experiment_runtime/config/models.json` and `../../experiment_runtime/config/generation.json` |
 | Inventories and values     | `data/*.jsonl`; additional diagnostics in `data/metadata/`              |
 | Market generation          | `src/trading/markets.py`, `market_profiles.py`, `market_core.py`        |
 | Agent prompts              | `src/trading/p2p_prompts.py`, `mediator_prompts.py`                     |

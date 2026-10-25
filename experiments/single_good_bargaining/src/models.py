@@ -27,7 +27,7 @@ def load_env() -> None:
     load_env_files((
         REPOSITORY / "src/.env",
         REPOSITORY / ".env",
-        REPOSITORY.parent / ".env",
+        REPOSITORY.parents[1] / ".env",
     ))
 
 

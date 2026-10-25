@@ -3,7 +3,7 @@
 Three buyers and three sellers each submit a price. The main study runs
 30 markets under least, coarse, and full information: 90 auctions in total.
 Each auction uses six model calls, with no dialogue.
-Install dependencies using the [root setup guide](../README.md#start-here).
+Install dependencies using the [root setup guide](../../README.md#start-here).
 
 ## Run the main study
 
@@ -12,7 +12,7 @@ plan and experiment code so the run can be traced back to its settings.
 Start from a Git clone with your code changes committed, then run:
 
 ```bash
-cd double_auction
+cd experiments/double_auction
 bash scripts/main/gpt51.sh freeze \
   --run-label example --estimated-cost 5
 git add experiments/market_phases/plans/
@@ -26,7 +26,7 @@ To resume, repeat the execute command with `--resume`. Use a new run label
 when changing the configuration.
 
 The main study is named `margin` and uses a 2,048-token completion limit.
-Model settings are in [the shared configuration](../experiment_runtime/config/README.md).
+Model settings are in [the shared configuration](../../experiment_runtime/config/README.md).
 For models without a shell script, use:
 
 ```bash
