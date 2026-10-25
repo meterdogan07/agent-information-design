@@ -70,7 +70,6 @@ cd agent-information-design
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[analysis]'
-python export_markets.py --check
 ```
 
 Run `python experiments.py models` to list models; use `--workers N` to set concurrency.
@@ -156,6 +155,9 @@ and common execution helpers live together in `experiment_runtime/`.
 | Auction prompts, clearing, and analysis | [Auction implementation](double_auction/src/double_auction/) |
 | Market inputs | [Trade](multiresource_trade/data/) · [Bargaining](single_good_bargaining/data/) · [Auctions](double_auction/data/) |
 | Market counts and checksums | [MARKETS.json](MARKETS.json) |
+
+To regenerate missing market files or verify the published inputs, use
+`python scripts/export_markets.py` or `python scripts/export_markets.py --check`.
 
 Market files contain one JSON record per line, including the ground truth used
 for evaluation. Agents receive only the information allowed by their condition.

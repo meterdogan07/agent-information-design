@@ -5,7 +5,8 @@ import hashlib
 import json
 import sys
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 for directory in ('multiresource_trade', 'double_auction/src'):
     sys.path.insert(0, str(ROOT / directory))
 from src.trading.markets import generate_markets as trade_markets
