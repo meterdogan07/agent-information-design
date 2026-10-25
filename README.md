@@ -7,9 +7,8 @@ change what it demands, leaving both sides with less to show for the negotiation
 We study this tension in resource exchange, bargaining, and double auctions,
 comparing information policies on the same markets with the same models and rules.
 
-This repository contains the experiment code, prompts, market generators, and
-evaluation tools used in the paper. The published market inputs are included;
-the complete model-run logs are not.
+This repository contains the experiment code, prompts, market inputs,
+generators, and evaluation tools used in the paper.
 
 [Quick start](#quick-start) · [The games](#three-games) ·
 [Running experiments](#running-experiments) · [Code and data](#code-and-data)
@@ -74,17 +73,7 @@ python -m pip install -e '.[analysis]'
 python export_markets.py --check
 ```
 
-Preview a study without API credentials or paid calls:
-
-```bash
-python experiments.py main trade gpt51
-python experiments.py main bargaining gpt51 --messages 6
-python experiments.py main auction gpt51
-```
-
-The launcher prints the settings and underlying command. A trade preview may
-save a generated market copy. Run `python experiments.py models` to list model
-presets; use `--workers N` to change concurrency.
+Run `python experiments.py models` to list models; use `--workers N` to set concurrency.
 
 ## Running experiments
 
@@ -97,34 +86,29 @@ OPENROUTER_API_KEY=your_key
 ANTHROPIC_API_KEY=your_key
 ```
 
-Preview first, then add `--mode execute` to make paid calls. For example:
+Run a six-message bargaining study with a $10 budget:
 
 ```bash
 python experiments.py main bargaining gpt51 --messages 6 \
   --mode execute --budget 10 --results-dir results/bargaining_example
 ```
 
-Here, `$10` is an example authorization, not a cost prediction or a strict
-provider-side cap. The root bargaining command runs the three main conditions;
-the experiment-local launcher defaults to all five, including one-sided disclosure.
+This runs least, coarse, and full information. Requests already in progress
+can take spending beyond the budget.
 
 <details>
-<summary><strong>Paid runs, output paths, and resuming</strong></summary>
-
-Only `--mode execute` authorizes calls through `experiments.py`. Trade has no
-dollar cap; use provider-side spending controls. Bargaining requires a budget,
-but already-running requests can finish after its stopping threshold.
+<summary><strong>Running trade and auctions</strong></summary>
 
 ```bash
 python experiments.py main trade gpt51 --mode execute \
   --results-dir results/trade_example
 ```
 
-`--results-dir` is relative to your current directory. For trade it is an output
-root containing model/study subdirectories; for bargaining it is the run directory
-itself. Without it, each implementation uses its default output location.
+`--results-dir` sets the output location relative to your current directory.
+Trade creates model/study subdirectories within it; bargaining writes directly
+to it. Trade uses provider-side spending limits.
 
-Auctions require a frozen plan and committed source before paid execution:
+For auctions, first save the experiment configuration as a frozen plan:
 
 ```bash
 python experiments.py main auction gpt51 --mode freeze \
@@ -134,37 +118,27 @@ python experiments.py main auction gpt51 --mode execute \
   --run-label example --estimated-cost 5
 ```
 
-The auction estimate is not a spending cap. Use a new label for a new run.
-To continue an interrupted auction, repeat the execute command with `--resume`;
-do not freeze the plan again. See the [auction guide](double_auction/README.md)
-for the plan-review and commit steps.
-
-Resume trade and bargaining with their original configurations. A code or
-scientific-setting change requires a new output directory; do not overwrite a
-saved configuration to bypass a mismatch. Mixed-model runners lock their output
-directories to prevent duplicate execution.
-
-When using the older experiment-local bargaining launcher, keep `API_RUN_BUDGET`
-unset for previews: setting it authorizes execution. Provider prices and
-availability can change, so check them before a paid run.
+`--estimated-cost` records an estimate, not a spending limit. See the
+[auction guide](double_auction/README.md) for committing the plan and source.
+To resume, repeat the execute command with `--resume`, without freezing again.
+Use a new run label for a new auction study and a new output directory whenever
+changing a trade or bargaining configuration.
 
 </details>
 
 <details>
 <summary><strong>Supporting studies and mixed models</strong></summary>
 
-Each experiment has `scripts/main/` and `scripts/ablations/` launchers. For
-example, preview the trade resource-count study with:
+The experiment guides cover resource counts, dialogue length, one-sided
+disclosure, and mixed-model interactions. For example, run the trade
+resource-count study with:
 
 ```bash
 cd multiresource_trade
-bash scripts/ablations/resources.sh gpt51
+bash scripts/ablations/resources.sh gpt51 execute
 ```
 
-`run_mixed_models.py` in each experiment handles interactions between different
-models. The paper tests all six pairs of GPT-5.1, Claude Sonnet 5, Gemini 3.7
-Flash, and Grok 4.3, with both role assignments. These commands retain their
-study-specific settings; follow the corresponding guide before executing them.
+Each experiment has a `run_mixed_models.py` script for pairing different models.
 
 </details>
 

@@ -1,107 +1,90 @@
 # Double auctions
 
+Three buyers and three sellers each submit a price. The main study runs
+30 markets under least, coarse, and full information: 90 auctions in total.
+Each auction uses six model calls, with no dialogue.
 Install dependencies using the [root setup guide](../README.md#start-here).
-The optional auction package installation also requires that local runtime;
-install the repository root before installing `double_auction/` separately.
 
-Run from `double_auction/`:
+## Run the main study
+
+Auctions save their configuration in a frozen plan before running. Commit the
+plan and experiment code so the run can be traced back to its settings.
+Start from a Git clone with your code changes committed, then run:
 
 ```bash
-conda activate llm-information-design
 cd double_auction
-bash scripts/main/gpt51.sh
-```
-
-This previews 30 markets × 3 conditions = 90 auctions, with six agent calls
-each. Each agent submits once; there is no dialogue or message-limit argument.
-The main-paper panel is `margin`, not `information`. All auction runners
-in this release default to a 2,048-token completion cap.
-Each model has its own script in `scripts/main/`, with the market count,
-and seed written explicitly; generation defaults and model presets come from
-[`../experiment_runtime/config/`](../experiment_runtime/config/README.md). Existing `run.sh` commands still work.
-
-Paid auction execution requires committed source and a committed frozen plan.
-If the downloaded copy has no Git history, initialize it from the release root
-first (`git init`, `git add .`, then `git commit`). For an anonymous working
-copy, use a repository-local anonymous author name/email, never a global change.
-
-From `double_auction/`, choose a run label and a positive cost estimate:
-
-```bash
 bash scripts/main/gpt51.sh freeze \
   --run-label example --estimated-cost 5
 git add experiments/market_phases/plans/
 git commit -m "Freeze auction experiment plan"
-# Paid; use exactly the same scientific and cost-estimate arguments:
 bash scripts/main/gpt51.sh execute \
   --run-label example --estimated-cost 5
 ```
 
-The `5` is an illustrative planning estimate, **not a hard spending cap**.
-Frozen plans are immutable; select a new run label when changing parameters.
-Use `--resume` only to continue the same run. Keep the 2,048-token cap fixed
-across comparisons; an explicit CLI or environment override changes this
-setting and must be recorded.
+The cost estimate is recorded with the plan; it does not limit spending.
+To resume, repeat the execute command with `--resume`. Use a new run label
+when changing the configuration.
 
-Supporting panels:
+The main study is named `margin` and uses a 2,048-token completion limit.
+Model settings are in [the shared configuration](../experiment_runtime/config/README.md).
+For models without a shell script, use:
 
 ```bash
-bash scripts/ablations/placement.sh gpt51
-bash scripts/ablations/market-size.sh gpt51
+python auction.py study gpt6sol margin freeze \
+  --markets 30 --seed 97617 --run-label sol_example --estimated-cost 5
 ```
 
-These scripts use 15 markets and seed 97731. Add `freeze` or `execute` after
-the model name, followed by the same run-label and cost-estimate options as above.
+Commit the plan, then repeat with `execute` in place of `freeze`.
 
-The size study uses nested 3×3, 6×6, and 10×10 markets with **uniform-price
-clearing**, whereas the main margin study uses pair-specific midpoint prices.
-Do not interpret the size comparison as changing only the number of agents.
+## Information recipients and market size
 
-### One-sided disclosure wording
+These scripts select the corresponding studies:
 
-In the buyer-informed and seller-informed conditions, exact values and costs
-are sent only to the designated side; the other side receives rankings.
-Both sides are told who receives exact information. However, the informed
-side's card retains the sentence "Everyone also sees the exact endpoints"
-from the full-information template, which conflicts with that announcement.
-The code preserves this wording to reproduce the recorded experiments.
-It does not send exact values to the other side, but the ambiguous wording
-may affect agents' understanding of what others know. These recipient effects
-should be interpreted with that limitation; corrected wording requires a
-separately identified experiment, not a silent change to the original prompts.
+```bash
+bash scripts/ablations/placement.sh gpt51 freeze --run-label placement_example --estimated-cost 5
+bash scripts/ablations/market-size.sh gpt51 freeze --run-label size_example --estimated-cost 5
+```
+
+Commit the generated plans and repeat with `execute`. Both scripts use
+15 markets and seed 97731. The size study compares nested 3×3, 6×6, and 10×10
+markets using uniform-price clearing; the main study uses midpoint pricing.
+The size comparison therefore changes both market size and pricing rules.
+
+### A note on one-sided disclosure
+
+Only the designated side receives exact values and costs; the other side gets
+rankings. Both are told who is informed. The informed side's card also says
+"Everyone also sees the exact endpoints," inherited from the full-information
+template. This conflicts with the announcement and may affect how agents
+interpret the disclosure. We preserve the wording used in the experiments;
+changing it should be treated as a separate study.
 
 ## Mixed models
 
-```bash
-python run_mixed_models.py --pair sonnet5_gemini --mode preview
-```
+Each model pair runs 180 auctions: 30 markets, three conditions, and two role
+assignments. One model plays all buyers and the other all sellers, then they swap.
+Use `python run_mixed_models.py --help` to see the available pairs and options.
 
-This previews 30 markets × 3 conditions × 2 model-role assignments = 180
-auctions. One model plays all buyers and the other all sellers, then they swap.
-Use `--help` to list the six pairs.
+Select a pair with `--pair sonnet5_gemini`, for example. First use `--mode freeze`
+and commit the plan and source, then use `--mode execute --confirm-paid-run`.
+Keep `--estimated-cost-usd` and `--budget-usd` unchanged between the two commands.
 
-For paid runs, use `--mode freeze`, commit the plan and source, then use
-`--mode execute --confirm-paid-run`. Specify identical `--estimated-cost-usd`
-and `--budget-usd` when freezing and executing.
+## Code and results
 
-## Where to read the code
+Implementation files are in `src/double_auction/`.
 
-Implementation files below are in `src/double_auction/`.
+| Purpose | File |
+|---|---|
+| Model settings and named studies | `cli.py` |
+| Market construction and clearing | `market.py` |
+| Agent prompts | `prompts.py` |
+| Running one auction | `episode.py` |
+| Single-model runner | `runner.py` |
+| Mixed-model runner and budget | `mixed.py`, `mixed_budget.py` |
+| Scoring and validation | `analysis.py`, `audit.py` |
+| Readable conversations | `render.py` |
 
-
-| Purpose                          | File                          |
-| -------------------------------- | ----------------------------- |
-| Model settings and named studies | `cli.py`                      |
-| Market construction and clearing | `market.py`                   |
-| Agent prompts                    | `prompts.py`                  |
-| Running one auction              | `episode.py`                  |
-| Single-model runner              | `runner.py`                   |
-| Mixed-model runner and budget    | `mixed.py`, `mixed_budget.py` |
-| Scoring and validation           | `analysis.py`, `audit.py`     |
-| Readable conversations           | `render.py`                   |
-
-Market inputs are in `data/`.
-To audit or inspect a completed run:
+Market inputs are in `data/`. To check a completed run and export its conversations:
 
 ```bash
 python auction.py audit <results_dir>

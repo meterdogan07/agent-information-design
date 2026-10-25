@@ -1,49 +1,44 @@
 # Single-good bargaining
 
+A buyer and seller negotiate the price of one good. We vary what each knows
+about the other's value or cost and how many messages they can exchange.
 Install dependencies using the [root setup guide](../README.md#start-here).
 
-Activate the environment, then preview a four-message negotiation study:
+## Run the main study
 
 ```bash
-conda activate llm-information-design
 cd single_good_bargaining
-bash scripts/main/gpt51.sh --messages 4
-```
-
-This previews 30 market instances × 5 information conditions
-= 150 negotiations. Each model has its own script in `scripts/main/`;
-`--messages 4` sets the maximum total number of messages, counting both agents'
-turns, not four rounds. The default is six messages. No API calls are made.
-
-To start a paid run, explicitly add `execute` and a dollar budget:
-
-```bash
 bash scripts/main/gpt51.sh execute --messages 4 --budget 10
 ```
 
-Run the command without `execute` first to see the settings and estimated cost,
-without calling any models. Then choose a budget for the paid run; $10 above is
-only an example. Results, summaries, and readable conversations are saved in
-`results/`.
+This runs 30 market instances under five information conditions, including
+buyer-only and seller-only disclosure, with a $10 budget. Each condition has
+15 buyer-first and 15 seller-first negotiations. `--messages 4` allows four
+messages in total across both agents; the default is six.
 
-### Other message limits
-
-To preview the main study's two-, four-, and six-message settings together:
+Add `--condition-set main` to run only least, coarse, and full information
+(90 negotiations). Each model has a script in `scripts/main/`. You can also
+select a model through `run.sh`, for example:
 
 ```bash
-bash scripts/ablations/horizons.sh gpt51
+bash run.sh gpt6sol execute --condition-set main --messages 6 --budget 12
 ```
 
-This runs the 2-, 4-, and 6-message settings separately.
-The runner uses seed 20260824, a 4,096-token limit, and low reasoning effort.
+Results, summaries, and readable conversations are saved in `results/`;
+three-condition studies use `results/conditions_main/`. Repeat the same command
+to resume an interrupted run. Use a new directory when changing the settings or
+code. Requests already in progress can take spending beyond the budget.
 
-Add `execute --budget 10` to run the sweep. The budget applies separately to each
-message limit, not to the combined study. The shorter entry point also works:
-`bash run.sh gpt51 --messages 4`.
+## Message limits
 
-### Optional: inspect a prompt
+```bash
+bash scripts/ablations/horizons.sh gpt51 execute --budget 10
+```
 
-This displays the buyer's prompt under coarse information without running a model:
+This runs the two-, four-, and six-message studies, with a separate $10 budget
+for each. The runner uses seed 20260824, low reasoning, and a 4,096-token limit.
+
+To read the buyer's prompt under coarse information:
 
 ```bash
 python -m src.experiment prompt --condition coarse --actor buyer --messages 4
@@ -52,29 +47,30 @@ python -m src.experiment prompt --condition coarse --actor buyer --messages 4
 ## Mixed models
 
 ```bash
-python run_mixed_models.py --pair sonnet5_gemini --results-dir results/mixed/example
+python run_mixed_models.py --pair sonnet5_gemini \
+  --execute --budget-usd 10 --results-dir results/mixed/example
 ```
 
-This previews 30 markets × 3 conditions × 2 model-role assignments = 180 negotiations at six messages, retaining both starting roles. Add `--execute --budget-usd <authorized_amount>` for paid execution or --mock --limit 2` for an offline smoke test.
+This runs 180 six-message negotiations: 30 markets, three information conditions,
+and both model-role assignments. Both starting roles are included. Use `--help`
+to see the available pairs.
 
-## Where to read the code
+## Code and results
 
+| Purpose | File |
+|---|---|
+| Market data | `data/main_markets.jsonl` |
+| Market generation and conditions | `src/design.py` |
+| Prompts, legal actions, and negotiation | `src/game.py` |
+| Model and generation settings | `../experiment_runtime/config/` |
+| Model adapter | `src/models.py` |
+| Single-model runner | `src/run.py` |
+| Mixed-model runner | `src/run_pair.py` |
+| Validation and summaries | `src/verify.py` |
+| Figures | `src/figures.py` |
 
-| Purpose                                 | File                             |
-| --------------------------------------- | -------------------------------- |
-| Market data                             | `data/main_markets.jsonl`        |
-| Market generation and conditions        | `src/design.py`                  |
-| Prompts, legal actions, and negotiation | `src/game.py`                    |
-| Model and generation settings           | `../experiment_runtime/config/models.json`, `../experiment_runtime/config/generation.json` |
-| Study-specific model adapter             | `src/models.py` |
-| Single-model runner                     | `src/run.py`                     |
-| Mixed-model runner and settings         | `src/run_pair.py`                |
-| Validation and summaries                | `src/verify.py`                  |
-| Figure generation                       | `src/figures.py`                 |
-
-The `src/` directory contains the implementation of the game. Runners audit and summarize new runs automatically and export readable conversations. Generated outputs are local and excluded from Git.
-
-After completing the same-model study, generate figures from the saved results:
+Each run produces validation checks, summaries, and readable conversations.
+To generate figures from the default same-model results:
 
 ```bash
 python -m src.figures
