@@ -155,7 +155,7 @@ and common execution helpers live together in `experiment_runtime/`.
 | Bargaining prompts, rules, and analysis | [Bargaining implementation](single_good_bargaining/src/) |
 | Auction prompts, clearing, and analysis | [Auction implementation](double_auction/src/double_auction/) |
 | Market inputs | [Trade](multiresource_trade/data/) · [Bargaining](single_good_bargaining/data/) · [Auctions](double_auction/data/) |
-| Market counts and checksums | [MARKETS.json](MARKETS.json) |
+| Market counts and checksums | [Market manifest](data/MARKETS.json) |
 
 To regenerate missing market files or verify the published inputs, use
 `python scripts/export_markets.py` or `python scripts/export_markets.py --check`.

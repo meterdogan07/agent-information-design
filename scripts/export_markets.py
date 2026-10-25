@@ -74,10 +74,11 @@ def main():
         manifest.append({'path': relative, 'markets': len(generated), 'description': description,
                          'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
         print(f'{len(generated):3} markets verified: {relative}')
-    target = ROOT / 'MARKETS.json'
+    target = ROOT / 'data' / 'MARKETS.json'
     if args.check:
         assert json.loads(target.read_text()) == manifest, 'Market manifest mismatch'
     else:
+        target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(manifest, indent=2) + '\n')
 
 
