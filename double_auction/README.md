@@ -50,14 +50,8 @@ Commit the generated plans and repeat with `execute`. Both scripts use
 markets using uniform-price clearing; the main study uses midpoint pricing.
 The size comparison therefore changes both market size and pricing rules.
 
-### A note on one-sided disclosure
-
-Only the designated side receives exact values and costs; the other side gets
-rankings. Both are told who is informed. The informed side's card also says
-"Everyone also sees the exact endpoints," inherited from the full-information
-template. This conflicts with the announcement and may affect how agents
-interpret the disclosure. We preserve the wording used in the experiments;
-changing it should be treated as a separate study.
+In one-sided disclosure, only the designated side receives exact values and
+costs; the other side gets rankings. Both are told who is informed.
 
 ## Mixed models
 

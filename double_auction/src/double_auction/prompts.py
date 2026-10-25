@@ -141,7 +141,12 @@ def information_text(condition, market, role):
         f"Everyone knows that {informed_side} see all exact values and costs, "
         f"while {other_side} see only their ordering. "
     )
-    return policy + (full if role == informed_role else coarse)
+    # Correct the one-sided card without changing the full-disclosure prompt.
+    informed_card = full.replace(
+        "Everyone also sees the exact endpoints:",
+        f"Only {informed_side} also see the exact endpoints:",
+    )
+    return policy + (informed_card if role == informed_role else coarse)
 
 
 def round_text(round_number, rounds, feedback_policy, previous_order, feedback):

@@ -42,11 +42,12 @@ conversations, additional resources, and mediated trade.
 ## Inside a negotiation
 
 The information policy changes what the agents know, not their objective.
-Below is a selected exchange from the paper, showing the information cards
-and conversation under full disclosure. The shared prompt is abbreviated.
+Below, the same market is played under least, coarse, and full information.
+In this example, coarse information leads to higher total gains than either
+least or full disclosure.
 
 <p align="center">
-  <img src="figures/negotiation_example.png" width="720" alt="Information cards and a resource-trade conversation. Agent B counters with a trade that benefits itself more, before both agents agree on a compromise.">
+  <img src="figures/negotiation_example.png" width="1200" alt="Side-by-side negotiations under least, coarse, and full information in the same market. Coarse information achieves the highest total gains.">
 </p>
 
 This is why we look at both the offers and the final agreement. An agent can
