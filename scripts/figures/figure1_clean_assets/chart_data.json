@@ -1,0 +1,274 @@
+{
+  "rows": [
+    {
+      "arena": "Multi-resource trade",
+      "model": "GPT-5 mini",
+      "estimate": -0.10222222222222223,
+      "ci_lower": -0.15157407407407408,
+      "ci_upper": -0.05342361111111097,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "GPT-5 mini",
+      "estimate": -0.4589759612606344,
+      "ci_lower": -0.6059246815046414,
+      "ci_upper": -0.3224504170854912,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "GPT-5 mini",
+      "estimate": -0.25492443538801157,
+      "ci_lower": -0.3758710742222418,
+      "ci_upper": -0.14281755210607944,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "GPT-5.1",
+      "estimate": -0.08759259259259258,
+      "ci_lower": -0.11722222222222221,
+      "ci_upper": -0.05712962962962962,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "GPT-5.1",
+      "estimate": -0.19969840341530007,
+      "ci_lower": -0.3477051465676664,
+      "ci_upper": -0.05480412688581205,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "GPT-5.1",
+      "estimate": -0.07913058244184072,
+      "ci_lower": -0.1577997593136183,
+      "ci_upper": -0.016422520736496284,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "GPT-6 Sol",
+      "estimate": -0.0686111111111111,
+      "ci_lower": -0.08916666666666664,
+      "ci_upper": -0.04953703703703703,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "GPT-6 Sol",
+      "estimate": 0.11448631409149689,
+      "ci_lower": 0.013717405102393025,
+      "ci_upper": 0.20803152137158545,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "GPT-6 Sol",
+      "estimate": -0.025513669553404658,
+      "ci_lower": -0.09290577436470346,
+      "ci_upper": 0.04184102296844665,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "Gemini 3.7 Flash",
+      "estimate": -0.015092592592592593,
+      "ci_lower": -0.04398148148148147,
+      "ci_upper": 0.014814814814814807,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "Gemini 3.7 Flash",
+      "estimate": 0.2774929820312126,
+      "ci_lower": 0.20735698663566465,
+      "ci_upper": 0.34919842136173684,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "Gemini 3.7 Flash",
+      "estimate": 0.019018509084734257,
+      "ci_lower": -0.04341557870436118,
+      "ci_upper": 0.08908224998985387,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "Gemini 3.1 Pro",
+      "estimate": -0.049814814814814805,
+      "ci_lower": -0.0673148148148148,
+      "ci_upper": -0.031203703703703695,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "Gemini 3.1 Pro",
+      "estimate": 0.26776606081193305,
+      "ci_lower": 0.1558456918895201,
+      "ci_upper": 0.38033738887574453,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "Gemini 3.1 Pro",
+      "estimate": -0.1835201222618441,
+      "ci_lower": -0.2882274849039009,
+      "ci_upper": -0.07781516842507061,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "Claude Sonnet 5",
+      "estimate": 0.13537037037037036,
+      "ci_lower": 0.07138888888888889,
+      "ci_upper": 0.19861111111111115,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "Claude Sonnet 5",
+      "estimate": 0.30248788237055757,
+      "ci_lower": 0.2135776127648141,
+      "ci_upper": 0.3991757693188012,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "Claude Sonnet 5",
+      "estimate": -0.016216675157072497,
+      "ci_lower": -0.05667068152058578,
+      "ci_upper": 0.026920442552484405,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "Claude Opus 5.5",
+      "estimate": -0.050833333333333335,
+      "ci_lower": -0.0786111111111111,
+      "ci_upper": -0.023240740740740732,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "Claude Opus 5.5",
+      "estimate": 0.20517371155086686,
+      "ci_lower": 0.0889271002638987,
+      "ci_upper": 0.3293635339962796,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "Claude Opus 5.5",
+      "estimate": -0.3056546102903719,
+      "ci_lower": -0.4134371089144499,
+      "ci_upper": -0.20136557116466433,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "Grok 4.3",
+      "estimate": 0.2693518518518519,
+      "ci_lower": 0.21564814814814817,
+      "ci_upper": 0.322962962962963,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "Grok 4.3",
+      "estimate": 0.19128709237004393,
+      "ci_lower": 0.04663473240875195,
+      "ci_upper": 0.32717905770484956,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "Grok 4.3",
+      "estimate": -0.07267787400237731,
+      "ci_lower": -0.1397377174857146,
+      "ci_upper": -0.010626599178934243,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "Grok 4.7",
+      "estimate": -0.06824074074074073,
+      "ci_lower": -0.0887037037037037,
+      "ci_upper": -0.04777777777777777,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "Grok 4.7",
+      "estimate": -0.5420713966301958,
+      "ci_lower": -0.6454935470074947,
+      "ci_upper": -0.42499524042711273,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "Grok 4.7",
+      "estimate": -0.3532433350314145,
+      "ci_lower": -0.4893270186434658,
+      "ci_upper": -0.2320431148519109,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Multi-resource trade",
+      "model": "GPT-6 Luna",
+      "estimate": 0.10064814814814813,
+      "ci_lower": 0.038888888888888896,
+      "ci_upper": 0.16481481481481483,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Single-good bargaining",
+      "model": "GPT-6 Luna",
+      "estimate": 0.15297061815837987,
+      "ci_lower": 0.008256730557087512,
+      "ci_upper": 0.3079050688800819,
+      "conditioning": "all",
+      "draws": 50000
+    },
+    {
+      "arena": "Double auction",
+      "model": "GPT-6 Luna",
+      "estimate": -0.12472406181015451,
+      "ci_lower": -0.21165814235556055,
+      "ci_upper": -0.05134281515720378,
+      "conditioning": "all",
+      "draws": 50000
+    }
+  ]
+}
