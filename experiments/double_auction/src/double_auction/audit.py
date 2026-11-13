@@ -13,6 +13,7 @@ from experiment_runtime import read_jsonl
 from . import analysis, episode, market
 from .prompts import build_prompt
 from .providers import summarize_trace
+from .snapshots import verify_snapshot, market_bytes
 
 
 BOOTSTRAP_DRAWS = 50_000
@@ -194,6 +195,13 @@ def audit_run(run_dir, bootstrap_draws=BOOTSTRAP_DRAWS,
         config["markets"], config["n_buyers"], config["n_sellers"],
         config["seed"], config.get("market_design", "three_family"),
     )
+    if config.get('snapshot_version') == 1:
+        try:
+            verify_snapshot(run_dir, config)
+            check((run_dir / 'markets.jsonl').read_bytes() == market_bytes(instances),
+                  'saved markets differ from regenerated markets')
+        except (OSError, ValueError, KeyError) as error:
+            check(False, f'run snapshot invalid: {error}')
     cells = {}
     for condition in config["conditions"]:
         path = run_dir / condition / "details.jsonl"

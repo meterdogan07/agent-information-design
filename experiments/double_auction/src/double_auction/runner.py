@@ -16,6 +16,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from experiment_runtime import run_directory_lock
+from .snapshots import capture_sources, digest, market_bytes, save_snapshot
 
 from .market import (
     CONDITION_SETS,
@@ -54,6 +55,9 @@ SOURCE_FILES = LOCAL_SOURCE_FILES + tuple(
     str(RUNTIME_DIR / name)
     for name in ("__init__.py", "provider.py", "artifacts.py", "models.py")
 ) + tuple(str(path) for path in CONFIG_FILES)
+SNAPSHOT_SOURCE_FILES = tuple(Path(PACKAGE_DIR).glob('*.py')) + tuple(RUNTIME_DIR.glob('*.py')) + (
+    RUNTIME_DIR / 'config' / '__init__.py',
+) + CONFIG_FILES
 
 
 def run_plan(args, model_calls):
@@ -93,9 +97,13 @@ def write_plan(path, plan):
 
 
 def git_revision():
-    return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=PROJECT_ROOT, text=True
-    ).strip()
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=PROJECT_ROOT, text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        return None
 
 
 def require_committed(path):
@@ -146,6 +154,7 @@ RUN_IDENTITY_FIELDS = (
     "planned_model_calls",
     "execution_order",
     "estimated_cost_usd", "paid_run_authorized",
+    "snapshot_version", "source_sha256", "markets_sha256",
 )
 INSTANCE_FIELDS = (
     "regime", "market_family", "market_design", "core_efficient_quantity", "surplus_level",
@@ -267,10 +276,10 @@ def main():
     ap.add_argument("--write-plan",
                     help="with --dry-run, create a frozen plan at this path")
     ap.add_argument("--plan-file",
-                    help="committed frozen plan required for a paid run")
+                    help="optional legacy committed plan; otherwise snapshot automatically")
     ap.add_argument("--confirm-paid-run", action="store_true")
     ap.add_argument("--estimated-cost-usd", type=float,
-                    help="written pre-run cost estimate; required for a paid run")
+                    help="optional planning estimate, not a spending cap; omitted means unknown")
     args = ap.parse_args()
 
     if args.n <= 0:
@@ -293,10 +302,10 @@ def main():
         raise SystemExit("--write-plan is only valid with --dry-run")
     if (args.write_plan or not args.dry_run) and not args.run_id:
         raise SystemExit("--run-id is required")
-    if args.write_plan and (args.estimated_cost_usd is None
-                            or not math.isfinite(args.estimated_cost_usd)
-                            or args.estimated_cost_usd < 0):
-        raise SystemExit("--write-plan requires a nonnegative --estimated-cost-usd")
+    if args.estimated_cost_usd is not None and (
+        not math.isfinite(args.estimated_cost_usd) or args.estimated_cost_usd < 0
+    ):
+        raise SystemExit("--estimated-cost-usd must be nonnegative and finite")
     instances = gen_instances(
         args.n, n_buyers=args.n_buyers, n_sellers=args.n_sellers,
         seed=args.seed, market_design=args.market_design,
@@ -332,20 +341,19 @@ def main():
         return
 
     frozen_path, frozen_plan = None, None
+    sources = capture_sources(SNAPSHOT_SOURCE_FILES, RUNTIME_DIR.parent) if not args.plan_file else None
+    saved_markets = market_bytes(instances)
     if args.mock:
         llm = make_mock_llm()
     else:
-        if (args.estimated_cost_usd is None
-                or not math.isfinite(args.estimated_cost_usd)
-                or args.estimated_cost_usd < 0):
-            raise SystemExit(
-                "refusing to start a paid run without --estimated-cost-usd"
-            )
         if not args.confirm_paid_run:
             raise SystemExit(
                 f"refusing to start a paid run of ~{model_calls} calls without "
                 "--confirm-paid-run (use --dry-run to inspect the plan first)")
-        frozen_path, frozen_plan = load_frozen_plan(args.plan_file, plan)
+        if args.plan_file:
+            frozen_path, frozen_plan = load_frozen_plan(args.plan_file, plan)
+        else:
+            frozen_plan = plan
         load_env()
         llm = make_llm(provider=args.provider, model=args.model,
                        reasoning_effort=args.reasoning_effort,
@@ -367,7 +375,15 @@ def main():
         "started_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
     with run_directory_lock(out_root, filename=".run.lock"):
+        if sources is not None:
+            config.update(snapshot_version=1,
+                          source_sha256={name: digest(data) for name, data in sources.items()},
+                          markets_sha256=digest(saved_markets))
         config = prepare_output_directory(out_root, config, resume=args.resume)
+        if sources is not None:
+            if capture_sources(SNAPSHOT_SOURCE_FILES, RUNTIME_DIR.parent) != sources:
+                raise ValueError('source changed during startup; no API calls made')
+            save_snapshot(out_root, config, sources, saved_markets)
 
         report, cell_report = {}, {}
         paths = {}
@@ -423,7 +439,7 @@ def main():
                 )
                 raise RuntimeError(
                     f"{len(failed_jobs)} model episode(s) failed: {failed}. "
-                    "Resume the frozen run to retry only these jobs."
+                    "Resume the run to retry only these jobs."
                 )
 
         for condition in conditions:

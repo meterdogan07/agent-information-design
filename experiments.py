@@ -27,7 +27,8 @@ def parser():
     run.add_argument("--messages", type=int, choices=(2, 4, 6), help="bargaining only; default 6")
     run.add_argument("--results-dir", type=Path, help="trade output root or bargaining run directory")
     run.add_argument("--budget", type=float, help="bargaining execution authorization, not a hard cap")
-    run.add_argument("--run-label", help="auction frozen-plan identifier")
+    run.add_argument("--max-tokens", type=int, help="auction output-token cap")
+    run.add_argument("--run-label", help="unique auction run identifier")
     run.add_argument("--estimated-cost", type=float, help="auction planning estimate, not a spending cap")
     run.add_argument("--resume", action="store_true", help="resume an existing auction run")
     return result
@@ -41,6 +42,8 @@ def build_command(args, environment=None):
     env["PATH"] = str(Path(sys.executable).parent) + os.pathsep + env.get("PATH", "")
     if args.workers < 1:
         raise ValueError("--workers must be positive")
+    if args.max_tokens is not None and args.max_tokens <= 0:
+        raise ValueError("--max-tokens must be positive")
     for flag in ("budget", "estimated_cost"):
         value = getattr(args, flag)
         if value is not None and (not math.isfinite(value) or value <= 0):
@@ -48,9 +51,9 @@ def build_command(args, environment=None):
     allowed = {
         "trade": {"results_dir"},
         "bargaining": {"messages", "results_dir", "budget"},
-        "auction": {"run_label", "estimated_cost", "resume"},
+        "auction": {"run_label", "estimated_cost", "resume", "max_tokens"},
     }[args.game]
-    for flag in ("messages", "results_dir", "budget", "run_label", "estimated_cost", "resume"):
+    for flag in ("messages", "results_dir", "budget", "run_label", "estimated_cost", "resume", "max_tokens"):
         if getattr(args, flag) not in (None, False) and flag not in allowed:
             raise ValueError(f"--{flag.replace('_', '-')} is not supported for {args.game}")
     if args.mode == "freeze" and args.game != "auction":
@@ -75,8 +78,8 @@ def build_command(args, environment=None):
             command += ["--budget", str(args.budget)]
     else:
         cwd = ROOT / "experiments" / "double_auction"
-        if args.mode != "preview" and (not args.run_label or args.estimated_cost is None):
-            raise ValueError("Auction freeze/execute requires --run-label and --estimated-cost")
+        if args.mode != "preview" and not args.run_label:
+            raise ValueError("Auction freeze/execute requires --run-label")
         if args.resume and args.mode != "execute":
             raise ValueError("--resume requires --mode execute")
         command = [sys.executable, "auction.py", "study", args.model, "margin", args.mode,
@@ -86,6 +89,8 @@ def build_command(args, environment=None):
                 command += ["--" + flag.replace("_", "-"), str(getattr(args, flag))]
         if args.resume:
             command.append("--resume")
+        if args.max_tokens is not None:
+            command += ["--max-tokens", str(args.max_tokens)]
     return command, cwd, env
 
 

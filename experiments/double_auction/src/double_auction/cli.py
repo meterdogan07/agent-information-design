@@ -176,14 +176,15 @@ def runner_command(args):
         command.append("--dry-run")
         return command
 
-    if args.estimated_cost is None or args.estimated_cost <= 0:
-        raise SystemExit("freeze and execute require a positive --estimated-cost")
     plan = PLANS / f"{run_id}.json"
-    command.extend(["--estimated-cost-usd", str(args.estimated_cost)])
+    if args.estimated_cost is not None:
+        command.extend(["--estimated-cost-usd", str(args.estimated_cost)])
     if args.action == "freeze":
         command.extend(["--dry-run", "--write-plan", str(plan)])
     else:
-        command.extend(["--plan-file", str(plan), "--confirm-paid-run"])
+        command.append("--confirm-paid-run")
+        if plan.exists():
+            command.extend(["--plan-file", str(plan)])
         if args.resume:
             command.append("--resume")
     return command

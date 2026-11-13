@@ -35,10 +35,10 @@ provider quotes. Gemini's older single-model bargaining rates remain under
 `pricing_by_study`; mixed-model runs retain their existing rates. Verify prices
 before authorizing new paid experiments.
 
-Shared code and these JSON files are included in the source fingerprints used
-by frozen mixed-model studies and bargaining snapshots. Auction paid-run checks
-also require them to be committed. Changing them may require a new frozen plan;
-do not overwrite an existing run's configuration to bypass a mismatch.
+Shared code and these JSON files are included in source fingerprints and run
+snapshots. New single-model auction runs save them automatically; legacy frozen
+plans and mixed-model studies retain their commit checks. Do not overwrite an
+existing run's configuration to bypass a resume mismatch.
 
 Existing saved results and their prompt identifiers are not rewritten. New
 trade run tags use the model tag plus `_engineids`; the prompt has no revision

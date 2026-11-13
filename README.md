@@ -108,19 +108,16 @@ python experiments.py main trade gpt51 --mode execute \
 Trade creates model/study subdirectories within it; bargaining writes directly
 to it. Trade uses provider-side spending limits.
 
-For auctions, first save the experiment configuration as a frozen plan:
+For auctions, execute directly; configuration, markets, and source are saved automatically:
 
 ```bash
-python experiments.py main auction gpt51 --mode freeze \
-  --run-label example --estimated-cost 5
-# Review and commit the source and generated plan before execution.
 python experiments.py main auction gpt51 --mode execute \
-  --run-label example --estimated-cost 5
+  --run-label example
 ```
 
-`--estimated-cost` records an estimate, not a spending limit. See the
-[auction guide](experiments/double_auction/README.md) for committing the plan and source.
-To resume, repeat the execute command with `--resume`, without freezing again.
+Optional `--estimated-cost` records an estimate, not a spending limit. See the
+[auction guide](experiments/double_auction/README.md) for snapshots and legacy plans.
+To resume, repeat the execute command with `--resume` using unchanged source and settings.
 Use a new run label for a new auction study and a new output directory whenever
 changing a trade or bargaining configuration.
 

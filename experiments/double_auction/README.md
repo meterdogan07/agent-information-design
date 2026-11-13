@@ -7,45 +7,45 @@ Install dependencies using the [root setup guide](../../README.md#start-here).
 
 ## Run the main study
 
-Auctions save their configuration in a frozen plan before running. Commit the
-plan and experiment code so the run can be traced back to its settings.
-Start from a Git clone with your code changes committed, then run:
+Auctions automatically save their configuration, generated markets, and a source
+snapshot before model calls. No manual freeze or Git commit is needed for new
+single-model runs:
 
 ```bash
 cd experiments/double_auction
-bash scripts/main/gpt51.sh freeze \
-  --run-label example --estimated-cost 5
-git add experiments/market_phases/plans/
-git commit -m "Freeze auction experiment plan"
 bash scripts/main/gpt51.sh execute \
-  --run-label example --estimated-cost 5
+  --run-label example
 ```
 
-The cost estimate is recorded with the plan; it does not limit spending.
-To resume, repeat the execute command with `--resume`. Use a new run label
-when changing the configuration.
+`--estimated-cost` is optional and does not limit spending. Omitted estimates
+are recorded as unknown (`null`). Execution explicitly authorizes paid calls.
+To resume, repeat the execute command with `--resume`; settings, source hashes,
+and markets must match. Completed runs cannot be overwritten. Use a new run
+label when changing the configuration or code.
 
 The main study is named `margin` and uses a 2,048-token completion limit.
 Model settings are in [the shared configuration](../../experiment_runtime/config/README.md).
 For models without a shell script, use:
 
 ```bash
-python auction.py study gpt6sol margin freeze \
-  --markets 30 --seed 97617 --run-label sol_example --estimated-cost 5
+python auction.py study gpt6sol margin execute \
+  --markets 30 --seed 97617 --run-label sol_example
 ```
 
-Commit the plan, then repeat with `execute` in place of `freeze`.
+Existing manually frozen plans remain supported. When a matching plan exists,
+the launcher uses the legacy committed-plan checks. Choose a fresh run label
+for the automatic-snapshot workflow. Credentials in `.env` are never copied.
 
 ## Information recipients and market size
 
 These scripts select the corresponding studies:
 
 ```bash
-bash scripts/ablations/placement.sh gpt51 freeze --run-label placement_example --estimated-cost 5
-bash scripts/ablations/market-size.sh gpt51 freeze --run-label size_example --estimated-cost 5
+bash scripts/ablations/placement.sh gpt51 execute --run-label placement_example
+bash scripts/ablations/market-size.sh gpt51 execute --run-label size_example
 ```
 
-Commit the generated plans and repeat with `execute`. Both scripts use
+Both scripts use
 15 markets and seed 97731. The size study compares nested 3×3, 6×6, and 10×10
 markets using uniform-price clearing; the main study uses midpoint pricing.
 The size comparison therefore changes both market size and pricing rules.
